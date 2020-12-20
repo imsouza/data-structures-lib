@@ -1,1 +1,1 @@
-# data-structures-lib
+# Data Structures Lib
