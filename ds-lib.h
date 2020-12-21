@@ -1,23 +1,15 @@
-enum errorCode {
-    ERROR1, 
-    ERROR2,
-    ERROR3
-};
+typedef struct stack {
+  int max;
+  int top;
+  char *item;
+} *Stack;
 
-enum errorCode err;
 
 static const char* const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
     "[!] Empty stack!\n"
 };
-
-
-typedef struct stack {
-  int max;
-  int top;
-  char *item;
-} *Stack;
 
 
 Stack stack (int max) {
@@ -49,7 +41,7 @@ int itsFull (Stack this) {
 
 void push (char element, Stack this) {
   if (itsFull(this)) {
-    printf("%s", messages[err]);
+    printf("%s", messages[0]);
     abort();
   } else {
     this->top++;
@@ -60,7 +52,7 @@ void push (char element, Stack this) {
 
 char pop (Stack this) {
   if (isEmpty(this)) {
-    printf("%s", messages[err+1]);
+    printf("%s", messages[1]);
     abort();
   } else {
     char element = this->item[this->top];
@@ -72,7 +64,7 @@ char pop (Stack this) {
 
 char access (Stack this) {
   if (isEmpty(this)) {
-    printf("%s", messages[err+2]);
+    printf("%s", messages[2]);
     abort();
   } else {
     return this->item[this->top];
