@@ -1,3 +1,5 @@
+#define next(element) (element = (element + 1) % this->max)
+
 typedef struct stack {
   int max;
   int top;
@@ -5,10 +7,21 @@ typedef struct stack {
 } *Stack;
 
 
+typedef struct queue {
+  int max;
+  int count;
+  int first;
+  int last;
+  char *item;
+} *Queue;
+
+
 static const char * const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
-    "[!] Empty stack!\n"
+    "[!] Empty stack!\n",
+    "[!] The queue is full!\n",
+    "[!] The queue is empty!\n"
 };
 
 
@@ -94,19 +107,82 @@ void displayStack (Stack this) {
 }
 
 
-void displayReverseStack (Stack this) {
-  if (emptyStack(this)) {
-    printf("%s", messages[2]);
+void deleteStack (Stack *this) {
+  free((*this)->item);
+  free(*this);
+  *this = NULL;
+}
+
+
+Queue queue (int max) {
+  Queue this  = malloc(sizeof(struct queue));
+  this->max   = max;
+  this->count = 0;
+  this->first = 0;
+  this->last  = 0;
+  this->item  = malloc(sizeof(max * sizeof(char)));
+  return this;
+}
+
+
+int emptyQueue (Queue this) {
+  return (this->count == 0);
+}
+
+
+int fullQueue (Queue this) {
+  return (this->count == this->max);
+}
+
+
+void enqueue (char element, Queue this) {
+  if (fullQueue(this)) {
+    printf("%s", messages[3]);
     abort();
   } else {
-    for (int i = this->top; i >= 0; i--) {
+    this->item[this->last] = element;
+    next(this->last);
+    this->count++;
+  }
+}
+
+
+char dequeue (Queue this) {
+  if (emptyQueue(this)) {
+    printf("%s", messages[4]);
+    abort();
+  } else {
+    char element = this->item[this->first];
+    next(this->first);
+    this->count--;
+    return element;
+  }
+}
+
+
+int queueSize (Queue this) {
+  if (emptyQueue(this)) {
+    printf("%s", messages[4]);
+    abort();
+  } else {
+    return this->count;
+  }
+}
+
+
+void displayQueue (Queue this) {
+  if (emptyQueue(this)) {
+    printf("%s", messages[4]);
+    abort();
+  } else {
+    for (int i = this->first; i < this->max; i++) {
       printf("%i\n", this->item[i]);
     }
   }
 }
 
 
-void deleteStack (Stack *this) {
+void deleteQueue (Queue *this) {
   free((*this)->item);
   free(*this);
   *this = NULL;
