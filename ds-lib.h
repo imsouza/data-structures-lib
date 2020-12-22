@@ -5,7 +5,7 @@ typedef struct stack {
 } *Stack;
 
 
-static const char* const messages[] = {
+static const char * const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
     "[!] Empty stack!\n"
@@ -14,14 +14,14 @@ static const char* const messages[] = {
 
 Stack stack (int max) {
   Stack this = malloc(sizeof(struct stack));
-  this->max = max;
-  this->top = -1;
+  this->max  = max;
+  this->top  = -1;
   this->item = malloc(max * sizeof(char));
   return this;
 }
 
 
-int isEmpty (Stack this) {
+int emptyStack (Stack this) {
   if (this->top == -1) {
     return 1;
   } else {
@@ -30,7 +30,7 @@ int isEmpty (Stack this) {
 }
 
 
-int itsFull (Stack this) {
+int fullStack (Stack this) {
   if (this->top == this->max - 1) {
     return 1;
   } else {
@@ -39,8 +39,8 @@ int itsFull (Stack this) {
 }
 
 
-void push (char element, Stack this) {
-  if (itsFull(this)) {
+void stackPush (char element, Stack this) {
+  if (fullStack(this)) {
     printf("%s", messages[0]);
     abort();
   } else {
@@ -50,8 +50,8 @@ void push (char element, Stack this) {
 }
 
 
-char pop (Stack this) {
-  if (isEmpty(this)) {
+char stackPop (Stack this) {
+  if (emptyStack(this)) {
     printf("%s", messages[1]);
     abort();
   } else {
@@ -62,8 +62,8 @@ char pop (Stack this) {
 }
 
 
-char access (Stack this) {
-  if (isEmpty(this)) {
+char stackTop (Stack this) {
+  if (emptyStack(this)) {
     printf("%s", messages[2]);
     abort();
   } else {
@@ -72,7 +72,41 @@ char access (Stack this) {
 }
 
 
-void destroy (Stack *this) {
+int stackSize (Stack this) {
+  if (emptyStack(this)) {
+    printf("%s", messages[2]);
+    abort();
+  } else {
+    return this->top + 1;
+  }
+}
+
+
+void displayStack (Stack this) {
+  if (emptyStack(this)) {
+    printf("%s", messages[2]);
+    abort();
+  } else {
+    for (int i = 0; i <= this->top; i++) {
+      printf("%i\n", this->item[i]);
+    }
+  }
+}
+
+
+void displayReverseStack (Stack this) {
+  if (emptyStack(this)) {
+    printf("%s", messages[2]);
+    abort();
+  } else {
+    for (int i = this->top; i >= 0; i--) {
+      printf("%i\n", this->item[i]);
+    }
+  }
+}
+
+
+void deleteStack (Stack *this) {
   free((*this)->item);
   free(*this);
   *this = NULL;

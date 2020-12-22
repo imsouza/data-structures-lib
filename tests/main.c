@@ -4,9 +4,9 @@
 
 int main () {
 	Stack S = stack(2);
-	push(1, S);
-	push(2, S);
-	push(3, S);
-	printf("%i\n", access(S));
+	stackPush(1, S);
+	printf("%i\n", stackSize(S));
+	displayStack(S);
+	displayReverseStack(S);
 	return 0;
 }
