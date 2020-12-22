@@ -21,7 +21,7 @@ A library of data structures for academic purposes
   - [ ] Linked list
   - [ ] Map
   - [ ] Polynomial
-  - [ ] Queue
+  - [x] Queue
   - [ ] Set
   - [ ] Sorted linked list
   - [x] Stack
