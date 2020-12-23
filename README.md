@@ -6,8 +6,7 @@ A library of data structures for academic purposes
 
 - Data Structures
   - [ ] Avl tree
-  - [ ] Binary search tree
-  - [ ] Binary tree
+  - [x] Binary search tree
   - [ ] Circular linked list
   - [ ] Doubly linked list
   - [ ] Dictionary

@@ -16,12 +16,21 @@ typedef struct queue {
 } *Queue;
 
 
+typedef struct tree {
+  char node;
+  struct tree *left;
+  struct tree *right;
+} BSTree;
+
+
 static const char * const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
     "[!] Empty stack!\n",
     "[!] The queue is full!\n",
-    "[!] The queue is empty!\n"
+    "[!] The queue is empty!\n",
+    "[!] The tree is empty!\n",
+    "[!] Node not found in the tree\n"
 };
 
 
@@ -187,3 +196,103 @@ void deleteQueue (Queue *this) {
   free(*this);
   *this = NULL;
 }
+
+
+BSTree *generateEmptyTree () {
+  return NULL;
+}
+
+
+void insert (BSTree **node, int key) {
+  BSTree *temp = NULL;
+  if (!(*node)) {
+    temp = (BSTree *) malloc(sizeof(BSTree));
+    temp->left = temp->right = NULL;
+    temp->node = key;
+    *node = temp;
+  } if (key < (*node)->node) {
+    insert(&(*node)->left, key);
+  } else if (key > (*node)->node) {
+    insert(&(*node)->right, key);
+  }
+}
+
+
+int emptyTree (BSTree *node) {
+  return (node == NULL);
+}
+
+
+void displayPreOrder (BSTree *node) {
+  if (node) {
+    printf("%i\n",node->node);
+    displayPreOrder(node->left);
+    displayPreOrder(node->right);
+  }
+}
+
+
+void displayInOrder (BSTree *node) {
+  if (node) {
+    displayInOrder(node->left);
+    printf("%i\n",node->node);
+    displayInOrder(node->right);
+  }
+}
+
+
+void displayPostOrder (BSTree *node) {
+  if (node) {
+    displayPostOrder(node->left);
+    displayPostOrder(node->right);
+    printf("%i\n",node->node);
+  }
+}
+
+
+char getRoot (BSTree *this) {
+  return this->node;
+}
+
+
+int getNode (BSTree *this) {
+  if (this) {
+    return this->node;
+  } else {
+    printf("%s", messages[6]);
+    abort();
+  }
+}
+
+
+BSTree *search (BSTree **node, int key) {
+  if (!(*node)) { return NULL; }
+  if(key < (*node)->node) { search(&((*node)->left), key); }
+  else if(key > (*node)->node) { search(&((*node)->right), key); }
+  else if(key == (*node)->node) { return *node; }
+}
+
+
+BSTree *findMin (BSTree *node) {
+  if (node == NULL) { return NULL; }
+  else if (node->left == NULL) { return node; }
+  else { return findMin(node->left); }
+}
+
+
+BSTree *findMax (BSTree *node) {
+  if (node == NULL) { return NULL; }
+  else if (node->right == NULL) { return node; }
+  else { return findMax(node->right); }
+}
+
+
+void deleteTree (BSTree *node) {
+  if (node) {
+    deleteTree(node->left);
+    deleteTree(node->right);
+    free(node);
+    node = NULL;
+  } 
+}
+

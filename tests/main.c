@@ -46,5 +46,52 @@ int main () {
   displayQueue(Q);
   deleteQueue(&Q);
 
+  printf("\n===============================================\n\n");
+
+  printf("BSTree ------------------\n");
+  BSTree *root = NULL;
+  BSTree *searched;
+  BSTree *max;
+  BSTree *min;
+
+  printf(">>> INSERT:\n");
+  insert(&root, 9);
+  insert(&root, 2);
+  insert(&root, 3);
+  insert(&root, 15);
+  insert(&root, 4);
+  insert(&root, 1);
+  insert(&root, 3);
+  insert(&root, 7);
+  insert(&root, 8);
+
+  printf(">>> DISPLAYS:\n");
+  displayPreOrder(root);
+  printf("------------------\n");
+  displayInOrder(root);
+  printf("------------------\n");
+  displayPostOrder(root);
+  printf("------------------\n");
+
+  printf(">>> SEARCH:\n");
+  searched = search(&root, 1);
+  printf("%i\n", getNode(searched));
+
+  printf(">>> ROOT:\n");
+  printf("%i\n", getRoot(root));
+
+  printf(">>> FIND MAX\n");
+  max = findMax(root);
+  printf("%i\n", getNode(max));
+
+  printf(">>> FIND MIN\n");
+  min = findMin(root);
+  printf("%i\n", getNode(min));
+
+  printf(">>> EMPTY:\n");
+  printf("%i\n", emptyTree(root));
+
+  deleteTree(root);
+
   return 0;
 }
