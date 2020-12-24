@@ -1,4 +1,4 @@
-#define next(element) (element = (element + 1) % this->max)
+#define next(element) (element = (element + 1) % index->max)
 
 typedef struct stack {
   int max;
@@ -23,6 +23,12 @@ typedef struct tree {
 } BSTree;
 
 
+typedef struct list {
+  int item;
+  struct list *next;
+} *List;
+
+
 static const char * const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
@@ -35,16 +41,16 @@ static const char * const messages[] = {
 
 
 Stack stack (int max) {
-  Stack this = malloc(sizeof(struct stack));
-  this->max  = max;
-  this->top  = -1;
-  this->item = malloc(max * sizeof(char));
-  return this;
+  Stack index = malloc(sizeof(struct stack));
+  index->max  = max;
+  index->top  = -1;
+  index->item = malloc(max * sizeof(char));
+  return index;
 }
 
 
-int emptyStack (Stack this) {
-  if (this->top == -1) {
+int emptyStack (Stack index) {
+  if (index->top == -1) {
     return 1;
   } else {
     return 0;
@@ -52,8 +58,8 @@ int emptyStack (Stack this) {
 }
 
 
-int fullStack (Stack this) {
-  if (this->top == this->max - 1) {
+int fullStack (Stack index) {
+  if (index->top == index->max - 1) {
     return 1;
   } else {
     return 0;
@@ -61,140 +67,140 @@ int fullStack (Stack this) {
 }
 
 
-void stackPush (char element, Stack this) {
-  if (fullStack(this)) {
+void stackPush (char element, Stack index) {
+  if (fullStack(index)) {
     printf("%s", messages[0]);
     abort();
   } else {
-    this->top++;
-    this->item[this->top] = element;
+    index->top++;
+    index->item[index->top] = element;
   }
 }
 
 
-char stackPop (Stack this) {
-  if (emptyStack(this)) {
+char stackPop (Stack index) {
+  if (emptyStack(index)) {
     printf("%s", messages[1]);
     abort();
   } else {
-    char element = this->item[this->top];
-    this->top--;
+    char element = index->item[index->top];
+    index->top--;
     return element;
   }
 }
 
 
-char stackTop (Stack this) {
-  if (emptyStack(this)) {
+char stackTop (Stack index) {
+  if (emptyStack(index)) {
     printf("%s", messages[2]);
     abort();
   } else {
-    return this->item[this->top];
+    return index->item[index->top];
   }
 }
 
 
-int stackSize (Stack this) {
-  if (emptyStack(this)) {
+int stackSize (Stack index) {
+  if (emptyStack(index)) {
     printf("%s", messages[2]);
     abort();
   } else {
-    return this->top + 1;
+    return index->top + 1;
   }
 }
 
 
-void displayStack (Stack this) {
-  if (emptyStack(this)) {
+void displayStack (Stack index) {
+  if (emptyStack(index)) {
     printf("%s", messages[2]);
     abort();
   } else {
-    for (int i = 0; i <= this->top; i++) {
-      printf("%i\n", this->item[i]);
+    for (int i = 0; i <= index->top; i++) {
+      printf("%i\n", index->item[i]);
     }
   }
 }
 
 
-void deleteStack (Stack *this) {
-  free((*this)->item);
-  free(*this);
-  *this = NULL;
+void deleteStack (Stack *index) {
+  free((*index)->item);
+  free(*index);
+  *index = NULL;
 }
 
 
 Queue queue (int max) {
-  Queue this  = malloc(sizeof(struct queue));
-  this->max   = max;
-  this->count = 0;
-  this->first = 0;
-  this->last  = 0;
-  this->item  = malloc(sizeof(max * sizeof(char)));
-  return this;
+  Queue index  = malloc(sizeof(struct queue));
+  index->max   = max;
+  index->count = 0;
+  index->first = 0;
+  index->last  = 0;
+  index->item  = malloc(sizeof(max * sizeof(char)));
+  return index;
 }
 
 
-int emptyQueue (Queue this) {
-  return (this->count == 0);
+int emptyQueue (Queue index) {
+  return (index->count == 0);
 }
 
 
-int fullQueue (Queue this) {
-  return (this->count == this->max);
+int fullQueue (Queue index) {
+  return (index->count == index->max);
 }
 
 
-void enqueue (char element, Queue this) {
-  if (fullQueue(this)) {
+void enqueue (char element, Queue index) {
+  if (fullQueue(index)) {
     printf("%s", messages[3]);
     abort();
   } else {
-    this->item[this->last] = element;
-    next(this->last);
-    this->count++;
+    index->item[index->last] = element;
+    next(index->last);
+    index->count++;
   }
 }
 
 
-char dequeue (Queue this) {
-  if (emptyQueue(this)) {
+char dequeue (Queue index) {
+  if (emptyQueue(index)) {
     printf("%s", messages[4]);
     abort();
   } else {
-    char element = this->item[this->first];
-    next(this->first);
-    this->count--;
+    char element = index->item[index->first];
+    next(index->first);
+    index->count--;
     return element;
   }
 }
 
 
-int queueSize (Queue this) {
-  if (emptyQueue(this)) {
+int queueSize (Queue index) {
+  if (emptyQueue(index)) {
     printf("%s", messages[4]);
     abort();
   } else {
-    return this->count;
+    return index->count;
   }
 }
 
 
-void displayQueue (Queue this) {
-  if (emptyQueue(this)) {
+void displayQueue (Queue index) {
+  if (emptyQueue(index)) {
     printf("%s", messages[4]);
     abort();
   } else {
-    for (int i = this->first; i < this->max; i++) {
-      printf("%i\n", this->item[i]);
+    for (int i = index->first; i < index->max; i++) {
+      printf("%i\n", index->item[i]);
     }
   }
 }
 
 
-void deleteQueue (Queue *this) {
-  free((*this)->item);
-  free(*this);
-  *this = NULL;
+void deleteQueue (Queue *index) {
+  free((*index)->item);
+  free(*index);
+  *index = NULL;
 }
 
 
@@ -250,14 +256,14 @@ void displayPostOrder (BSTree *node) {
 }
 
 
-char getRoot (BSTree *this) {
-  return this->node;
+char getRoot (BSTree *index) {
+  return index->node;
 }
 
 
-int getNode (BSTree *this) {
-  if (this) {
-    return this->node;
+int getNode (BSTree *index) {
+  if (index) {
+    return index->node;
   } else {
     printf("%s", messages[6]);
     abort();
@@ -296,3 +302,69 @@ void deleteTree (BSTree *node) {
   } 
 }
 
+
+List list (int element, List index) {
+  List node = malloc(sizeof(struct list));
+  node->item = element;
+  node->next = index;
+  return node; 
+}
+
+
+void displayList (List index) {
+  while (index != NULL) {
+    printf("%i ", index->item);
+    index = index->next;
+  }
+}
+
+
+void displayReverseList (List index) {
+  if (index == NULL) { return; }
+  else {
+    displayReverseList(index->next);
+    printf("%i ", index->item);
+  }
+}
+
+
+void concatList (List *A, List B) {
+  if (B == NULL) { return; }
+  while (*A != NULL) {
+    A = &(*A)->next;
+    *A = B;
+  }
+}
+
+
+/*List cloneList (List index) {
+  if (index == NULL) { return NULL; }
+  return list(index->item, cloneList(index->next));
+}*/
+
+//listEmpty
+//listHead
+
+int listSize (List index) {
+  if (index == NULL) { return 0; }
+  else {
+    return 1 + listSize(index->next);
+  }
+} 
+
+
+int findItem (int item, List index) {
+  if (index == NULL) { return 0; }
+  if (item == index->item) { return 1; }
+  return findItem(item, index->next);
+}
+
+
+void deleteList (List *index) {
+  while (*index != NULL) {
+    List temp = *index;
+    *index = temp->next;
+    free(temp);
+    temp = NULL;
+  }
+}
