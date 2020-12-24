@@ -92,8 +92,10 @@ int main () {
   printf("------------------\n");
 
   printf(">>> SEARCH:\n");
-  searched = search(&root, 1);
-  printf("%i\n", getNode(searched));
+  printf("%i\n", search(&root, 545));
+
+  printf(">>> SEARCH:\n");
+  printf("%i\n", search(&root, 15));
 
   printf(">>> ROOT:\n");
   printf("%i\n", getRoot(root));
@@ -168,11 +170,6 @@ int main () {
 
   printf(">>> FIND\n");
   printf("%i\n", findItem(5, C));
-
-  List D;
-
-  printf(">>> HEAD\n");
-  printf("%i\n", getHead(D));
 
   deleteList(&A);
 

@@ -272,11 +272,20 @@ int getNode (BSTree *index) {
 }
 
 
-BSTree *search (BSTree **node, int key) {
-  if (!(*node)) { return NULL; }
+int findNode (BSTree *index) {
+  if (index != NULL) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+
+int search (BSTree **node, int key) {
+  if (!(*node)) { return 0; }
   if(key < (*node)->node) { search(&((*node)->left), key); }
   else if(key > (*node)->node) { search(&((*node)->right), key); }
-  else if(key == (*node)->node) { return *node; }
+  else if(key == (*node)->node) { return findNode(*node); }
 }
 
 
