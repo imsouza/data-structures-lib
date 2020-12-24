@@ -36,7 +36,8 @@ static const char * const messages[] = {
     "[!] The queue is full!\n",
     "[!] The queue is empty!\n",
     "[!] The tree is empty!\n",
-    "[!] Node not found in the tree\n"
+    "[!] Node not found in the tree\n",
+    "[!] The list is empty\n",
 };
 
 
@@ -49,7 +50,7 @@ Stack stack (int max) {
 }
 
 
-int emptyStack (Stack index) {
+int stackIsEmpty (Stack index) {
   if (index->top == -1) {
     return 1;
   } else {
@@ -79,7 +80,7 @@ void stackPush (char element, Stack index) {
 
 
 char stackPop (Stack index) {
-  if (emptyStack(index)) {
+  if (stackIsEmpty(index)) {
     printf("%s", messages[1]);
     abort();
   } else {
@@ -91,7 +92,7 @@ char stackPop (Stack index) {
 
 
 char stackTop (Stack index) {
-  if (emptyStack(index)) {
+  if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
   } else {
@@ -101,7 +102,7 @@ char stackTop (Stack index) {
 
 
 int stackSize (Stack index) {
-  if (emptyStack(index)) {
+  if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
   } else {
@@ -111,7 +112,7 @@ int stackSize (Stack index) {
 
 
 void displayStack (Stack index) {
-  if (emptyStack(index)) {
+  if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
   } else {
@@ -140,7 +141,7 @@ Queue queue (int max) {
 }
 
 
-int emptyQueue (Queue index) {
+int queueIsEmpty (Queue index) {
   return (index->count == 0);
 }
 
@@ -163,7 +164,7 @@ void enqueue (char element, Queue index) {
 
 
 char dequeue (Queue index) {
-  if (emptyQueue(index)) {
+  if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
   } else {
@@ -176,7 +177,7 @@ char dequeue (Queue index) {
 
 
 int queueSize (Queue index) {
-  if (emptyQueue(index)) {
+  if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
   } else {
@@ -186,7 +187,7 @@ int queueSize (Queue index) {
 
 
 void displayQueue (Queue index) {
-  if (emptyQueue(index)) {
+  if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
   } else {
@@ -204,7 +205,7 @@ void deleteQueue (Queue *index) {
 }
 
 
-BSTree *generateEmptyTree () {
+BSTree *generatetreeIsEmpty () {
   return NULL;
 }
 
@@ -224,7 +225,7 @@ void insert (BSTree **node, int key) {
 }
 
 
-int emptyTree (BSTree *node) {
+int treeIsEmpty (BSTree *node) {
   return (node == NULL);
 }
 
@@ -321,36 +322,54 @@ void displayList (List index) {
 
 void displayReverseList (List index) {
   if (index == NULL) { return; }
-  else {
-    displayReverseList(index->next);
-    printf("%i ", index->item);
-  }
+  displayReverseList(index->next);
+  printf("%i ", index->item);
 }
 
 
-void concatList (List *A, List B) {
-  if (B == NULL) { return; }
-  while (*A != NULL) {
-    A = &(*A)->next;
-    *A = B;
+List *concatList (List *A, List *B) {
+  List *temp;
+
+  if (A == NULL) { return B; }
+  if (B == NULL) { return A; }
+
+  temp = A;
+
+  while ((*temp)->next != NULL) {
+    temp = &(*temp)->next;
   }
+
+  (*temp)->next = *B;
+
+  return A;
 }
 
 
-/*List cloneList (List index) {
+List cloneList (List index) {
   if (index == NULL) { return NULL; }
   return list(index->item, cloneList(index->next));
-}*/
+}
 
-//listEmpty
-//listHead
 
 int listSize (List index) {
   if (index == NULL) { return 0; }
-  else {
-    return 1 + listSize(index->next);
-  }
+  return 1 + listSize(index->next);
 } 
+
+
+int listIsEmpty (List index) {
+  if (listSize(index) > 0) { return 0; }
+  else { return 1; }
+}
+
+
+int getHead (List index) {
+  if (listIsEmpty(index) == 1 || index == NULL) {
+    abort();
+  }
+
+  return index->item;
+}
 
 
 int findItem (int item, List index) {

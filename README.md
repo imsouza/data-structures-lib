@@ -17,7 +17,7 @@ A library of data structures for academic purposes
   - [ ] Hash table separate chaining
   - [ ] Heap
   - [ ] Huffman coding
-  - [ ] Linked list
+  - [x] Linked list
   - [ ] Map
   - [ ] Polynomial
   - [x] Queue
