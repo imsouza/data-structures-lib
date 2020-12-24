@@ -19,7 +19,6 @@ A library of data structures for academic purposes
   - [ ] Huffman coding
   - [x] Linked list
   - [ ] Map
-  - [ ] Polynomial
   - [x] Queue
   - [ ] Set
   - [ ] Sorted linked list
