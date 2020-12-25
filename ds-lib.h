@@ -1,6 +1,6 @@
 #include <string.h>
 
-#define next(element) (element = (element + 1) % index->max)
+#define NEXT(element) (element = (element + 1) % index->max)
 #define SIZE 25
 
 typedef struct stack {
@@ -167,7 +167,7 @@ void enqueue (char element, Queue index) {
     abort();
   } else {
     index->item[index->last] = element;
-    next(index->last);
+    NEXT(index->last);
     index->count++;
   }
 }
@@ -179,7 +179,7 @@ char dequeue (Queue index) {
     abort();
   } else {
     char element = index->item[index->first];
-    next(index->first);
+    NEXT(index->first);
     index->count--;
     return element;
   }
