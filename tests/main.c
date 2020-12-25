@@ -73,15 +73,15 @@ int main () {
   BSTree *min;
 
   printf(">>> INSERT:\n");
-  insert(&root, 9);
-  insert(&root, 2);
-  insert(&root, 3);
-  insert(&root, 15);
-  insert(&root, 4);
-  insert(&root, 1);
-  insert(&root, 3);
-  insert(&root, 7);
-  insert(&root, 8);
+  insertNode(9, &root);
+  insertNode(2, &root);
+  insertNode(3, &root);
+  insertNode(15, &root);
+  insertNode(4, &root);
+  insertNode(1, &root);
+  insertNode(3, &root);
+  insertNode(7, &root);
+  insertNode(8, &root);
 
   printf(">>> DISPLAYS:\n");
   displayPreOrder(root);
@@ -92,10 +92,10 @@ int main () {
   printf("------------------\n");
 
   printf(">>> SEARCH:\n");
-  printf("%i\n", search(&root, 545));
+  printf("%i\n", search(545, &root));
 
   printf(">>> SEARCH:\n");
-  printf("%i\n", search(&root, 15));
+  printf("%i\n", search(15, &root));
 
   printf(">>> ROOT:\n");
   printf("%i\n", getRoot(root));
@@ -166,12 +166,46 @@ int main () {
   printf("%i\n", getHead(C));
 
   printf(">>> FIND\n");
-  printf("%i\n", findItem(10, C));
+  printf("%i\n", itemExists(10, C));
 
   printf(">>> FIND\n");
-  printf("%i\n", findItem(5, C));
+  printf("%i\n", itemExists(5, C));
 
   deleteList(&A);
+
+  printf("\n===============================================\n\n");
+
+  printf("Map ------------------\n");
+  Map M = nodeMap(145, "Test Drive", NULL);
+
+  printf(">>> DISPLAY\n");
+  displayMap(M);
+
+  printf(">>> INSERT\n");
+  insertMap(122, "Test 2", &M);
+  insertMap(4, "Test 3", &M);
+  insertMap(3, "Test 4", &M);
+  insertMap(99, "Test 5", &M);
+
+  printf(">>> DISPLAY\n");
+  displayMap(M);
+
+  printf(">>> REMOVE KEY\n");
+  removeMap(4, &M);
+
+  printf(">>> DISPLAY\n");
+  displayMap(M);
+
+  printf(">>> FIND KEY\n");
+  if (keyExists(3, M)) {
+    printf("Key found!\n");
+  } else {
+    printf("Key not found!\n");
+  }
+
+
+  deleteMap(&M);
+  
 
   return 0;
 }

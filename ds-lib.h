@@ -1,4 +1,7 @@
+#include <string.h>
+
 #define next(element) (element = (element + 1) % index->max)
+#define SIZE 25
 
 typedef struct stack {
   int max;
@@ -27,6 +30,13 @@ typedef struct list {
   int item;
   struct list *next;
 } *List;
+
+
+typedef struct map {
+  int key;
+  char value[SIZE];
+  struct map *next;
+} *Map;
 
 
 static const char * const messages[] = {
@@ -210,7 +220,7 @@ BSTree *generatetreeIsEmpty () {
 }
 
 
-void insert (BSTree **node, int key) {
+void insertNode (int key, BSTree **node) {
   BSTree *temp = NULL;
   if (!(*node)) {
     temp = (BSTree *) malloc(sizeof(BSTree));
@@ -218,9 +228,9 @@ void insert (BSTree **node, int key) {
     temp->node = key;
     *node = temp;
   } if (key < (*node)->node) {
-    insert(&(*node)->left, key);
+    insertNode(key, &(*node)->left);
   } else if (key > (*node)->node) {
-    insert(&(*node)->right, key);
+    insertNode(key, &(*node)->right);
   }
 }
 
@@ -272,7 +282,7 @@ int getNode (BSTree *index) {
 }
 
 
-int findNode (BSTree *index) {
+int nodeExists (BSTree *index) {
   if (index != NULL) {
     return 1;
   } else {
@@ -281,11 +291,11 @@ int findNode (BSTree *index) {
 }
 
 
-int search (BSTree **node, int key) {
+int search (int key, BSTree **node) {
   if (!(*node)) { return 0; }
-  if(key < (*node)->node) { search(&((*node)->left), key); }
-  else if(key > (*node)->node) { search(&((*node)->right), key); }
-  else if(key == (*node)->node) { return findNode(*node); }
+  if(key < (*node)->node) { search(key, &((*node)->left)); }
+  else if(key > (*node)->node) { search(key, &((*node)->right)); }
+  else if(key == (*node)->node) { return nodeExists(*node); }
 }
 
 
@@ -381,10 +391,10 @@ int getHead (List index) {
 }
 
 
-int findItem (int item, List index) {
+int itemExists (int item, List index) {
   if (index == NULL) { return 0; }
   if (item == index->item) { return 1; }
-  return findItem(item, index->next);
+  return itemExists(item, index->next);
 }
 
 
@@ -394,5 +404,72 @@ void deleteList (List *index) {
     *index = temp->next;
     free(temp);
     temp = NULL;
+  }
+}
+
+
+Map nodeMap (int key, char *value, Map index) {
+  Map node = malloc(sizeof(struct map));
+  node->key = key;
+  strcpy(node->value, value);
+  node->next = index;
+  return node;
+}
+
+
+void insertMap (int key, char *value, Map *index) {
+  while (*index != NULL && (*index)->key < *value) {
+    index = &(*index)->next;
+  } if (*index != NULL && (*index)->key == *value) {
+    strcpy((*index)->value, value);
+  } else {
+    *index = nodeMap(key, value, *index);
+  }
+}
+
+
+int removeMap (int key, Map *index) {
+  while (*index != NULL && (*index)->key < key) {
+    index = &(*index)->next;
+  } if (*index == NULL || (*index)->key > key) {
+    return 0;
+  }
+
+  Map node = *index;
+  *index = node->next;
+  free(node);
+  return 1;
+}
+
+
+int keyExists (int key, Map index) {
+  while (index != NULL && index->key < key) {
+    index = index->next;
+  }
+
+  return (index != NULL && index->key == key);
+}
+
+
+void displayMap (Map index) {
+  printf("{\n");
+  while(index != NULL) {
+    printf("[%i, %s]", index->key, index->value);
+    if (index->next != NULL) {
+      printf(",\n");
+    }
+
+    index = index->next;
+  }
+
+  printf("\n}\n");
+}
+
+
+void deleteMap (Map *index) {
+  while ((*index) != NULL) {
+    Map node = *index;
+    *index = node->next;
+    free(node);
   }
 }
