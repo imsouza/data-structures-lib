@@ -1,7 +1,9 @@
 #include <string.h>
 
 #define NEXT(element) (element = (element + 1) % index->max)
+#define FREQ 256
 #define SIZE 25
+#define HCOL 5
 
 typedef struct stack {
   int max;
@@ -24,6 +26,14 @@ typedef struct tree {
   struct tree *left;
   struct tree *right;
 } BSTree;
+
+
+typedef struct htree {
+  struct htree *left;
+  char chr;
+  int  frq;
+  struct htree *right;
+} *Hufftree;
 
 
 typedef struct list {
@@ -51,7 +61,7 @@ static const char * const messages[] = {
 };
 
 
-Stack stack (int max) {
+Stack createStack (int max) {
   Stack index = malloc(sizeof(struct stack));
   index->max  = max;
   index->top  = -1;
@@ -140,7 +150,7 @@ void deleteStack (Stack *index) {
 }
 
 
-Queue queue (int max) {
+Queue createQueue (int max) {
   Queue index  = malloc(sizeof(struct queue));
   index->max   = max;
   index->count = 0;
@@ -323,7 +333,7 @@ void deleteTree (BSTree *node) {
 }
 
 
-List list (int element, List index) {
+List createList (int element, List index) {
   List node = malloc(sizeof(struct list));
   node->item = element;
   node->next = index;
@@ -366,7 +376,7 @@ List *concatList (List *A, List *B) {
 
 List cloneList (List index) {
   if (index == NULL) { return NULL; }
-  return list(index->item, cloneList(index->next));
+  return createList(index->item, cloneList(index->next));
 }
 
 
@@ -408,7 +418,7 @@ void deleteList (List *index) {
 }
 
 
-Map nodeMap (int key, char *value, Map index) {
+Map createMap (int key, char *value, Map index) {
   Map node = malloc(sizeof(struct map));
   node->key = key;
   strcpy(node->value, value);
@@ -423,7 +433,7 @@ void insertMap (int key, char *value, Map *index) {
   } if (*index != NULL && (*index)->key == *value) {
     strcpy((*index)->value, value);
   } else {
-    *index = nodeMap(key, value, *index);
+    *index = createMap(key, value, *index);
   }
 }
 
@@ -471,5 +481,161 @@ void deleteMap (Map *index) {
     Map node = *index;
     *index = node->next;
     free(node);
+  }
+}
+
+
+Hufftree createHufftreeNode (Hufftree left, char chr,
+int frq, Hufftree right) {
+  Hufftree index = malloc(sizeof(struct htree));
+  index->left  = left;
+  index->chr   = chr;
+  index->frq   = frq;
+  index->right = right;
+  return index;
+}
+
+
+int *frequency (char *string) {
+  static int array[FREQ];
+
+  for (int i = 0; i < FREQ; i++) {
+    array[i] = 0;
+  } 
+
+  for (int i = 0; string[i]; i++) {
+    array[string[i]]++;
+  }
+
+  return array;
+}
+
+
+void insertTree (Hufftree tree, Hufftree *forest, int *qty) {
+  int i = *qty;
+
+  while(i > 0 && forest[i - 1]->frq < tree->frq) {
+    forest[i] = forest[i - 1];
+    i--;
+  }
+
+  forest[i] = tree;
+  (*qty)++;
+}
+
+
+Hufftree removeTree (Hufftree *forest, int *qty) {
+  if (*qty == 0) { abort(); }
+  return forest[--(*qty)];
+}
+
+
+Hufftree createHufftree (char *string) {
+  Hufftree forest[FREQ];
+  int qty = 0;
+  int *leaf = frequency(string);
+
+  for (int chr = 0; chr < FREQ; chr++) {
+    if (leaf[chr] > 0) {
+      insertTree(createHufftreeNode(NULL, chr, leaf[chr], NULL),
+      forest, &qty);
+    }
+  }
+
+  while (qty > 1) {
+    Hufftree right = removeTree(forest, &qty);
+    Hufftree left  = removeTree(forest, &qty);
+    insertTree(createHufftreeNode(left, '-', left->frq + right->frq, right),
+    forest, &qty);
+  }
+
+  return forest[0];
+}
+
+
+void displayHufftree (Hufftree tree) {
+  static int node = -1;
+
+  if (tree == NULL) { return; }
+
+  node++;
+
+  displayHufftree(tree->right);
+
+  for (int i = 0; i < HCOL * node; i++) {
+    putchar(' ');
+  }
+
+  printf("(%c, %i)\n", tree->chr, tree->frq);
+
+  displayHufftree(tree->left);
+
+  node--;
+}
+
+
+void displayLeaves (Hufftree tree) {
+  static char array[FREQ], last = -1;
+
+  if (tree == NULL) { return; }
+  if (tree->left == NULL && tree->right == NULL) {
+    printf("%c : %.*s\n", tree->chr, last + 1, array);
+  } else {
+    last++; 
+    array[last] = '0'; displayLeaves(tree->left);
+    array[last] = '1'; displayLeaves(tree->right);
+    last--;
+  }
+}
+
+
+void createTable (Hufftree tree, char *T[]) {
+  static char array[FREQ], last = -1;
+  if (tree == NULL) { return; }
+  if (tree->left == NULL && tree->right == NULL) {
+    T[tree->chr] = strndup(array, last+1);
+  } else {
+    last++;
+    array[last] = '0'; createTable(tree->left, T);
+    array[last] = '1'; createTable(tree->right, T);
+    last--;
+  }
+}
+
+
+void compressString (char *string, Hufftree tree) {
+  char *T[FREQ];
+
+  for (int chr = 0; chr < FREQ; chr++) {
+    T[chr] = NULL;
+  }
+
+  createTable(tree, T);
+
+  for (int i = 0; string[i]; i++) {
+    printf("%s", T[string[i]]);
+  }
+
+  for (int chr = 0; chr < FREQ; chr++) {
+    free(T[chr]);
+  }
+}
+
+
+void decompressString (char *string, Hufftree tree) {
+  if (tree == NULL) { return; }
+  Hufftree root = tree;
+
+  for (int i = 0; string[i]; i++) {
+   if (string[i] == '0') {
+    root = root->left;
+   } else {
+    root = root->right;
+   }
+
+   if (root->left == NULL && root->right == NULL) {
+    printf("%c", root->chr);
+    root = tree;
+   }
   }
 }

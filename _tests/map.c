@@ -4,7 +4,7 @@
 
 int main () {
   printf("Map ------------------\n");
-  Map M = nodeMap(145, "Test Drive", NULL);
+  Map M = createMap(145, "Test Drive", NULL);
 
   printf(">>> DISPLAY\n");
   displayMap(M);

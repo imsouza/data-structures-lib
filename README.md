@@ -11,12 +11,11 @@ A library of data structures for academic purposes
   - [ ] Doubly linked list
   - [ ] Dictionary
   - [ ] Graph
-  - [ ] Hash table
   - [ ] Hash table linear probing
   - [ ] Hash table linear probing lazy
   - [ ] Hash table separate chaining
   - [ ] Heap
-  - [ ] Huffman coding
+  - [x] Huffman coding
   - [x] Linked list
   - [x] Map
   - [x] Queue
