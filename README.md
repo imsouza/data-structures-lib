@@ -10,6 +10,10 @@ A library of data structures for academic purposes
 - Flexible
 - Open source
 
+## Documentation
+
+See the project documentation online [here](https://data-structures-lib.netlify.app/).
+
 ## Table of contents
 
 - [Usage](#usage)
