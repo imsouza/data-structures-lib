@@ -1,16 +1,32 @@
 # Data Structures Lib
 
+[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-in%20progress-orange)](https://github.com/imsouza/data-structures-lib)
+
 A library of data structures for academic purposes
 
-## TO DO
+## Features
+
+- Efficient 
+- Flexible
+- Open source
+
+## Table of contents
+
+- [Import](#import)
+- [Run](#run)
+- [Tests](#tests)
+- [Todo](#todo)
+- [License](#license)
+
+## TODO
 
 - Data Structures
   - [ ] Avl tree
   - [x] Binary search tree
   - [ ] Circular linked list
   - [ ] Doubly linked list
-  - [ ] Dictionary
   - [ ] Graph
+  - [ ] Hash table
   - [ ] Hash table linear probing
   - [ ] Hash table linear probing lazy
   - [ ] Hash table separate chaining
@@ -26,8 +42,10 @@ A library of data structures for academic purposes
   - [ ] Stack linked list
 
 - Extra
+  - [ ] Configure preprocessor directives
   - [ ] Document all the code
   - [ ] Generate doxygen documentation
+  - [ ] Successfully passed the tests
 
 ## Import
 
