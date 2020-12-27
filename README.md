@@ -30,7 +30,7 @@ int main () {
 ```
 
 #### Demonstrations:
-Obs.: all demos can be found in this [folder](https://github.com/imsouza/data-structures-lib/tree/main/_tests)
+Obs.: all demos can be found in this [folder](https://github.com/imsouza/data-structures-lib/tree/main/tests)
 
 - Binary Search Tree
 ```

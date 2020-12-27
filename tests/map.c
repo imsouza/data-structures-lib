@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../ds-lib.h"
+#include "../src/ds-lib.h"
 
 int main () {
   printf("Map ------------------\n");

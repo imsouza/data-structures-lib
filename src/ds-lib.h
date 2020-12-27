@@ -1,9 +1,35 @@
-#include <string.h>
+/**********************************************************************************
+ * MIT License                                                                    *
+ *                                                                                *
+ * Copyright (c) 2020 Mateus Almeida                                              *
+ *                                                                                *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy   *
+ * of this software and associated documentation files (the "Software"), to deal  *
+ * in the Software without restriction, including without limitation the rights   *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell      *
+ * copies of the Software, and to permit persons to whom the Software is          *
+ * furnished to do so, subject to the following conditions:                       *
+ *                                                                                *
+ * The above copyright notice and this permission notice shall be included in all *
+ * copies or substantial portions of the Software.                                *
+ *                                                                                *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  *
+ * SOFTWARE.                                                                      *
+ **********************************************************************************/
 
-#define NEXT(element) (element = (element + 1) % index->max)
-#define FREQ 256
-#define SIZE 25
-#define HCOL 5
+/**
+ * @file ds-lib.c
+ * @brief A library of data structures for academic purposes
+ * @author Mateus Almeida
+ * @version 1.0
+ */
+
+#include <string.h>
 
 #ifndef NEXT
 #define NEXT(element) (element = (element + 1) % index->max)
@@ -18,6 +44,11 @@
 #define HCOL 5
 #endif
 
+/**
+ * @brief Stack structure definition
+ *
+ *
+ */
 typedef struct stack {
   int max;
   int top;
@@ -25,6 +56,11 @@ typedef struct stack {
 } *Stack;
 
 
+/**
+ * @brief Queue structure definition
+ *
+ *
+ */
 typedef struct queue {
   int max;
   int count;
@@ -34,6 +70,11 @@ typedef struct queue {
 } *Queue;
 
 
+/**
+ * @brief Binary Search Tree structure definition
+ *
+ *
+ */
 typedef struct tree {
   char node;
   struct tree *left;
@@ -41,6 +82,11 @@ typedef struct tree {
 } BSTree;
 
 
+/**
+ * @brief Huffman Coding structure definition
+ *
+ *
+ */
 typedef struct htree {
   struct htree *left;
   char chr;
@@ -49,12 +95,22 @@ typedef struct htree {
 } *Hufftree;
 
 
+/**
+ * @brief List structure definition
+ *
+ *
+ */
 typedef struct list {
   int item;
   struct list *next;
 } *List;
 
 
+/**
+ * @brief Map structure definition
+ *
+ *
+ */
 typedef struct map {
   int key;
   char value[SIZE];
