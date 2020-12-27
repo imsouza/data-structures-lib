@@ -4,7 +4,7 @@
 
 int main () {
   printf("Queue ------------------\n");
-  Queue Q = queue(3);
+  Queue Q = createQueue(3);
 
   printf(">>> ENQUEUE:\n");
   enqueue(1, Q);
@@ -15,13 +15,13 @@ int main () {
   displayQueue(Q);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", queueSize(Q));
+  printf("%i\n", getQueueSize(Q));
 
   printf(">>> DEQUEUE:\n");
   dequeue(Q);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", queueSize(Q));
+  printf("%i\n", getQueueSize(Q));
 
   printf(">>> DISPLAY:\n");
   displayQueue(Q);
@@ -30,7 +30,7 @@ int main () {
   dequeue(Q);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", queueSize(Q));
+  printf("%i\n", getQueueSize(Q));
 
   printf(">>> DISPLAY:\n");
   displayQueue(Q);

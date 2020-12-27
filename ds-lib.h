@@ -5,6 +5,19 @@
 #define SIZE 25
 #define HCOL 5
 
+#ifndef NEXT
+#define NEXT(element) (element = (element + 1) % index->max)
+#endif
+#ifndef FREQ
+#define FREQ 256
+#endif
+#ifndef SIZE
+#define SIZE 25
+#endif
+#ifndef HCOL
+#define HCOL 5
+#endif
+
 typedef struct stack {
   int max;
   int top;
@@ -79,7 +92,7 @@ int stackIsEmpty (Stack index) {
 }
 
 
-int fullStack (Stack index) {
+int stackIsFull (Stack index) {
   if (index->top == index->max - 1) {
     return 1;
   } else {
@@ -89,7 +102,7 @@ int fullStack (Stack index) {
 
 
 void stackPush (char element, Stack index) {
-  if (fullStack(index)) {
+  if (stackIsFull(index)) {
     printf("%s", messages[0]);
     abort();
   } else {
@@ -166,13 +179,13 @@ int queueIsEmpty (Queue index) {
 }
 
 
-int fullQueue (Queue index) {
+int queueIsFull (Queue index) {
   return (index->count == index->max);
 }
 
 
 void enqueue (char element, Queue index) {
-  if (fullQueue(index)) {
+  if (queueIsFull (index)) {
     printf("%s", messages[3]);
     abort();
   } else {
@@ -196,7 +209,7 @@ char dequeue (Queue index) {
 }
 
 
-int queueSize (Queue index) {
+int getQueueSize (Queue index) {
   if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
@@ -380,14 +393,14 @@ List cloneList (List index) {
 }
 
 
-int listSize (List index) {
+int getListSize (List index) {
   if (index == NULL) { return 0; }
-  return 1 + listSize(index->next);
+  return 1 + getListSize(index->next);
 } 
 
 
 int listIsEmpty (List index) {
-  if (listSize(index) > 0) { return 0; }
+  if (getListSize(index) > 0) { return 0; }
   else { return 1; }
 }
 

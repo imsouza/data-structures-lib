@@ -4,11 +4,11 @@
 
 int main () {
   printf("Linked List ------------------\n");
-  List A = list(3, list(1, list(5, NULL)));
-  List B = list(2, list(6, list(5, list(8, NULL))));
+  List A = createList(3, createList(1, createList(5, NULL)));
+  List B = createList(2, createList(6, createList(5, createList(8, NULL))));
 
   printf(">>> SIZE\n");
-  printf("%i\n", listSize(A));
+  printf("%i\n", getListSize(A));
 
   printf(">>> DISPLAY\n");
   displayList(A);
@@ -43,7 +43,7 @@ int main () {
   putchar('\n');
 
   printf(">>> CLONE/INSERT\n");
-  List C = list(-1, cloneList(A));
+  List C = createList(-1, cloneList(A));
 
   printf(">>> DISPLAY\n");
   displayList(C);
