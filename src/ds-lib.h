@@ -172,7 +172,8 @@ static const char * const messages[] = {
 };
 
 
-Stack createStack (int max) {
+Stack 
+createStack (int max) {
   Stack index = malloc(sizeof(struct stack));
   index->max  = max;
   index->top  = -1;
@@ -181,7 +182,8 @@ Stack createStack (int max) {
 }
 
 
-int stackIsEmpty (Stack index) {
+int 
+stackIsEmpty (Stack index) {
   if (index->top == -1) {
     return 1;
   } else {
@@ -190,7 +192,8 @@ int stackIsEmpty (Stack index) {
 }
 
 
-int stackIsFull (Stack index) {
+int 
+stackIsFull (Stack index) {
   if (index->top == index->max - 1) {
     return 1;
   } else {
@@ -199,7 +202,8 @@ int stackIsFull (Stack index) {
 }
 
 
-void stackPush (char element, Stack index) {
+void 
+stackPush (char element, Stack index) {
   if (stackIsFull(index)) {
     printf("%s", messages[0]);
     abort();
@@ -210,7 +214,8 @@ void stackPush (char element, Stack index) {
 }
 
 
-char stackPop (Stack index) {
+char 
+stackPop (Stack index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[1]);
     abort();
@@ -222,7 +227,8 @@ char stackPop (Stack index) {
 }
 
 
-char stackTop (Stack index) {
+char 
+stackTop (Stack index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
@@ -232,7 +238,8 @@ char stackTop (Stack index) {
 }
 
 
-int stackSize (Stack index) {
+int 
+stackSize (Stack index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
@@ -242,7 +249,8 @@ int stackSize (Stack index) {
 }
 
 
-void displayStack (Stack index) {
+void 
+displayStack (Stack index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
@@ -254,14 +262,16 @@ void displayStack (Stack index) {
 }
 
 
-void deleteStack (Stack *index) {
+void 
+deleteStack (Stack *index) {
   free((*index)->item);
   free(*index);
   *index = NULL;
 }
 
 
-Queue createQueue (int max) {
+Queue 
+createQueue (int max) {
   Queue index  = malloc(sizeof(struct queue));
   index->max   = max;
   index->count = 0;
@@ -272,17 +282,20 @@ Queue createQueue (int max) {
 }
 
 
-int queueIsEmpty (Queue index) {
+int 
+queueIsEmpty (Queue index) {
   return (index->count == 0);
 }
 
 
-int queueIsFull (Queue index) {
+int 
+queueIsFull (Queue index) {
   return (index->count == index->max);
 }
 
 
-void enqueue (char element, Queue index) {
+void 
+enqueue (char element, Queue index) {
   if (queueIsFull (index)) {
     printf("%s", messages[3]);
     abort();
@@ -294,7 +307,8 @@ void enqueue (char element, Queue index) {
 }
 
 
-char dequeue (Queue index) {
+char 
+dequeue (Queue index) {
   if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
@@ -307,7 +321,8 @@ char dequeue (Queue index) {
 }
 
 
-int getQueueSize (Queue index) {
+int 
+getQueueSize (Queue index) {
   if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
@@ -317,7 +332,8 @@ int getQueueSize (Queue index) {
 }
 
 
-void displayQueue (Queue index) {
+void 
+displayQueue (Queue index) {
   if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
@@ -329,19 +345,22 @@ void displayQueue (Queue index) {
 }
 
 
-void deleteQueue (Queue *index) {
+void 
+deleteQueue (Queue *index) {
   free((*index)->item);
   free(*index);
   *index = NULL;
 }
 
 
-BSTree *generatetreeIsEmpty () {
+BSTree 
+*generatetreeIsEmpty () {
   return NULL;
 }
 
 
-void insertNode (int key, BSTree **node) {
+void 
+insertNode (int key, BSTree **node) {
   BSTree *temp = NULL;
   if (!(*node)) {
     temp = (BSTree *) malloc(sizeof(BSTree));
@@ -356,12 +375,14 @@ void insertNode (int key, BSTree **node) {
 }
 
 
-int treeIsEmpty (BSTree *node) {
+int 
+treeIsEmpty (BSTree *node) {
   return (node == NULL);
 }
 
 
-void displayPreOrder (BSTree *node) {
+void 
+displayPreOrder (BSTree *node) {
   if (node) {
     printf("%i\n",node->node);
     displayPreOrder(node->left);
@@ -370,7 +391,8 @@ void displayPreOrder (BSTree *node) {
 }
 
 
-void displayInOrder (BSTree *node) {
+void 
+displayInOrder (BSTree *node) {
   if (node) {
     displayInOrder(node->left);
     printf("%i\n",node->node);
@@ -379,7 +401,8 @@ void displayInOrder (BSTree *node) {
 }
 
 
-void displayPostOrder (BSTree *node) {
+void 
+displayPostOrder (BSTree *node) {
   if (node) {
     displayPostOrder(node->left);
     displayPostOrder(node->right);
@@ -388,12 +411,14 @@ void displayPostOrder (BSTree *node) {
 }
 
 
-char getRoot (BSTree *index) {
+char 
+getRoot (BSTree *index) {
   return index->node;
 }
 
 
-int getNode (BSTree *index) {
+int 
+getNode (BSTree *index) {
   if (index) {
     return index->node;
   } else {
@@ -403,7 +428,8 @@ int getNode (BSTree *index) {
 }
 
 
-int nodeExists (BSTree *index) {
+int 
+nodeExists (BSTree *index) {
   if (index != NULL) {
     return 1;
   } else {
@@ -412,7 +438,8 @@ int nodeExists (BSTree *index) {
 }
 
 
-int search (int key, BSTree **node) {
+int 
+search (int key, BSTree **node) {
   if (!(*node)) { return 0; }
   if(key < (*node)->node) { search(key, &((*node)->left)); }
   else if(key > (*node)->node) { search(key, &((*node)->right)); }
@@ -420,21 +447,24 @@ int search (int key, BSTree **node) {
 }
 
 
-BSTree *findMin (BSTree *node) {
+BSTree 
+*findMin (BSTree *node) {
   if (node == NULL) { return NULL; }
   else if (node->left == NULL) { return node; }
   else { return findMin(node->left); }
 }
 
 
-BSTree *findMax (BSTree *node) {
+BSTree 
+*findMax (BSTree *node) {
   if (node == NULL) { return NULL; }
   else if (node->right == NULL) { return node; }
   else { return findMax(node->right); }
 }
 
 
-void deleteTree (BSTree *node) {
+void 
+deleteTree (BSTree *node) {
   if (node) {
     deleteTree(node->left);
     deleteTree(node->right);
@@ -444,7 +474,8 @@ void deleteTree (BSTree *node) {
 }
 
 
-List createList (int element, List index) {
+List 
+createList (int element, List index) {
   List node = malloc(sizeof(struct list));
   node->item = element;
   node->next = index;
@@ -452,7 +483,8 @@ List createList (int element, List index) {
 }
 
 
-void displayList (List index) {
+void 
+displayList (List index) {
   while (index != NULL) {
     printf("%i ", index->item);
     index = index->next;
@@ -460,14 +492,16 @@ void displayList (List index) {
 }
 
 
-void displayReverseList (List index) {
+void 
+displayReverseList (List index) {
   if (index == NULL) { return; }
   displayReverseList(index->next);
   printf("%i ", index->item);
 }
 
 
-List *concatList (List *A, List *B) {
+List 
+*concatList (List *A, List *B) {
   List *temp;
 
   if (A == NULL) { return B; }
@@ -485,25 +519,29 @@ List *concatList (List *A, List *B) {
 }
 
 
-List cloneList (List index) {
+List 
+cloneList (List index) {
   if (index == NULL) { return NULL; }
   return createList(index->item, cloneList(index->next));
 }
 
 
-int getListSize (List index) {
+int 
+getListSize (List index) {
   if (index == NULL) { return 0; }
   return 1 + getListSize(index->next);
 } 
 
 
-int listIsEmpty (List index) {
+int 
+listIsEmpty (List index) {
   if (getListSize(index) > 0) { return 0; }
   else { return 1; }
 }
 
 
-int getHead (List index) {
+int 
+getHead (List index) {
   if (listIsEmpty(index) == 1 || index == NULL) {
     abort();
   }
@@ -512,14 +550,16 @@ int getHead (List index) {
 }
 
 
-int itemExists (int item, List index) {
+int 
+itemExists (int item, List index) {
   if (index == NULL) { return 0; }
   if (item == index->item) { return 1; }
   return itemExists(item, index->next);
 }
 
 
-void deleteList (List *index) {
+void 
+deleteList (List *index) {
   while (*index != NULL) {
     List temp = *index;
     *index = temp->next;
@@ -529,7 +569,8 @@ void deleteList (List *index) {
 }
 
 
-Map createMap (int key, char *value, Map index) {
+Map 
+createMap (int key, char *value, Map index) {
   Map node = malloc(sizeof(struct map));
   node->key = key;
   strcpy(node->value, value);
@@ -538,7 +579,8 @@ Map createMap (int key, char *value, Map index) {
 }
 
 
-void insertMap (int key, char *value, Map *index) {
+void 
+insertMap (int key, char *value, Map *index) {
   while (*index != NULL && (*index)->key < *value) {
     index = &(*index)->next;
   } if (*index != NULL && (*index)->key == *value) {
@@ -549,7 +591,8 @@ void insertMap (int key, char *value, Map *index) {
 }
 
 
-int removeMap (int key, Map *index) {
+int 
+removeMap (int key, Map *index) {
   while (*index != NULL && (*index)->key < key) {
     index = &(*index)->next;
   } if (*index == NULL || (*index)->key > key) {
@@ -563,7 +606,8 @@ int removeMap (int key, Map *index) {
 }
 
 
-int keyExists (int key, Map index) {
+int 
+keyExists (int key, Map index) {
   while (index != NULL && index->key < key) {
     index = index->next;
   }
@@ -572,7 +616,8 @@ int keyExists (int key, Map index) {
 }
 
 
-void displayMap (Map index) {
+void 
+displayMap (Map index) {
   printf("{\n");
   while(index != NULL) {
     printf("[%i, %s]", index->key, index->value);
@@ -587,7 +632,8 @@ void displayMap (Map index) {
 }
 
 
-void deleteMap (Map *index) {
+void 
+deleteMap (Map *index) {
   while ((*index) != NULL) {
     Map node = *index;
     *index = node->next;
@@ -596,8 +642,8 @@ void deleteMap (Map *index) {
 }
 
 
-Hufftree createHufftreeNode (Hufftree left, char chr,
-int frq, Hufftree right) {
+Hufftree 
+createHufftreeNode (Hufftree left, char chr, int frq, Hufftree right) {
   Hufftree index = malloc(sizeof(struct htree));
   index->left  = left;
   index->chr   = chr;
@@ -607,7 +653,8 @@ int frq, Hufftree right) {
 }
 
 
-int *frequency (char *string) {
+int 
+*frequency (char *string) {
   static int array[FREQ];
 
   for (int i = 0; i < FREQ; i++) {
@@ -622,7 +669,8 @@ int *frequency (char *string) {
 }
 
 
-void insertTree (Hufftree tree, Hufftree *forest, int *qty) {
+void 
+insertTree (Hufftree tree, Hufftree *forest, int *qty) {
   int i = *qty;
 
   while(i > 0 && forest[i - 1]->frq < tree->frq) {
@@ -635,13 +683,15 @@ void insertTree (Hufftree tree, Hufftree *forest, int *qty) {
 }
 
 
-Hufftree removeTree (Hufftree *forest, int *qty) {
+Hufftree 
+removeTree (Hufftree *forest, int *qty) {
   if (*qty == 0) { abort(); }
   return forest[--(*qty)];
 }
 
 
-Hufftree createHufftree (char *string) {
+Hufftree 
+createHufftree (char *string) {
   Hufftree forest[FREQ];
   int qty = 0;
   int *leaf = frequency(string);
@@ -664,7 +714,8 @@ Hufftree createHufftree (char *string) {
 }
 
 
-void displayHufftree (Hufftree tree) {
+void 
+displayHufftree (Hufftree tree) {
   static int node = -1;
 
   if (tree == NULL) { return; }
@@ -685,7 +736,8 @@ void displayHufftree (Hufftree tree) {
 }
 
 
-void displayLeaves (Hufftree tree) {
+void 
+displayLeaves (Hufftree tree) {
   static char array[FREQ], last = -1;
 
   if (tree == NULL) { return; }
@@ -700,7 +752,8 @@ void displayLeaves (Hufftree tree) {
 }
 
 
-void createTable (Hufftree tree, char *T[]) {
+void 
+createTable (Hufftree tree, char *T[]) {
   static char array[FREQ], last = -1;
   if (tree == NULL) { return; }
   if (tree->left == NULL && tree->right == NULL) {
@@ -714,7 +767,8 @@ void createTable (Hufftree tree, char *T[]) {
 }
 
 
-void compressString (char *string, Hufftree tree) {
+void 
+compressString (char *string, Hufftree tree) {
   char *T[FREQ];
 
   for (int chr = 0; chr < FREQ; chr++) {
@@ -733,7 +787,8 @@ void compressString (char *string, Hufftree tree) {
 }
 
 
-void decompressString (char *string, Hufftree tree) {
+void 
+decompressString (char *string, Hufftree tree) {
   if (tree == NULL) { return; }
   Hufftree root = tree;
 
