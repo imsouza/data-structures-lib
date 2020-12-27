@@ -38,20 +38,17 @@
  * affect the processing of structures, avoid changes.
  */
 #ifndef NEXT
-#define NEXT(element) (element = (element + 1) % index->max)
+#define NEXT(element) \
+(element = (element + 1) % index->max)
 #endif
 #ifndef FREQ
-#define FREQ 256
+#define FREQ 256    ///< Frequency constant
 #endif
 #ifndef SIZE
-/**
- * Constant used to define the size of the 'value' 
- * field of the Map structure.
- */
-#define SIZE 25
+#define SIZE 25     ///< Define the size of the 'value' field
 #endif
 #ifndef HCOL
-#define HCOL 5
+#define HCOL 5      ///< Define the number of columns that will be displayed
 #endif
 
 /**
