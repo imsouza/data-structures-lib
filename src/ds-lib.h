@@ -31,6 +31,12 @@
 
 #include <string.h>
 
+/**
+ * @brief Macro definitions.
+ *
+ * @warning Any changes made to the values ​​of the macros directly 
+ * affect the processing of structures, avoid changes.
+ */
 #ifndef NEXT
 #define NEXT(element) (element = (element + 1) % index->max)
 #endif
@@ -38,6 +44,10 @@
 #define FREQ 256
 #endif
 #ifndef SIZE
+/**
+ * Constant used to define the size of the 'value' 
+ * field of the Map structure.
+ */
 #define SIZE 25
 #endif
 #ifndef HCOL
@@ -45,76 +55,108 @@
 #endif
 
 /**
- * @brief Stack structure definition
+ * @brief Stack structure definition.
  *
+ * The stack is defined as a pointer that points to
+ * a structure with three fields and a vector of characters.
  *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
  */
 typedef struct stack {
-  int max;
-  int top;
-  char *item;
+  int max;      /**< Stack capacity. */  
+  int top;      /**< Top stack position. */  
+  char *item;   /**< Stack items. */  
 } *Stack;
 
 
 /**
- * @brief Queue structure definition
+ * @brief Queue structure definition.
  *
+ * The queue is defined as a pointer that points to a structure with 
+ * four integer fields and a vector of characters.
  *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
  */
 typedef struct queue {
-  int max;
-  int count;
-  int first;
-  int last;
-  char *item;
+  int max;      /**< Queue capacity. */ 
+  int count;    /**< Top queue position. */ 
+  int first;    /**< Queue start position. */ 
+  int last;     /**< Last queue position. */ 
+  char *item;   /**< Queue items. */ 
 } *Queue;
 
 
 /**
- * @brief Binary Search Tree structure definition
+ * @brief Binary Search Tree structure definition.
  *
+ * The binary search tree is defined with
+ * a character field and two other internal structures of the same type.
  *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
  */
 typedef struct tree {
-  char node;
-  struct tree *left;
-  struct tree *right;
+  char node;            /**< Tree items. */ 
+  struct tree *left;    /**< Left node structure. */ 
+  struct tree *right;   /**< Right node structure. */ 
 } BSTree;
 
 
 /**
- * @brief Huffman Coding structure definition
+ * @brief Huffman Coding structure definition.
  *
+ * The hufftree is defined as a pointer that points to a structure with
+ * the definition of two structures of the same type and 
+ * two other fields of type char and int.
  *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
  */
 typedef struct htree {
-  struct htree *left;
-  char chr;
-  int  frq;
-  struct htree *right;
+  struct htree *left;   /**< Left huffman tree. */ 
+  char chr;             /**< Character. */ 
+  int  frq;             /**< Frequency. */ 
+  struct htree *right;  /**< Right huffman tree. */ 
 } *Hufftree;
 
 
 /**
- * @brief List structure definition
+ * @brief List structure definition.
  *
+ * The list is defined as a pointer that points to a structure with an entire 
+ * field and the definition of a structure of the same type.
  *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
  */
 typedef struct list {
-  int item;
-  struct list *next;
+  int item;            /**< List items. */
+  struct list *next;   /**< Structure for the next node in the list. */
 } *List;
 
 
 /**
- * @brief Map structure definition
+ * @brief Map structure definition.
  *
+ * The mapping is defined as a pointer that points to a structure with 
+ * an entire key field, a character-type field defined by the constant 
+ * that represents the value, and a structure definition of the same type.
  *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
  */
 typedef struct map {
-  int key;
-  char value[SIZE];
-  struct map *next;
+  int key;            /**< Key. */ 
+  char value[SIZE];   /**< List of values. */ 
+  struct map *next;   /**< Structure for the next node in the map. */
 } *Map;
 
 
