@@ -157,6 +157,9 @@ typedef struct map {
 } *Map;
 
 
+/**
+ * Static message array for error handling.
+ */
 static const char * const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
@@ -169,6 +172,21 @@ static const char * const messages[] = {
 };
 
 
+/**
+ * @brief This function creates a stack.
+ *
+ * This function allocates the area of ​​memory where the stack 
+ * structure will be created, in case of error NULL will be returned. 
+ * Then, the 'max' field pointed to by 'index' will receive the value 
+ * of the corresponding parameter. In the next line, the 'top' field 
+ * is indicated by 'index' and the value -1 is assigned, indicating 
+ * that there are no items at the top of the stack and that the stack 
+ * is empty. Finally, the 'item' field pointed to by 'index' is accessed 
+ * and assigned to the address of a dynamic vector that stores a 'max' 
+ * number of items.
+ *
+ * @param max Maximum number of items in the stack.
+ */
 Stack 
 createStack (int max) {
   Stack index = malloc(sizeof(struct stack));
@@ -179,6 +197,15 @@ createStack (int max) {
 }
 
 
+/**
+ * @brief This function checks whether the stack is empty or not.
+ *
+ * The logic is simple, if the 'upper' field accessed by 'index' 
+ * is equal to -1, it means that the stack is empty because there 
+ * are no elements at the top.
+ *
+ * @param index Receives a stack type structure.
+ */
 int 
 stackIsEmpty (Stack index) {
   if (index->top == -1) {
@@ -189,6 +216,15 @@ stackIsEmpty (Stack index) {
 }
 
 
+/**
+ * @brief This function checks if the stack is full.
+ *
+ * It will be checked if the top of the stack is equal to the 
+ * maximum capacity, if true 1 will be returned, otherwise 0 
+ * will be returned.
+ *
+ * @param index Receives a stack type structure.
+ */
 int 
 stackIsFull (Stack index) {
   if (index->top == index->max - 1) {
@@ -199,6 +235,19 @@ stackIsFull (Stack index) {
 }
 
 
+/**
+ * @brief This function inserts an item into the stack.
+ *
+ * To insert an item in the stack, you must first check that the stack 
+ * is not full. If true, an error message will be displayed and processing 
+ * will be aborted. If the stack has space, the item will be inserted at 
+ * the top of the stack based on the increment of the 'top' field, 
+ * so the new value of this field will be used to access the position of the 
+ * 'index-> ​​item' field where the new item will be stored.
+ *
+ * @param element Item to be inserted.
+ * @param index Receives a stack type structure.
+ */
 void 
 stackPush (char element, Stack index) {
   if (stackIsFull(index)) {
@@ -211,6 +260,18 @@ stackPush (char element, Stack index) {
 }
 
 
+/**
+ * @brief This function removes an item from the stack.
+ *
+ * To remove an item from the stack, you must first verify 
+ * that the stack is not empty. If true, an error message will be 
+ * displayed and processing will be aborted. If the stack is not empty, 
+ * the top item must be removed and returned. This is done by assigning 
+ * the return of access to the fields 'index-> ​​item [index-top]' to a variable. 
+ * Then, the top is decremented so that the item is removed from the stack.
+ *
+ * @param index Receives a stack type structure.
+ */
 char 
 stackPop (Stack index) {
   if (stackIsEmpty(index)) {
@@ -224,6 +285,11 @@ stackPop (Stack index) {
 }
 
 
+/**
+ * This function access to the top of the stack.
+ *
+ * @param index Receives a stack type structure.
+ */
 char 
 stackTop (Stack index) {
   if (stackIsEmpty(index)) {
@@ -235,6 +301,11 @@ stackTop (Stack index) {
 }
 
 
+/**
+ * This function returns the number of elements in the stack.
+ *
+ * @param index Receives a stack type structure.
+ */
 int 
 stackSize (Stack index) {
   if (stackIsEmpty(index)) {
@@ -246,6 +317,11 @@ stackSize (Stack index) {
 }
 
 
+/**
+ * This function displays the stack on the screen.
+ *
+ * @param index Receives a stack type structure.
+ */
 void 
 displayStack (Stack index) {
   if (stackIsEmpty(index)) {
@@ -259,6 +335,14 @@ displayStack (Stack index) {
 }
 
 
+/**
+ * This function clears the stack and frees the memory.
+ *
+ * @warning The function call 'deleteStack' must be made 
+ * with the address of the corresponding pointer.
+ *
+ * @param Receives a stack structure by reference.
+ */
 void 
 deleteStack (Stack *index) {
   free((*index)->item);

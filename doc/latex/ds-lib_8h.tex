@@ -1,0 +1,675 @@
+\hypertarget{ds-lib_8h}{}\doxysection{ds-\/lib.h File Reference}
+\label{ds-lib_8h}\index{ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstack}{stack}}
+\begin{DoxyCompactList}\small\item\em Stack structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structqueue}{queue}}
+\begin{DoxyCompactList}\small\item\em Queue structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtree}{tree}}
+\begin{DoxyCompactList}\small\item\em Binary Search Tree structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structhtree}{htree}}
+\begin{DoxyCompactList}\small\item\em Huffman Coding structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlist}{list}}
+\begin{DoxyCompactList}\small\item\em List structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmap}{map}}
+\begin{DoxyCompactList}\small\item\em Map structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structstack}{stack}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}
+\begin{DoxyCompactList}\small\item\em Stack structure definition. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structqueue}{queue}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}
+\begin{DoxyCompactList}\small\item\em Queue structure definition. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structtree}{tree}} \mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}}
+\begin{DoxyCompactList}\small\item\em Binary Search Tree structure definition. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structhtree}{htree}} $\ast$ \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}
+\begin{DoxyCompactList}\small\item\em Huffman Coding structure definition. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structlist}{list}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}
+\begin{DoxyCompactList}\small\item\em List structure definition. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structmap}{map}} $\ast$ \mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}}
+\begin{DoxyCompactList}\small\item\em Map structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} \mbox{\hyperlink{ds-lib_8h_a4babb4f99e8f17039b5e919f3ed1def1}{create\+Stack}} (int max)
+\begin{DoxyCompactList}\small\item\em This function creates a stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ds-lib_8h_a421230cf1f6e3520157225eb0bea4a06}{stack\+Is\+Empty}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+\begin{DoxyCompactList}\small\item\em This function checks whether the stack is empty or not. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ds-lib_8h_a93173d1ddb04426419f4543a197c883d}{stack\+Is\+Full}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+\begin{DoxyCompactList}\small\item\em This function checks if the stack is full. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ds-lib_8h_acab2fd519b69131fdf95d4679988cfd4}{stack\+Push}} (char element, \mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+\begin{DoxyCompactList}\small\item\em This function inserts an item into the stack. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{ds-lib_8h_a6cb1818f912e8e937acf020fa7925fd5}{stack\+Pop}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+\begin{DoxyCompactList}\small\item\em This function removes an item from the stack. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{ds-lib_8h_a260df97229d720a3e243d2bec66eef86}{stack\+Top}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+\begin{DoxyCompactList}\small\item\em This function access to the top of the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ds-lib_8h_a4efab0163f6e9c75625b1356c66de94d}{stack\+Size}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+\begin{DoxyCompactList}\small\item\em This function returns the number of elements in the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ds-lib_8h_a29812adacf42e200f1e40f505a1a483d}{display\+Stack}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+\begin{DoxyCompactList}\small\item\em This function displays the stack on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ds-lib_8h_a582f6c477ae356dceabcfc821d18c379}{delete\+Stack}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} $\ast$index)
+\begin{DoxyCompactList}\small\item\em This function clears the stack and frees the memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} \mbox{\hyperlink{ds-lib_8h_a7caa495c3c2422fe0749a388002a4ed1}{create\+Queue}} (int max)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_aa19d5af545e939d56a0179a766e9f756}{queue\+Is\+Empty}} (\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a12891a324bebbbe0d5a6dfb4e5b283c1}{queue\+Is\+Full}} (\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_ab7f0bee32a144795e8355a0cd70f2db7}{enqueue}} (char element, \mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} index)
+\item 
+char \mbox{\hyperlink{ds-lib_8h_a42706ebfa96999f4c511d1022d41e1ee}{dequeue}} (\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a57b47aff98c489c24a04cf5279ce257d}{get\+Queue\+Size}} (\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_af31f8e25df1180c37b9d865173f16798}{display\+Queue}} (\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_af38a443630448be7e0e515be7f1c9b9c}{delete\+Queue}} (\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} $\ast$index)
+\item 
+\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a9d9db1d271f81da1b34e957e5c2e84a8}{generatetree\+Is\+Empty}} ()
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a622bcc5f66fb3e576c543ffbe410db42}{insert\+Node}} (int key, \mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$$\ast$node)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a6c1e63edc38f52284136c07cf9198eb8}{tree\+Is\+Empty}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$node)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a8a272898ef441ca561dd7c1e28d33e25}{display\+Pre\+Order}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$node)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a4a514ce0b92b64fb67cae4ddfbd696b3}{display\+In\+Order}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$node)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a9c15b9189e9762eb6dd5df7f80b5de7d}{display\+Post\+Order}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$node)
+\item 
+char \mbox{\hyperlink{ds-lib_8h_abcba9631d546ab77e69bbbe433c87a9a}{get\+Root}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a6bf7156d62a4f7acc958b735b2f305f8}{get\+Node}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a8b5a05f87addab030e7b7884ed4c782c}{node\+Exists}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a7670a12d87a409373ddc249058f9c45f}{search}} (int key, \mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$$\ast$node)
+\item 
+\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a23110cd153a67197ca9e79824e82cb97}{find\+Min}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$node)
+\item 
+\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$ \mbox{\hyperlink{ds-lib_8h_ac602066bb1358e4ad8a706762175b19a}{find\+Max}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$node)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a5ba95b86a066089467875dbcdd4bce7b}{delete\+Tree}} (\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$node)
+\item 
+\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} \mbox{\hyperlink{ds-lib_8h_a759641a5e35a87a2d62637ec5eef3d31}{create\+List}} (int element, \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a453d80be49c7f43ec901314b732f7dd6}{display\+List}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a1a05984cdb0745f124d7d29530372f09}{display\+Reverse\+List}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} $\ast$ \mbox{\hyperlink{ds-lib_8h_aae04b673c14558d2114971b6c806b9d2}{concat\+List}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} $\ast$A, \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} $\ast$B)
+\item 
+\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} \mbox{\hyperlink{ds-lib_8h_a7525e39d9a5a04fb257332b83e4bc216}{clone\+List}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a45907492a123f94a49ff31869124b71a}{get\+List\+Size}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_af9fc0ec23a6261987c7addc9a5d26605}{list\+Is\+Empty}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a7309ce184df2adbc336adb90c607fa0b}{get\+Head}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_aca1a7ca7bfdda70bad198a0a220373a0}{item\+Exists}} (int item, \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a1cb7675cdf0e66de4f81fd629e54325a}{delete\+List}} (\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} $\ast$index)
+\item 
+\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} \mbox{\hyperlink{ds-lib_8h_afecd2a153b7e3dc21958db61959c6b5a}{create\+Map}} (int key, char $\ast$value, \mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_adf1858bc99fc0cef5b96522f5a7e2453}{insert\+Map}} (int key, char $\ast$value, \mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} $\ast$index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_a4cf9247346c78eccc3deeee3b701efb9}{remove\+Map}} (int key, \mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} $\ast$index)
+\item 
+int \mbox{\hyperlink{ds-lib_8h_af163c1ee8be3c2c03314f63a09ba2e38}{key\+Exists}} (int key, \mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_aea9f419b23425d2b38f7bbdb2d605c16}{display\+Map}} (\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} index)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a2cb5ba9cb47a3cf10492986b412eb07c}{delete\+Map}} (\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} $\ast$index)
+\item 
+\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{ds-lib_8h_a15d6bbfd19b362d5ab872ff670876992}{create\+Hufftree\+Node}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} left, char chr, int frq, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} right)
+\item 
+int $\ast$ \mbox{\hyperlink{ds-lib_8h_abeb9c75439a4fac6bb62c2082464a903}{frequency}} (char $\ast$string)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a2648a209030aa2d1aa0eb9da443de205}{insert\+Tree}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}}, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$forest, int $\ast$qty)
+\item 
+\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{ds-lib_8h_acdfecaed3b963e39bd69b94a7cbd8f13}{remove\+Tree}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$forest, int $\ast$qty)
+\item 
+\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{ds-lib_8h_a956bafad34a2f98b4cc1a106123bdac6}{create\+Hufftree}} (char $\ast$string)
+\item 
+void \mbox{\hyperlink{ds-lib_8h_ac7d98ce92b0ee643ddbd593fd98b3d65}{display\+Hufftree}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a04842e7cea5bc69daa422ab0bcfa75f0}{display\+Leaves}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
+\item 
+void \mbox{\hyperlink{ds-lib_8h_a9944b608470f90af54434820ec3e7688}{create\+Table}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}}, char $\ast$T\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{ds-lib_8h_aee85a50d942cf4f5ac68431d25ee9ea7}{compress\+String}} (char $\ast$string, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
+\item 
+void \mbox{\hyperlink{ds-lib_8h_aabd93b27ce002f023cfcbd7387733640}{decompress\+String}} (char $\ast$string, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}\label{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!BSTree@{BSTree}}
+\index{BSTree@{BSTree}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{BSTree}{BSTree}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structtree}{tree}} \mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}}}
+
+
+
+Binary Search Tree structure definition. 
+
+The binary search tree is defined with a character field and two other internal structures of the same type.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}\label{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!Hufftree@{Hufftree}}
+\index{Hufftree@{Hufftree}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{Hufftree}{Hufftree}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structhtree}{htree}} $\ast$ \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}
+
+
+
+Huffman Coding structure definition. 
+
+The hufftree is defined as a pointer that points to a structure with the definition of two structures of the same type and two other fields of type char and int.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}\label{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!List@{List}}
+\index{List@{List}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{List}{List}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structlist}{list}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}
+
+
+
+List structure definition. 
+
+The list is defined as a pointer that points to a structure with an entire field and the definition of a structure of the same type.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}\label{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!Map@{Map}}
+\index{Map@{Map}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{Map}{Map}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structmap}{map}} $\ast$ \mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}}}
+
+
+
+Map structure definition. 
+
+The mapping is defined as a pointer that points to a structure with an entire key field, a character-\/type field defined by the constant that represents the value, and a structure definition of the same type.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}\label{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!Queue@{Queue}}
+\index{Queue@{Queue}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{Queue}{Queue}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structqueue}{queue}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}}
+
+
+
+Queue structure definition. 
+
+The queue is defined as a pointer that points to a structure with four integer fields and a vector of characters.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}\label{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!Stack@{Stack}}
+\index{Stack@{Stack}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{Stack}{Stack}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structstack}{stack}} $\ast$ \mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}
+
+
+
+Stack structure definition. 
+
+The stack is defined as a pointer that points to a structure with three fields and a vector of characters.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ds-lib_8h_a7525e39d9a5a04fb257332b83e4bc216}\label{ds-lib_8h_a7525e39d9a5a04fb257332b83e4bc216}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!cloneList@{cloneList}}
+\index{cloneList@{cloneList}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{cloneList()}{cloneList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} clone\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_aee85a50d942cf4f5ac68431d25ee9ea7}\label{ds-lib_8h_aee85a50d942cf4f5ac68431d25ee9ea7}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!compressString@{compressString}}
+\index{compressString@{compressString}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{compressString()}{compressString()}}
+{\footnotesize\ttfamily void compress\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_aae04b673c14558d2114971b6c806b9d2}\label{ds-lib_8h_aae04b673c14558d2114971b6c806b9d2}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!concatList@{concatList}}
+\index{concatList@{concatList}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{concatList()}{concatList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}$\ast$ concat\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} $\ast$}]{A,  }\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} $\ast$}]{B }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a956bafad34a2f98b4cc1a106123bdac6}\label{ds-lib_8h_a956bafad34a2f98b4cc1a106123bdac6}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!createHufftree@{createHufftree}}
+\index{createHufftree@{createHufftree}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{createHufftree()}{createHufftree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} create\+Hufftree (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a15d6bbfd19b362d5ab872ff670876992}\label{ds-lib_8h_a15d6bbfd19b362d5ab872ff670876992}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!createHufftreeNode@{createHufftreeNode}}
+\index{createHufftreeNode@{createHufftreeNode}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{createHufftreeNode()}{createHufftreeNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} create\+Hufftree\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{left,  }\item[{char}]{chr,  }\item[{int}]{frq,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{right }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a759641a5e35a87a2d62637ec5eef3d31}\label{ds-lib_8h_a759641a5e35a87a2d62637ec5eef3d31}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!createList@{createList}}
+\index{createList@{createList}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{createList()}{createList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} create\+List (\begin{DoxyParamCaption}\item[{int}]{element,  }\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_afecd2a153b7e3dc21958db61959c6b5a}\label{ds-lib_8h_afecd2a153b7e3dc21958db61959c6b5a}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!createMap@{createMap}}
+\index{createMap@{createMap}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{createMap()}{createMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} create\+Map (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{char $\ast$}]{value,  }\item[{\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a7caa495c3c2422fe0749a388002a4ed1}\label{ds-lib_8h_a7caa495c3c2422fe0749a388002a4ed1}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!createQueue@{createQueue}}
+\index{createQueue@{createQueue}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{createQueue()}{createQueue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} create\+Queue (\begin{DoxyParamCaption}\item[{int}]{max }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a4babb4f99e8f17039b5e919f3ed1def1}\label{ds-lib_8h_a4babb4f99e8f17039b5e919f3ed1def1}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!createStack@{createStack}}
+\index{createStack@{createStack}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{createStack()}{createStack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} create\+Stack (\begin{DoxyParamCaption}\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+This function creates a stack. 
+
+This function allocates the area of ​​memory where the stack structure will be created, in case of error N\+U\+LL will be returned. Then, the \textquotesingle{}max\textquotesingle{} field pointed to by \textquotesingle{}index\textquotesingle{} will receive the value of the corresponding parameter. In the next line, the \textquotesingle{}top\textquotesingle{} field is indicated by \textquotesingle{}index\textquotesingle{} and the value -\/1 is assigned, indicating that there are no items at the top of the stack and that the stack is empty. Finally, the \textquotesingle{}item\textquotesingle{} field pointed to by \textquotesingle{}index\textquotesingle{} is accessed and assigned to the address of a dynamic vector that stores a \textquotesingle{}max\textquotesingle{} number of items.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max} & Maximum number of items in the stack. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a9944b608470f90af54434820ec3e7688}\label{ds-lib_8h_a9944b608470f90af54434820ec3e7688}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!createTable@{createTable}}
+\index{createTable@{createTable}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{createTable()}{createTable()}}
+{\footnotesize\ttfamily void create\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree,  }\item[{char $\ast$}]{T\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_aabd93b27ce002f023cfcbd7387733640}\label{ds-lib_8h_aabd93b27ce002f023cfcbd7387733640}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!decompressString@{decompressString}}
+\index{decompressString@{decompressString}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{decompressString()}{decompressString()}}
+{\footnotesize\ttfamily void decompress\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a1cb7675cdf0e66de4f81fd629e54325a}\label{ds-lib_8h_a1cb7675cdf0e66de4f81fd629e54325a}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!deleteList@{deleteList}}
+\index{deleteList@{deleteList}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{deleteList()}{deleteList()}}
+{\footnotesize\ttfamily void delete\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a2cb5ba9cb47a3cf10492986b412eb07c}\label{ds-lib_8h_a2cb5ba9cb47a3cf10492986b412eb07c}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!deleteMap@{deleteMap}}
+\index{deleteMap@{deleteMap}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{deleteMap()}{deleteMap()}}
+{\footnotesize\ttfamily void delete\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_af38a443630448be7e0e515be7f1c9b9c}\label{ds-lib_8h_af38a443630448be7e0e515be7f1c9b9c}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!deleteQueue@{deleteQueue}}
+\index{deleteQueue@{deleteQueue}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{deleteQueue()}{deleteQueue()}}
+{\footnotesize\ttfamily void delete\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a582f6c477ae356dceabcfc821d18c379}\label{ds-lib_8h_a582f6c477ae356dceabcfc821d18c379}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!deleteStack@{deleteStack}}
+\index{deleteStack@{deleteStack}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{deleteStack()}{deleteStack()}}
+{\footnotesize\ttfamily void delete\+Stack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+
+
+This function clears the stack and frees the memory. 
+
+\begin{DoxyWarning}{Warning}
+The function call \textquotesingle{}delete\+Stack\textquotesingle{} must be made with the address of the corresponding pointer.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em Receives} & a stack structure by reference. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a5ba95b86a066089467875dbcdd4bce7b}\label{ds-lib_8h_a5ba95b86a066089467875dbcdd4bce7b}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!deleteTree@{deleteTree}}
+\index{deleteTree@{deleteTree}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{deleteTree()}{deleteTree()}}
+{\footnotesize\ttfamily void delete\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a42706ebfa96999f4c511d1022d41e1ee}\label{ds-lib_8h_a42706ebfa96999f4c511d1022d41e1ee}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily char dequeue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_ac7d98ce92b0ee643ddbd593fd98b3d65}\label{ds-lib_8h_ac7d98ce92b0ee643ddbd593fd98b3d65}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayHufftree@{displayHufftree}}
+\index{displayHufftree@{displayHufftree}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayHufftree()}{displayHufftree()}}
+{\footnotesize\ttfamily void display\+Hufftree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a4a514ce0b92b64fb67cae4ddfbd696b3}\label{ds-lib_8h_a4a514ce0b92b64fb67cae4ddfbd696b3}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayInOrder@{displayInOrder}}
+\index{displayInOrder@{displayInOrder}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayInOrder()}{displayInOrder()}}
+{\footnotesize\ttfamily void display\+In\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a04842e7cea5bc69daa422ab0bcfa75f0}\label{ds-lib_8h_a04842e7cea5bc69daa422ab0bcfa75f0}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayLeaves@{displayLeaves}}
+\index{displayLeaves@{displayLeaves}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayLeaves()}{displayLeaves()}}
+{\footnotesize\ttfamily void display\+Leaves (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a453d80be49c7f43ec901314b732f7dd6}\label{ds-lib_8h_a453d80be49c7f43ec901314b732f7dd6}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayList@{displayList}}
+\index{displayList@{displayList}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayList()}{displayList()}}
+{\footnotesize\ttfamily void display\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_aea9f419b23425d2b38f7bbdb2d605c16}\label{ds-lib_8h_aea9f419b23425d2b38f7bbdb2d605c16}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayMap@{displayMap}}
+\index{displayMap@{displayMap}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayMap()}{displayMap()}}
+{\footnotesize\ttfamily void display\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a9c15b9189e9762eb6dd5df7f80b5de7d}\label{ds-lib_8h_a9c15b9189e9762eb6dd5df7f80b5de7d}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayPostOrder@{displayPostOrder}}
+\index{displayPostOrder@{displayPostOrder}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayPostOrder()}{displayPostOrder()}}
+{\footnotesize\ttfamily void display\+Post\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a8a272898ef441ca561dd7c1e28d33e25}\label{ds-lib_8h_a8a272898ef441ca561dd7c1e28d33e25}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayPreOrder@{displayPreOrder}}
+\index{displayPreOrder@{displayPreOrder}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayPreOrder()}{displayPreOrder()}}
+{\footnotesize\ttfamily void display\+Pre\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_af31f8e25df1180c37b9d865173f16798}\label{ds-lib_8h_af31f8e25df1180c37b9d865173f16798}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayQueue@{displayQueue}}
+\index{displayQueue@{displayQueue}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayQueue()}{displayQueue()}}
+{\footnotesize\ttfamily void display\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a1a05984cdb0745f124d7d29530372f09}\label{ds-lib_8h_a1a05984cdb0745f124d7d29530372f09}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayReverseList@{displayReverseList}}
+\index{displayReverseList@{displayReverseList}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayReverseList()}{displayReverseList()}}
+{\footnotesize\ttfamily void display\+Reverse\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a29812adacf42e200f1e40f505a1a483d}\label{ds-lib_8h_a29812adacf42e200f1e40f505a1a483d}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!displayStack@{displayStack}}
+\index{displayStack@{displayStack}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{displayStack()}{displayStack()}}
+{\footnotesize\ttfamily void display\+Stack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function displays the stack on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_ab7f0bee32a144795e8355a0cd70f2db7}\label{ds-lib_8h_ab7f0bee32a144795e8355a0cd70f2db7}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily void enqueue (\begin{DoxyParamCaption}\item[{char}]{element,  }\item[{\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_ac602066bb1358e4ad8a706762175b19a}\label{ds-lib_8h_ac602066bb1358e4ad8a706762175b19a}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!findMax@{findMax}}
+\index{findMax@{findMax}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{findMax()}{findMax()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}}$\ast$ find\+Max (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a23110cd153a67197ca9e79824e82cb97}\label{ds-lib_8h_a23110cd153a67197ca9e79824e82cb97}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!findMin@{findMin}}
+\index{findMin@{findMin}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{findMin()}{findMin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}}$\ast$ find\+Min (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_abeb9c75439a4fac6bb62c2082464a903}\label{ds-lib_8h_abeb9c75439a4fac6bb62c2082464a903}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!frequency@{frequency}}
+\index{frequency@{frequency}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{frequency()}{frequency()}}
+{\footnotesize\ttfamily int$\ast$ frequency (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a9d9db1d271f81da1b34e957e5c2e84a8}\label{ds-lib_8h_a9d9db1d271f81da1b34e957e5c2e84a8}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!generatetreeIsEmpty@{generatetreeIsEmpty}}
+\index{generatetreeIsEmpty@{generatetreeIsEmpty}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{generatetreeIsEmpty()}{generatetreeIsEmpty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}}$\ast$ generatetree\+Is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a7309ce184df2adbc336adb90c607fa0b}\label{ds-lib_8h_a7309ce184df2adbc336adb90c607fa0b}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!getHead@{getHead}}
+\index{getHead@{getHead}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{getHead()}{getHead()}}
+{\footnotesize\ttfamily int get\+Head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a45907492a123f94a49ff31869124b71a}\label{ds-lib_8h_a45907492a123f94a49ff31869124b71a}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!getListSize@{getListSize}}
+\index{getListSize@{getListSize}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{getListSize()}{getListSize()}}
+{\footnotesize\ttfamily int get\+List\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a6bf7156d62a4f7acc958b735b2f305f8}\label{ds-lib_8h_a6bf7156d62a4f7acc958b735b2f305f8}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!getNode@{getNode}}
+\index{getNode@{getNode}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{getNode()}{getNode()}}
+{\footnotesize\ttfamily int get\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a57b47aff98c489c24a04cf5279ce257d}\label{ds-lib_8h_a57b47aff98c489c24a04cf5279ce257d}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!getQueueSize@{getQueueSize}}
+\index{getQueueSize@{getQueueSize}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{getQueueSize()}{getQueueSize()}}
+{\footnotesize\ttfamily int get\+Queue\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_abcba9631d546ab77e69bbbe433c87a9a}\label{ds-lib_8h_abcba9631d546ab77e69bbbe433c87a9a}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily char get\+Root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_adf1858bc99fc0cef5b96522f5a7e2453}\label{ds-lib_8h_adf1858bc99fc0cef5b96522f5a7e2453}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!insertMap@{insertMap}}
+\index{insertMap@{insertMap}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{insertMap()}{insertMap()}}
+{\footnotesize\ttfamily void insert\+Map (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{char $\ast$}]{value,  }\item[{\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a622bcc5f66fb3e576c543ffbe410db42}\label{ds-lib_8h_a622bcc5f66fb3e576c543ffbe410db42}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!insertNode@{insertNode}}
+\index{insertNode@{insertNode}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{insertNode()}{insertNode()}}
+{\footnotesize\ttfamily void insert\+Node (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$$\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a2648a209030aa2d1aa0eb9da443de205}\label{ds-lib_8h_a2648a209030aa2d1aa0eb9da443de205}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!insertTree@{insertTree}}
+\index{insertTree@{insertTree}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{insertTree()}{insertTree()}}
+{\footnotesize\ttfamily void insert\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$}]{forest,  }\item[{int $\ast$}]{qty }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_aca1a7ca7bfdda70bad198a0a220373a0}\label{ds-lib_8h_aca1a7ca7bfdda70bad198a0a220373a0}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!itemExists@{itemExists}}
+\index{itemExists@{itemExists}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{itemExists()}{itemExists()}}
+{\footnotesize\ttfamily int item\+Exists (\begin{DoxyParamCaption}\item[{int}]{item,  }\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_af163c1ee8be3c2c03314f63a09ba2e38}\label{ds-lib_8h_af163c1ee8be3c2c03314f63a09ba2e38}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!keyExists@{keyExists}}
+\index{keyExists@{keyExists}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{keyExists()}{keyExists()}}
+{\footnotesize\ttfamily int key\+Exists (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_af9fc0ec23a6261987c7addc9a5d26605}\label{ds-lib_8h_af9fc0ec23a6261987c7addc9a5d26605}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!listIsEmpty@{listIsEmpty}}
+\index{listIsEmpty@{listIsEmpty}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{listIsEmpty()}{listIsEmpty()}}
+{\footnotesize\ttfamily int list\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a990afd433f844096b6f780af80e12e2b}{List}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a8b5a05f87addab030e7b7884ed4c782c}\label{ds-lib_8h_a8b5a05f87addab030e7b7884ed4c782c}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!nodeExists@{nodeExists}}
+\index{nodeExists@{nodeExists}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{nodeExists()}{nodeExists()}}
+{\footnotesize\ttfamily int node\+Exists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_aa19d5af545e939d56a0179a766e9f756}\label{ds-lib_8h_aa19d5af545e939d56a0179a766e9f756}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!queueIsEmpty@{queueIsEmpty}}
+\index{queueIsEmpty@{queueIsEmpty}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{queueIsEmpty()}{queueIsEmpty()}}
+{\footnotesize\ttfamily int queue\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a12891a324bebbbe0d5a6dfb4e5b283c1}\label{ds-lib_8h_a12891a324bebbbe0d5a6dfb4e5b283c1}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!queueIsFull@{queueIsFull}}
+\index{queueIsFull@{queueIsFull}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{queueIsFull()}{queueIsFull()}}
+{\footnotesize\ttfamily int queue\+Is\+Full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a72d76013a7a69bf69cee42575c9e55d1}{Queue}}}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a4cf9247346c78eccc3deeee3b701efb9}\label{ds-lib_8h_a4cf9247346c78eccc3deeee3b701efb9}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!removeMap@{removeMap}}
+\index{removeMap@{removeMap}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{removeMap()}{removeMap()}}
+{\footnotesize\ttfamily int remove\+Map (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} $\ast$}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_acdfecaed3b963e39bd69b94a7cbd8f13}\label{ds-lib_8h_acdfecaed3b963e39bd69b94a7cbd8f13}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!removeTree@{removeTree}}
+\index{removeTree@{removeTree}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{removeTree()}{removeTree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} remove\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$}]{forest,  }\item[{int $\ast$}]{qty }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a7670a12d87a409373ddc249058f9c45f}\label{ds-lib_8h_a7670a12d87a409373ddc249058f9c45f}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!search@{search}}
+\index{search@{search}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily int search (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$$\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ds-lib_8h_a421230cf1f6e3520157225eb0bea4a06}\label{ds-lib_8h_a421230cf1f6e3520157225eb0bea4a06}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!stackIsEmpty@{stackIsEmpty}}
+\index{stackIsEmpty@{stackIsEmpty}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{stackIsEmpty()}{stackIsEmpty()}}
+{\footnotesize\ttfamily int stack\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function checks whether the stack is empty or not. 
+
+The logic is simple, if the \textquotesingle{}upper\textquotesingle{} field accessed by \textquotesingle{}index\textquotesingle{} is equal to -\/1, it means that the stack is empty because there are no elements at the top.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a93173d1ddb04426419f4543a197c883d}\label{ds-lib_8h_a93173d1ddb04426419f4543a197c883d}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!stackIsFull@{stackIsFull}}
+\index{stackIsFull@{stackIsFull}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{stackIsFull()}{stackIsFull()}}
+{\footnotesize\ttfamily int stack\+Is\+Full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function checks if the stack is full. 
+
+It will be checked if the top of the stack is equal to the maximum capacity, if true 1 will be returned, otherwise 0 will be returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a6cb1818f912e8e937acf020fa7925fd5}\label{ds-lib_8h_a6cb1818f912e8e937acf020fa7925fd5}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!stackPop@{stackPop}}
+\index{stackPop@{stackPop}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{stackPop()}{stackPop()}}
+{\footnotesize\ttfamily char stack\+Pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function removes an item from the stack. 
+
+To remove an item from the stack, you must first verify that the stack is not empty. If true, an error message will be displayed and processing will be aborted. If the stack is not empty, the top item must be removed and returned. This is done by assigning the return of access to the fields \textquotesingle{}index-\/$>$ ​​item \mbox{[}index-\/top\mbox{]}\textquotesingle{} to a variable. Then, the top is decremented so that the item is removed from the stack.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_acab2fd519b69131fdf95d4679988cfd4}\label{ds-lib_8h_acab2fd519b69131fdf95d4679988cfd4}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!stackPush@{stackPush}}
+\index{stackPush@{stackPush}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{stackPush()}{stackPush()}}
+{\footnotesize\ttfamily void stack\+Push (\begin{DoxyParamCaption}\item[{char}]{element,  }\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function inserts an item into the stack. 
+
+To insert an item in the stack, you must first check that the stack is not full. If true, an error message will be displayed and processing will be aborted. If the stack has space, the item will be inserted at the top of the stack based on the increment of the \textquotesingle{}top\textquotesingle{} field, so the new value of this field will be used to access the position of the \textquotesingle{}index-\/$>$ ​​item\textquotesingle{} field where the new item will be stored.
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Item to be inserted. \\
+\hline
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a4efab0163f6e9c75625b1356c66de94d}\label{ds-lib_8h_a4efab0163f6e9c75625b1356c66de94d}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!stackSize@{stackSize}}
+\index{stackSize@{stackSize}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{stackSize()}{stackSize()}}
+{\footnotesize\ttfamily int stack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function returns the number of elements in the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a260df97229d720a3e243d2bec66eef86}\label{ds-lib_8h_a260df97229d720a3e243d2bec66eef86}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!stackTop@{stackTop}}
+\index{stackTop@{stackTop}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{stackTop()}{stackTop()}}
+{\footnotesize\ttfamily char stack\+Top (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function access to the top of the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a6c1e63edc38f52284136c07cf9198eb8}\label{ds-lib_8h_a6c1e63edc38f52284136c07cf9198eb8}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!treeIsEmpty@{treeIsEmpty}}
+\index{treeIsEmpty@{treeIsEmpty}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{treeIsEmpty()}{treeIsEmpty()}}
+{\footnotesize\ttfamily int tree\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a846e366ca3b0fefed8cea405bc3c942e}{B\+S\+Tree}} $\ast$}]{node }\end{DoxyParamCaption})}
+

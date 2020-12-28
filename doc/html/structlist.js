@@ -1,5 +1,5 @@
 var structlist =
 [
-    [ "item", "structlist.html#a02e491a383d28941868b142ff9f9e886", null ],
-    [ "next", "structlist.html#a316ac2a777ad970368f874242890171e", null ]
+    [ "item", "structlist.html#a18cba09a07b6a54639de8d1f4bc0d126", null ],
+    [ "next", "structlist.html#a1900fe79e875e2838625b2eb60837f8f", null ]
 ];

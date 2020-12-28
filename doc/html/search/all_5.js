@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['last_7',['last',['../structqueue.html#a72e27dee31b1c4c6a504fbed29542d97',1,'queue']]],
-  ['left_8',['left',['../structtree.html#a7c6cea39f2bf20021d7ec6c5498b8fce',1,'tree::left()'],['../structhtree.html#ad90511476c206591e4e4fec4a837dc1e',1,'htree::left()']]],
-  ['list_9',['list',['../structlist.html',1,'']]]
+  ['generatetreeisempty_37',['generatetreeIsEmpty',['../ds-lib_8h.html#a9d9db1d271f81da1b34e957e5c2e84a8',1,'ds-lib.h']]],
+  ['gethead_38',['getHead',['../ds-lib_8h.html#a7309ce184df2adbc336adb90c607fa0b',1,'ds-lib.h']]],
+  ['getlistsize_39',['getListSize',['../ds-lib_8h.html#a45907492a123f94a49ff31869124b71a',1,'ds-lib.h']]],
+  ['getnode_40',['getNode',['../ds-lib_8h.html#a6bf7156d62a4f7acc958b735b2f305f8',1,'ds-lib.h']]],
+  ['getqueuesize_41',['getQueueSize',['../ds-lib_8h.html#a57b47aff98c489c24a04cf5279ce257d',1,'ds-lib.h']]],
+  ['getroot_42',['getRoot',['../ds-lib_8h.html#abcba9631d546ab77e69bbbe433c87a9a',1,'ds-lib.h']]]
 ];

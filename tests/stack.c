@@ -4,7 +4,7 @@
 
 int main () {
   printf("Stack ------------------\n");
-  Stack S = stack(3);
+  Stack S = createStack(3);
 
   printf(">>> PUSH:\n");
   stackPush(1, S);

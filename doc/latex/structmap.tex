@@ -1,0 +1,63 @@
+\hypertarget{structmap}{}\doxysection{map Struct Reference}
+\label{structmap}\index{map@{map}}
+
+
+Map structure definition.  
+
+
+
+
+{\ttfamily \#include $<$ds-\/lib.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structmap_a2c7bcd67732e2e44be7cdf70724a3f55}{key}}
+\begin{DoxyCompactList}\small\item\em Key. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{structmap_ad03a2be9bdebf541a98a6bfb2f61f288}{value}} \mbox{[}S\+I\+ZE\mbox{]}
+\begin{DoxyCompactList}\small\item\em List of values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmap}{map}} $\ast$ \mbox{\hyperlink{structmap_acfac9601113ab18c37aeb58aecfa790c}{next}}
+\begin{DoxyCompactList}\small\item\em Structure for the next node in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Map structure definition. 
+
+The mapping is defined as a pointer that points to a structure with an entire key field, a character-\/type field defined by the constant that represents the value, and a structure definition of the same type.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structmap_a2c7bcd67732e2e44be7cdf70724a3f55}\label{structmap_a2c7bcd67732e2e44be7cdf70724a3f55}} 
+\index{map@{map}!key@{key}}
+\index{key@{key}!map@{map}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily int map\+::key}
+
+
+
+Key. 
+
+\mbox{\Hypertarget{structmap_acfac9601113ab18c37aeb58aecfa790c}\label{structmap_acfac9601113ab18c37aeb58aecfa790c}} 
+\index{map@{map}!next@{next}}
+\index{next@{next}!map@{map}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structmap}{map}}$\ast$ map\+::next}
+
+
+
+Structure for the next node in the map. 
+
+\mbox{\Hypertarget{structmap_ad03a2be9bdebf541a98a6bfb2f61f288}\label{structmap_ad03a2be9bdebf541a98a6bfb2f61f288}} 
+\index{map@{map}!value@{value}}
+\index{value@{value}!map@{map}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily char map\+::value\mbox{[}S\+I\+ZE\mbox{]}}
+
+
+
+List of values. 
+

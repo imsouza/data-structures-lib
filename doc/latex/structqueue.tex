@@ -1,0 +1,87 @@
+\hypertarget{structqueue}{}\doxysection{queue Struct Reference}
+\label{structqueue}\index{queue@{queue}}
+
+
+Queue structure definition.  
+
+
+
+
+{\ttfamily \#include $<$ds-\/lib.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structqueue_a8243d93f7d4ba0b48a601b856770d096}{max}}
+\begin{DoxyCompactList}\small\item\em Queue capacity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structqueue_ac71ad15edf9cf721b2fdb85524c51bf0}{count}}
+\begin{DoxyCompactList}\small\item\em Top queue position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structqueue_a2309ce63ed3483eb66a8d13b430b65ea}{first}}
+\begin{DoxyCompactList}\small\item\em Queue start position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structqueue_a409f14cb964be349361cd0d4bb7a66c3}{last}}
+\begin{DoxyCompactList}\small\item\em Last queue position. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{structqueue_af1b9435af9ae01649803763ae9f4661f}{item}}
+\begin{DoxyCompactList}\small\item\em Queue items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Queue structure definition. 
+
+The queue is defined as a pointer that points to a structure with four integer fields and a vector of characters.
+
+\begin{DoxyWarning}{Warning}
+the fields should never be accessed directly by the program. All manipulation of data structure should be done only by the functions implemented. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structqueue_ac71ad15edf9cf721b2fdb85524c51bf0}\label{structqueue_ac71ad15edf9cf721b2fdb85524c51bf0}} 
+\index{queue@{queue}!count@{count}}
+\index{count@{count}!queue@{queue}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily int queue\+::count}
+
+
+
+Top queue position. 
+
+\mbox{\Hypertarget{structqueue_a2309ce63ed3483eb66a8d13b430b65ea}\label{structqueue_a2309ce63ed3483eb66a8d13b430b65ea}} 
+\index{queue@{queue}!first@{first}}
+\index{first@{first}!queue@{queue}}
+\doxysubsubsection{\texorpdfstring{first}{first}}
+{\footnotesize\ttfamily int queue\+::first}
+
+
+
+Queue start position. 
+
+\mbox{\Hypertarget{structqueue_af1b9435af9ae01649803763ae9f4661f}\label{structqueue_af1b9435af9ae01649803763ae9f4661f}} 
+\index{queue@{queue}!item@{item}}
+\index{item@{item}!queue@{queue}}
+\doxysubsubsection{\texorpdfstring{item}{item}}
+{\footnotesize\ttfamily char$\ast$ queue\+::item}
+
+
+
+Queue items. 
+
+\mbox{\Hypertarget{structqueue_a409f14cb964be349361cd0d4bb7a66c3}\label{structqueue_a409f14cb964be349361cd0d4bb7a66c3}} 
+\index{queue@{queue}!last@{last}}
+\index{last@{last}!queue@{queue}}
+\doxysubsubsection{\texorpdfstring{last}{last}}
+{\footnotesize\ttfamily int queue\+::last}
+
+
+
+Last queue position. 
+
+\mbox{\Hypertarget{structqueue_a8243d93f7d4ba0b48a601b856770d096}\label{structqueue_a8243d93f7d4ba0b48a601b856770d096}} 
+\index{queue@{queue}!max@{max}}
+\index{max@{max}!queue@{queue}}
+\doxysubsubsection{\texorpdfstring{max}{max}}
+{\footnotesize\ttfamily int queue\+::max}
+
+
+
+Queue capacity. 
+
