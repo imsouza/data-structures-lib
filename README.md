@@ -1,6 +1,6 @@
 # Data Structures Lib
 
-[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-in%20progress-orange)](https://github.com/imsouza/data-structures-lib) [![Netlify Doc Status](https://api.netlify.com/api/v1/badges/09f24ae2-82ed-4eb3-a08b-2ef2abc658ef/deploy-status)](https://data-structures-lib.netlify.app)
+[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-in%20progress-orange)](https://github.com/imsouza/data-structures-lib) [![Netlify Doc Status](https://api.netlify.com/api/v1/badges/09f24ae2-82ed-4eb3-a08b-2ef2abc658ef/deploy-status)](https://data-structures-lib.netlify.app) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
 
 A library of data structures for academic purposes
 
