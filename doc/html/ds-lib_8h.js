@@ -43,7 +43,7 @@ var ds_lib_8h =
     [ "findMax", "ds-lib_8h.html#ac602066bb1358e4ad8a706762175b19a", null ],
     [ "findMin", "ds-lib_8h.html#a23110cd153a67197ca9e79824e82cb97", null ],
     [ "frequency", "ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903", null ],
-    [ "generatetreeIsEmpty", "ds-lib_8h.html#a9d9db1d271f81da1b34e957e5c2e84a8", null ],
+    [ "generateEmptyTree", "ds-lib_8h.html#a699e5b0611aef9a557277c00ba4360a5", null ],
     [ "getHead", "ds-lib_8h.html#a7309ce184df2adbc336adb90c607fa0b", null ],
     [ "getListSize", "ds-lib_8h.html#a45907492a123f94a49ff31869124b71a", null ],
     [ "getNode", "ds-lib_8h.html#a6bf7156d62a4f7acc958b735b2f305f8", null ],

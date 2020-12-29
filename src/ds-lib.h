@@ -32,7 +32,7 @@
 #include <string.h>
 
 /**
- * @brief Macro definitions.
+ * Macro definitions.
  *
  * @warning Any changes made to the values ​​of the macros directly 
  * affect the processing of structures, avoid changes.
@@ -157,9 +157,8 @@ typedef struct map {
 } *Map;
 
 
-/**
- * Static message array for error handling.
- */
+
+//! brief Static message array for error handling.
 static const char * const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
@@ -396,7 +395,7 @@ queueIsFull (Queue index) {
 
 
 /**
- * This function insert an item in the queue.
+ * @brief This function insert an item in the queue.
  *
  * First, it is checked whether the queue is full, if true, 
  * processing will be aborted. Otherwise, the item must be 
@@ -422,7 +421,7 @@ enqueue (char element, Queue index) {
 
 
 /**
- * This function removes an item in the queue.
+ * @brief This function removes an item in the queue.
  *
  * Otherwise, the item at the beginning of the 
  * queue must be removed and copied to an auxiliary 
@@ -508,7 +507,7 @@ BSTree
 
 
 /**
- * This function checks if the node exists.
+ * @brief This function checks if the node exists.
  *
  * The insertion process starts by initializing an auxiliary 
  * structure with a NULL pointer and checking that the node 
@@ -597,7 +596,7 @@ displayPostOrder (BSTree *node) {
 
 
 /**
- * tTis function returns the root of the tree.
+ * This function returns the root of the tree.
  *
  * @param node Receives a node structure.
  */
