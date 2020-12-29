@@ -351,6 +351,16 @@ deleteStack (Stack *index) {
 }
 
 
+/**
+ * @brief This function creates a queue.
+ *
+ * This function allocates a memory area where a queue 
+ * structure will be created. The 'item' field pointed to 
+ * by 'index' is assigned to an address of a dynamic array 
+ * and, finally, the address of the queue structure is returned.
+ *
+ * @param max Maximum number of items in the stack.
+ */
 Queue 
 createQueue (int max) {
   Queue index  = malloc(sizeof(struct queue));
@@ -363,18 +373,41 @@ createQueue (int max) {
 }
 
 
+/**
+ * This function checks whether the queue is empty.
+ *
+ * @param index Receives a queue type structure.
+ */
 int 
 queueIsEmpty (Queue index) {
   return (index->count == 0);
 }
 
 
+/**
+ * This function checks whether the queue is full.
+ *
+ * @param index Receives a queue type structure.
+ */
 int 
 queueIsFull (Queue index) {
   return (index->count == index->max);
 }
 
 
+/**
+ * This function insert an item in the queue.
+ *
+ * First, it is checked whether the queue is full, if true, 
+ * processing will be aborted. Otherwise, the item must be 
+ * inserted at the end of the queue with the code 
+ * 'index-> ​​item [index-> ​​last]', then it will be advanced 
+ * circularly to the index' index-> ​​last 'and will be increased 
+ * in the counting field.
+ *
+ * @param element Item that will be inserted at the end of the queue.
+ * @param index Receives a queue type structure.
+ */
 void 
 enqueue (char element, Queue index) {
   if (queueIsFull (index)) {
@@ -388,6 +421,18 @@ enqueue (char element, Queue index) {
 }
 
 
+/**
+ * This function removes an item in the queue.
+ *
+ * Otherwise, the item at the beginning of the 
+ * queue must be removed and copied to an auxiliary 
+ * variable, in this case, 'element'. Then the index 
+ * 'index-> ​​first' will be circularly advanced and the 
+ * field 'count' decremented and finally the auxiliary 
+ * variable will be returned.
+ *
+ * @param index Receives a queue type structure.
+ */
 char 
 dequeue (Queue index) {
   if (queueIsEmpty(index)) {
@@ -402,6 +447,11 @@ dequeue (Queue index) {
 }
 
 
+/**
+ * This function gets the size of the queue.
+ *
+ * @param index Receives a queue type structure.
+ */
 int 
 getQueueSize (Queue index) {
   if (queueIsEmpty(index)) {
@@ -413,6 +463,11 @@ getQueueSize (Queue index) {
 }
 
 
+/**
+ * This function displays the queue on the screen.
+ *
+ * @param index Receives a queue type structure.
+ */
 void 
 displayQueue (Queue index) {
   if (queueIsEmpty(index)) {
@@ -426,6 +481,15 @@ displayQueue (Queue index) {
 }
 
 
+
+/**
+ * This function clears the queue and frees the memory.
+ *
+ * @warning The function call 'deleteQueue' must be made 
+ * with the address of the corresponding pointer.
+ *
+ * @param Receives a queue structure by reference.
+ */
 void 
 deleteQueue (Queue *index) {
   free((*index)->item);
@@ -434,12 +498,32 @@ deleteQueue (Queue *index) {
 }
 
 
+/**
+ * This function generates an empty tree.
+ */
 BSTree 
-*generatetreeIsEmpty () {
+*generateEmptyTree () {
   return NULL;
 }
 
 
+/**
+ * This function checks if the node exists.
+ *
+ * The insertion process starts by initializing an auxiliary 
+ * structure with a NULL pointer and checking that the node 
+ * is not present in the tree. If true, the auxiliary variable 
+ * will be allocated and the fields will be initialized and assigned 
+ * to the respective values. If the key is smaller than the current node, 
+ * it means that the item will be added on the left, otherwise it will 
+ * be added on the right.
+ *
+ * @param key Key that will be inserted in the tree.
+ * @param node Double pointer to a node.
+ * @warning When calling the 'insertNode' function, 
+ * the node must be initialized with a null pointer and
+ * only then passed as an argument.
+ */
 void 
 insertNode (int key, BSTree **node) {
   BSTree *temp = NULL;
@@ -456,12 +540,22 @@ insertNode (int key, BSTree **node) {
 }
 
 
+/**
+ * This function checks if the tree is empty.
+ *
+ * @param node Receives a node structure.
+ */
 int 
 treeIsEmpty (BSTree *node) {
   return (node == NULL);
 }
 
 
+/**
+ * This function displays a tree in pre-order on the screen.
+ *
+ * @param node Receives a node structure.
+ */
 void 
 displayPreOrder (BSTree *node) {
   if (node) {
@@ -472,6 +566,11 @@ displayPreOrder (BSTree *node) {
 }
 
 
+/**
+ * This function displays a tree in order on the screen.
+ *
+ * @param node Receives a node structure by reference.
+ */
 void 
 displayInOrder (BSTree *node) {
   if (node) {
@@ -482,6 +581,11 @@ displayInOrder (BSTree *node) {
 }
 
 
+/**
+ * This function displays a tree in post-order on the screen.
+ *
+ * @param node Receives a node structure.
+ */
 void 
 displayPostOrder (BSTree *node) {
   if (node) {
@@ -492,12 +596,22 @@ displayPostOrder (BSTree *node) {
 }
 
 
+/**
+ * tTis function returns the root of the tree.
+ *
+ * @param node Receives a node structure.
+ */
 char 
 getRoot (BSTree *index) {
   return index->node;
 }
 
 
+/**
+ * This function checks if the tree is empty.
+ *
+ * @param node Receives a node structure.
+ */
 int 
 getNode (BSTree *index) {
   if (index) {
@@ -509,6 +623,11 @@ getNode (BSTree *index) {
 }
 
 
+/**
+ * This function checks if the node exists.
+ *
+ * @param node Receives a node structure.
+ */
 int 
 nodeExists (BSTree *index) {
   if (index != NULL) {
@@ -519,6 +638,13 @@ nodeExists (BSTree *index) {
 }
 
 
+/**
+ * This function checks if the node exists and returns 1 
+ * in a true case and 0 in a false case.
+ *
+ * @param key Key that will be searched.
+ * @param Double pointer to a node.
+ */
 int 
 search (int key, BSTree **node) {
   if (!(*node)) { return 0; }
@@ -528,6 +654,12 @@ search (int key, BSTree **node) {
 }
 
 
+/**
+ * This function searches for the smallest node 
+ * and returns it.
+ *
+ * @param node Receives a node structure.
+ */
 BSTree 
 *findMin (BSTree *node) {
   if (node == NULL) { return NULL; }
@@ -536,6 +668,12 @@ BSTree
 }
 
 
+/**
+ * This function searches for the largest node 
+ * and returns it.
+ *
+ * @param node Receives a node structure.
+ */
 BSTree 
 *findMax (BSTree *node) {
   if (node == NULL) { return NULL; }
@@ -544,6 +682,11 @@ BSTree
 }
 
 
+/**
+ * This function clears the tree and frees the memory.
+ *
+ * @param Receives a node structure.
+ */
 void 
 deleteTree (BSTree *node) {
   if (node) {
@@ -711,6 +854,7 @@ displayMap (Map index) {
 
   printf("\n}\n");
 }
+
 
 
 void 
