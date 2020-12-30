@@ -340,7 +340,7 @@ displayStack (Stack index) {
  * @warning The function call 'deleteStack' must be made 
  * with the address of the corresponding pointer.
  *
- * @param Receives a stack structure by reference.
+ * @param index Receives a stack structure by reference.
  */
 void 
 deleteStack (Stack *index) {
@@ -487,7 +487,7 @@ displayQueue (Queue index) {
  * @warning The function call 'deleteQueue' must be made 
  * with the address of the corresponding pointer.
  *
- * @param Receives a queue structure by reference.
+ * @param index Receives a queue structure by reference.
  */
 void 
 deleteQueue (Queue *index) {
@@ -542,7 +542,7 @@ insertNode (int key, BSTree **node) {
 /**
  * This function checks if the tree is empty.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 int 
 treeIsEmpty (BSTree *node) {
@@ -553,7 +553,7 @@ treeIsEmpty (BSTree *node) {
 /**
  * This function displays a tree in pre-order on the screen.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 void 
 displayPreOrder (BSTree *node) {
@@ -583,7 +583,7 @@ displayInOrder (BSTree *node) {
 /**
  * This function displays a tree in post-order on the screen.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 void 
 displayPostOrder (BSTree *node) {
@@ -598,7 +598,7 @@ displayPostOrder (BSTree *node) {
 /**
  * This function returns the root of the tree.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 char 
 getRoot (BSTree *index) {
@@ -609,7 +609,7 @@ getRoot (BSTree *index) {
 /**
  * This function checks if the tree is empty.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 int 
 getNode (BSTree *index) {
@@ -625,7 +625,7 @@ getNode (BSTree *index) {
 /**
  * This function checks if the node exists.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 int 
 nodeExists (BSTree *index) {
@@ -642,7 +642,7 @@ nodeExists (BSTree *index) {
  * in a true case and 0 in a false case.
  *
  * @param key Key that will be searched.
- * @param Double pointer to a node.
+ * @param node Double pointer to a node.
  */
 int 
 search (int key, BSTree **node) {
@@ -657,7 +657,7 @@ search (int key, BSTree **node) {
  * This function searches for the smallest node 
  * and returns it.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 BSTree 
 *findMin (BSTree *node) {
@@ -671,7 +671,7 @@ BSTree
  * This function searches for the largest node 
  * and returns it.
  *
- * @param node Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 BSTree 
 *findMax (BSTree *node) {
@@ -684,7 +684,7 @@ BSTree
 /**
  * This function clears the tree and frees the memory.
  *
- * @param Receives a node structure.
+ * @param node Receives a node structure by reference.
  */
 void 
 deleteTree (BSTree *node) {
@@ -697,6 +697,16 @@ deleteTree (BSTree *node) {
 }
 
 
+/**
+ * @brief This function creates a list.
+ *
+ * This function allocates a memory area for the node. 
+ * Assign the received values ​​and return the address of the 
+ * memory area in which it was created.
+ *
+ * @param element Element that will be inserted in the list.
+ * @param index Receives a list type structure.
+ */
 List 
 createList (int element, List index) {
   List node = malloc(sizeof(struct list));
@@ -706,6 +716,11 @@ createList (int element, List index) {
 }
 
 
+/**
+ * This function displays the list elements on the screen.
+ *
+ * @param index Receives a list type structure.
+ */
 void 
 displayList (List index) {
   while (index != NULL) {
@@ -715,6 +730,12 @@ displayList (List index) {
 }
 
 
+/**
+ * This function displays the list elements on the screen 
+ * in reverse order.
+ *
+ * @param index Receives a list type structure.
+ */
 void 
 displayReverseList (List index) {
   if (index == NULL) { return; }
@@ -723,6 +744,18 @@ displayReverseList (List index) {
 }
 
 
+/**
+ * This function concatenates a list at the end of the other.
+ *
+ * The function 'concatList' takes the address of two lists as 
+ * a parameter by reference. When the function is called, it is 
+ * checked if any of the two lists is NULL, if true, the list 
+ * itself will be returned. Then there will be a loop where each 
+ * value of 'B' will be assigned at the end of the 'A' list.
+ *
+ * @param A Receives a list type structure by reference.
+ * @param B Receives a list type structure by reference.
+ */
 List 
 *concatList (List *A, List *B) {
   List *temp;
@@ -742,6 +775,11 @@ List
 }
 
 
+/**
+ * This function clones a list and generates a new list.
+ *
+ * @param index Receives a list type structure.
+ */
 List 
 cloneList (List index) {
   if (index == NULL) { return NULL; }
@@ -749,6 +787,11 @@ cloneList (List index) {
 }
 
 
+/**
+ * This function gets the number of elements in the list.
+ *
+ * @param index Receives a list type structure.
+ */
 int 
 getListSize (List index) {
   if (index == NULL) { return 0; }
@@ -756,6 +799,11 @@ getListSize (List index) {
 } 
 
 
+/**
+ * This function checks whether the list is empty or not.
+ *
+ * @param index Receives a list type structure.
+ */
 int 
 listIsEmpty (List index) {
   if (getListSize(index) > 0) { return 0; }
@@ -763,6 +811,11 @@ listIsEmpty (List index) {
 }
 
 
+/**
+ * This function gets the first item inserted in the list.
+ *
+ * @param index Receives a list type structure.
+ */
 int 
 getHead (List index) {
   if (listIsEmpty(index) == 1 || index == NULL) {
@@ -773,6 +826,11 @@ getHead (List index) {
 }
 
 
+/**
+ * This function checks whether an item exists in the list.
+ *
+ * @param index Receives a list type structure.
+ */
 int 
 itemExists (int item, List index) {
   if (index == NULL) { return 0; }
@@ -781,6 +839,11 @@ itemExists (int item, List index) {
 }
 
 
+/**
+ * This function clears the list and frees the memory.
+ *
+ * @param index Receives a list type structure by reference.
+ */
 void 
 deleteList (List *index) {
   while (*index != NULL) {
@@ -792,6 +855,17 @@ deleteList (List *index) {
 }
 
 
+/**
+ * @brief This function creates a map.
+ *
+ * This function allocates a memory area for mapping and assigns
+ * the respective parameter values ​​for the fields.
+ *
+ * @param key Key that will be inserted in the mapping.
+ * @param value Value passed by reference that will be inserted 
+ * in the mapping.
+ * @param index Receives a map type structure.
+ */
 Map 
 createMap (int key, char *value, Map index) {
   Map node = malloc(sizeof(struct map));
@@ -802,6 +876,21 @@ createMap (int key, char *value, Map index) {
 }
 
 
+/**
+ * @brief This function inserts a key and a value in the mapping.
+ *
+ * Repeat starts to move the 'index' pointer to
+ * that points to a null pointer or that points to a
+ * larger key equal to the 'key' parameter. So, if the pointed key 
+ * is equal to the 'key' parameter the value associated with the 
+ * key is changed to the 'value' parameter.
+ * Otherwise, a new node is created.
+ *
+ * @param key Key that will be inserted in the mapping.
+ * @param value Value passed by reference that will be inserted 
+ * in the mapping.
+ * @param index Receives a map type structure by reference.
+ */
 void 
 insertMap (int key, char *value, Map *index) {
   while (*index != NULL && (*index)->key < *value) {
@@ -814,6 +903,20 @@ insertMap (int key, char *value, Map *index) {
 }
 
 
+/**
+ * @brief This function removes a key from the mapping.
+ *
+ * The repetition begins to move the 'index' pointer so 
+ * that it points to a null pointer or that it points to a 
+ * larger key equal to the 'key' parameter. At the end of 
+ * the repetition, if the pointer pointed to by 'index' is 
+ * null or pointing to a key greater than the 'key' parameter, 
+ * 0 is returned indicating that the key does not exist. 
+ * Otherwise, the node is deallocated and returned 1.
+ *
+ * @param key Key that will be inserted in the mapping.
+ * @param index Receives a map type structure by reference.
+ */
 int 
 removeMap (int key, Map *index) {
   while (*index != NULL && (*index)->key < key) {
@@ -829,6 +932,12 @@ removeMap (int key, Map *index) {
 }
 
 
+/**
+ * This function checks if a key exists in the mapping.
+ *
+ * @param key Search key.
+ * @param index Receives a map type structure.
+ */
 int 
 keyExists (int key, Map index) {
   while (index != NULL && index->key < key) {
@@ -839,6 +948,11 @@ keyExists (int key, Map index) {
 }
 
 
+/**
+ * This function displays the mapping on the screen.
+ *
+ * @param index Receives a map type structure.
+ */
 void 
 displayMap (Map index) {
   printf("{\n");
@@ -855,7 +969,11 @@ displayMap (Map index) {
 }
 
 
-
+/**
+ * This function clears the map and frees the memory.
+ *
+ * @param index Receives a map type structure by reference.
+ */
 void 
 deleteMap (Map *index) {
   while ((*index) != NULL) {
