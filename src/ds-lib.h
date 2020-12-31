@@ -37,18 +37,18 @@
  * @warning Any changes made to the values ​​of the macros directly 
  * affect the processing of structures, avoid changes.
  */
-#ifndef NEXT
+#ifndef NEXT         ///< Macro to advance the index circularly.
 #define NEXT(element) \
 (element = (element + 1) % index->max)
 #endif
 #ifndef FREQ
-#define FREQ 256    ///< Frequency constant
+#define FREQ 256    ///< Frequency constant.
 #endif
 #ifndef SIZE
-#define SIZE 25     ///< Define the size of the 'value' field
+#define SIZE 25     ///< Define the size of the 'value' field.
 #endif
 #ifndef HCOL
-#define HCOL 5      ///< Define the number of columns that will be displayed
+#define HCOL 5      ///< Define the number of columns that will be displayed.
 #endif
 
 /**
@@ -306,7 +306,7 @@ stackTop (Stack index) {
  * @param index Receives a stack type structure.
  */
 int 
-stackSize (Stack index) {
+getStackSize (Stack index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
@@ -984,6 +984,18 @@ deleteMap (Map *index) {
 }
 
 
+/**
+ * @brief This function creates a huffman tree node.
+ *
+ * This function receives two Huffman trees, a character 
+ * and a frequency as input and the created node 
+ * address is returned
+ *
+ * @param left Left hufftree.
+ * @param chr Fharacter.
+ * @param frq Frequency.
+ * @param left Right hufftree.
+ */
 Hufftree 
 createHufftreeNode (Hufftree left, char chr, int frq, Hufftree right) {
   Hufftree index = malloc(sizeof(struct htree));
@@ -995,6 +1007,12 @@ createHufftreeNode (Hufftree left, char chr, int frq, Hufftree right) {
 }
 
 
+/**
+ * This function gets the frequency of ASCII characters in 
+ * a string.
+ *
+ * @param string String that should be passed as an argument.
+ */
 int 
 *frequency (char *string) {
   static int array[FREQ];
@@ -1011,6 +1029,17 @@ int
 }
 
 
+/**
+ * @brief This function inserts an ordered tree in the forest.
+ * 
+ * Given a tree passed by argument and a forest with a 'qty' 
+ * number of trees, this function inserts the tree into the 
+ * forest, in descending order and then increments 'qty'
+ * 
+ * @param tree Receive a tree.
+ * @param forest Receive a forest by reference.
+ * @param qty Receives the size of the forest by reference.
+ */
 void 
 insertTree (Hufftree tree, Hufftree *forest, int *qty) {
   int i = *qty;
@@ -1025,6 +1054,16 @@ insertTree (Hufftree tree, Hufftree *forest, int *qty) {
 }
 
 
+/**
+ * @brief This function removes the lightest tree in the forest.
+ * 
+ * The forest is a vector of trees of decreasing order, to 
+ * remove a tree of less weight from the forest it is necessary 
+ * to remove the last tree in the vector.
+ * 
+ * @param forest Receive a forest by reference.
+ * @param qty Receives the size of the forest by reference.
+ */
 Hufftree 
 removeTree (Hufftree *forest, int *qty) {
   if (*qty == 0) { abort(); }
@@ -1032,6 +1071,11 @@ removeTree (Hufftree *forest, int *qty) {
 }
 
 
+/**
+ * @brief This function creates a huffman tree for a string.
+ * 
+ * @param string String that should be passed as an argument.
+ */
 Hufftree 
 createHufftree (char *string) {
   Hufftree forest[FREQ];
@@ -1056,6 +1100,11 @@ createHufftree (char *string) {
 }
 
 
+/**
+ * This function displays a huffman tree on the screen.
+ *
+ * @param tree Receives a hufftree type structure.
+ */
 void 
 displayHufftree (Hufftree tree) {
   static int node = -1;
@@ -1078,6 +1127,11 @@ displayHufftree (Hufftree tree) {
 }
 
 
+/**
+ * This function displays the tree leaves on the screen.
+ *
+ * @param tree Receives a hufftree type structure.
+ */
 void 
 displayLeaves (Hufftree tree) {
   static char array[FREQ], last = -1;
@@ -1094,6 +1148,16 @@ displayLeaves (Hufftree tree) {
 }
 
 
+/**
+ * This function creates a table of huffman codes.
+ *
+ * @note The 'strndup ()' function of the 'string.h' 
+ * library is used to make a copy of the string before 
+ * saving it to T.
+ *
+ * @param tree Receives a hufftree type structure.
+ * @param T Vector for storage.
+ */
 void 
 createTable (Hufftree tree, char *T[]) {
   static char array[FREQ], last = -1;
@@ -1109,6 +1173,12 @@ createTable (Hufftree tree, char *T[]) {
 }
 
 
+/**
+ * This function compresses a string.
+ *
+ * @param string String that should be passed as an argument.
+ * @param tree Receives a hufftree type structure.
+ */
 void 
 compressString (char *string, Hufftree tree) {
   char *T[FREQ];
@@ -1129,6 +1199,12 @@ compressString (char *string, Hufftree tree) {
 }
 
 
+/**
+ * This function decompresses a string.
+ *
+ * @param string String that should be passed as an argument.
+ * @param tree Receives a hufftree type structure.
+ */
 void 
 decompressString (char *string, Hufftree tree) {
   if (tree == NULL) { return; }

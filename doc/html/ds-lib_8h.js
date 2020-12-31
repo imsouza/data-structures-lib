@@ -49,6 +49,7 @@ var ds_lib_8h =
     [ "getNode", "ds-lib_8h.html#a6bf7156d62a4f7acc958b735b2f305f8", null ],
     [ "getQueueSize", "ds-lib_8h.html#a57b47aff98c489c24a04cf5279ce257d", null ],
     [ "getRoot", "ds-lib_8h.html#abcba9631d546ab77e69bbbe433c87a9a", null ],
+    [ "getStackSize", "ds-lib_8h.html#a52fa17bbecaf9d5b574a3b9ec7bf0766", null ],
     [ "insertMap", "ds-lib_8h.html#adf1858bc99fc0cef5b96522f5a7e2453", null ],
     [ "insertNode", "ds-lib_8h.html#a622bcc5f66fb3e576c543ffbe410db42", null ],
     [ "insertTree", "ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205", null ],
@@ -65,7 +66,6 @@ var ds_lib_8h =
     [ "stackIsFull", "ds-lib_8h.html#a93173d1ddb04426419f4543a197c883d", null ],
     [ "stackPop", "ds-lib_8h.html#a6cb1818f912e8e937acf020fa7925fd5", null ],
     [ "stackPush", "ds-lib_8h.html#acab2fd519b69131fdf95d4679988cfd4", null ],
-    [ "stackSize", "ds-lib_8h.html#a4efab0163f6e9c75625b1356c66de94d", null ],
     [ "stackTop", "ds-lib_8h.html#a260df97229d720a3e243d2bec66eef86", null ],
     [ "treeIsEmpty", "ds-lib_8h.html#a6c1e63edc38f52284136c07cf9198eb8", null ]
 ];

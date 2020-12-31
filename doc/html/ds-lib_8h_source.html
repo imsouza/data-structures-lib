@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifndef NEXT</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifndef NEXT         </span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#define NEXT(element) \</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">(element = (element + 1) % index-&gt;max)</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -261,7 +261,7 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keywordtype">int</span> </div>
-<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a4efab0163f6e9c75625b1356c66de94d">  309</a></span>&#160;<a class="code" href="ds-lib_8h.html#a4efab0163f6e9c75625b1356c66de94d">stackSize</a> (<a class="code" href="structstack.html">Stack</a> index) {</div>
+<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a52fa17bbecaf9d5b574a3b9ec7bf0766">  309</a></span>&#160;<a class="code" href="ds-lib_8h.html#a52fa17bbecaf9d5b574a3b9ec7bf0766">getStackSize</a> (<a class="code" href="structstack.html">Stack</a> index) {</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="ds-lib_8h.html#a421230cf1f6e3520157225eb0bea4a06">stackIsEmpty</a>(index)) {</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    printf(<span class="stringliteral">&quot;%s&quot;</span>, messages[2]);</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    abort();</div>
@@ -665,169 +665,169 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;}</div>
 <div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160; </div>
 <div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160; </div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;<a class="code" href="structhtree.html">Hufftree</a> </div>
-<div class="line"><a name="l00988"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">  988</a></span>&#160;<a class="code" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a> (<a class="code" href="structhtree.html">Hufftree</a> left, <span class="keywordtype">char</span> chr, <span class="keywordtype">int</span> frq, <a class="code" href="structhtree.html">Hufftree</a> right) {</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;  <a class="code" href="structhtree.html">Hufftree</a> index = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structhtree.html">htree</a>));</div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;  index-&gt;<a class="code" href="structhtree.html#a84e98587b29735e14578cb65acbe27b2">left</a>  = left;</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;  index-&gt;<a class="code" href="structhtree.html#a94e24c4ff5870c1b586ba2fdfc8859b5">chr</a>   = chr;</div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;  index-&gt;<a class="code" href="structhtree.html#a99e5fd65a5cddcd4d7c37c8aad287788">frq</a>   = frq;</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;  index-&gt;<a class="code" href="structhtree.html#acc5c670e2db5284e8e5020ee84c5ff11">right</a> = right;</div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;  <span class="keywordflow">return</span> index;</div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;}</div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160; </div>
-<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160; </div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;<span class="keywordtype">int</span> </div>
-<div class="line"><a name="l00999"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903">  999</a></span>&#160;*<a class="code" href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903">frequency</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>) {</div>
-<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> array[FREQ];</div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160; </div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; FREQ; i++) {</div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;    array[i] = 0;</div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;  } </div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160; </div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <span class="keywordtype">string</span>[i]; i++) {</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;    array[<span class="keywordtype">string</span>[i]]++;</div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;  }</div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;<a class="code" href="structhtree.html">Hufftree</a> </div>
+<div class="line"><a name="l01000"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992"> 1000</a></span>&#160;<a class="code" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a> (<a class="code" href="structhtree.html">Hufftree</a> left, <span class="keywordtype">char</span> chr, <span class="keywordtype">int</span> frq, <a class="code" href="structhtree.html">Hufftree</a> right) {</div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;  <a class="code" href="structhtree.html">Hufftree</a> index = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structhtree.html">htree</a>));</div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;  index-&gt;<a class="code" href="structhtree.html#a84e98587b29735e14578cb65acbe27b2">left</a>  = left;</div>
+<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;  index-&gt;<a class="code" href="structhtree.html#a94e24c4ff5870c1b586ba2fdfc8859b5">chr</a>   = chr;</div>
+<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;  index-&gt;<a class="code" href="structhtree.html#a99e5fd65a5cddcd4d7c37c8aad287788">frq</a>   = frq;</div>
+<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;  index-&gt;<a class="code" href="structhtree.html#acc5c670e2db5284e8e5020ee84c5ff11">right</a> = right;</div>
+<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;  <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;}</div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160; </div>
 <div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160; </div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;  <span class="keywordflow">return</span> array;</div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;}</div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160; </div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160; </div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;<span class="keywordtype">void</span> </div>
-<div class="line"><a name="l01015"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205"> 1015</a></span>&#160;<a class="code" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>, <a class="code" href="structhtree.html">Hufftree</a> *forest, <span class="keywordtype">int</span> *qty) {</div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;  <span class="keywordtype">int</span> i = *qty;</div>
-<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160; </div>
-<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;  <span class="keywordflow">while</span>(i &gt; 0 &amp;&amp; forest[i - 1]-&gt;frq &lt; tree-&gt;frq) {</div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;    forest[i] = forest[i - 1];</div>
-<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;    i--;</div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;  }</div>
-<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160; </div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;  forest[i] = <a class="code" href="structtree.html">tree</a>;</div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;  (*qty)++;</div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;}</div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160; </div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;<span class="keywordtype">int</span> </div>
+<div class="line"><a name="l01017"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903"> 1017</a></span>&#160;*<a class="code" href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903">frequency</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>) {</div>
+<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> array[FREQ];</div>
+<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160; </div>
+<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; FREQ; i++) {</div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;    array[i] = 0;</div>
+<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;  } </div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160; </div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <span class="keywordtype">string</span>[i]; i++) {</div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;    array[<span class="keywordtype">string</span>[i]]++;</div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;  }</div>
 <div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160; </div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;<a class="code" href="structhtree.html">Hufftree</a> </div>
-<div class="line"><a name="l01029"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13"> 1029</a></span>&#160;<a class="code" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a> (<a class="code" href="structhtree.html">Hufftree</a> *forest, <span class="keywordtype">int</span> *qty) {</div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;  <span class="keywordflow">if</span> (*qty == 0) { abort(); }</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;  <span class="keywordflow">return</span> forest[--(*qty)];</div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;}</div>
-<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160; </div>
-<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160; </div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;<a class="code" href="structhtree.html">Hufftree</a> </div>
-<div class="line"><a name="l01036"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a956bafad34a2f98b4cc1a106123bdac6"> 1036</a></span>&#160;<a class="code" href="ds-lib_8h.html#a956bafad34a2f98b4cc1a106123bdac6">createHufftree</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>) {</div>
-<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;  <a class="code" href="structhtree.html">Hufftree</a> forest[FREQ];</div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;  <span class="keywordtype">int</span> qty = 0;</div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;  <span class="keywordtype">int</span> *leaf = <a class="code" href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903">frequency</a>(<span class="keywordtype">string</span>);</div>
-<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160; </div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> chr = 0; chr &lt; FREQ; chr++) {</div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;    <span class="keywordflow">if</span> (leaf[chr] &gt; 0) {</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;      <a class="code" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a>(<a class="code" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a>(NULL, chr, leaf[chr], NULL),</div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;      forest, &amp;qty);</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    }</div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;  }</div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160; </div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;  <span class="keywordflow">while</span> (qty &gt; 1) {</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;    <a class="code" href="structhtree.html">Hufftree</a> right = <a class="code" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a>(forest, &amp;qty);</div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;    <a class="code" href="structhtree.html">Hufftree</a> left  = <a class="code" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a>(forest, &amp;qty);</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;    <a class="code" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a>(<a class="code" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a>(left, <span class="charliteral">&#39;-&#39;</span>, left-&gt;<a class="code" href="structhtree.html#a99e5fd65a5cddcd4d7c37c8aad287788">frq</a> + right-&gt;<a class="code" href="structhtree.html#a99e5fd65a5cddcd4d7c37c8aad287788">frq</a>, right),</div>
-<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;    forest, &amp;qty);</div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;  }</div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160; </div>
-<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;  <span class="keywordflow">return</span> forest[0];</div>
-<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;}</div>
-<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160; </div>
-<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160; </div>
-<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;<span class="keywordtype">void</span> </div>
-<div class="line"><a name="l01060"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65"> 1060</a></span>&#160;<a class="code" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> node = -1;</div>
-<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160; </div>
-<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
-<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160; </div>
-<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;  node++;</div>
-<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160; </div>
-<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;  <a class="code" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a>);</div>
-<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160; </div>
-<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; HCOL * node; i++) {</div>
-<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;    putchar(<span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;  }</div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;  <span class="keywordflow">return</span> array;</div>
+<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;}</div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160; </div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160; </div>
+<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l01044"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205"> 1044</a></span>&#160;<a class="code" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>, <a class="code" href="structhtree.html">Hufftree</a> *forest, <span class="keywordtype">int</span> *qty) {</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;  <span class="keywordtype">int</span> i = *qty;</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160; </div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;  <span class="keywordflow">while</span>(i &gt; 0 &amp;&amp; forest[i - 1]-&gt;frq &lt; tree-&gt;frq) {</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;    forest[i] = forest[i - 1];</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;    i--;</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;  }</div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160; </div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;  forest[i] = <a class="code" href="structtree.html">tree</a>;</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;  (*qty)++;</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;}</div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160; </div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160; </div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;<a class="code" href="structhtree.html">Hufftree</a> </div>
+<div class="line"><a name="l01068"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13"> 1068</a></span>&#160;<a class="code" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a> (<a class="code" href="structhtree.html">Hufftree</a> *forest, <span class="keywordtype">int</span> *qty) {</div>
+<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;  <span class="keywordflow">if</span> (*qty == 0) { abort(); }</div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;  <span class="keywordflow">return</span> forest[--(*qty)];</div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;}</div>
 <div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160; </div>
-<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;  printf(<span class="stringliteral">&quot;(%c, %i)\n&quot;</span>, <a class="code" href="structtree.html">tree</a>-&gt;chr, <a class="code" href="structtree.html">tree</a>-&gt;frq);</div>
-<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160; </div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;  <a class="code" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a>);</div>
-<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160; </div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;  node--;</div>
-<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;}</div>
-<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160; </div>
-<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160; </div>
-<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;<span class="keywordtype">void</span> </div>
-<div class="line"><a name="l01082"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0"> 1082</a></span>&#160;<a class="code" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span> array[FREQ], last = -1;</div>
+<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160; </div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;<a class="code" href="structhtree.html">Hufftree</a> </div>
+<div class="line"><a name="l01080"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a956bafad34a2f98b4cc1a106123bdac6"> 1080</a></span>&#160;<a class="code" href="ds-lib_8h.html#a956bafad34a2f98b4cc1a106123bdac6">createHufftree</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>) {</div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;  <a class="code" href="structhtree.html">Hufftree</a> forest[FREQ];</div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;  <span class="keywordtype">int</span> qty = 0;</div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;  <span class="keywordtype">int</span> *leaf = <a class="code" href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903">frequency</a>(<span class="keywordtype">string</span>);</div>
 <div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160; </div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
-<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a> == NULL &amp;&amp; <a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a> == NULL) {</div>
-<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;    printf(<span class="stringliteral">&quot;%c : %.*s\n&quot;</span>, <a class="code" href="structtree.html">tree</a>-&gt;chr, last + 1, array);</div>
-<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;    last++; </div>
-<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;    array[last] = <span class="charliteral">&#39;0&#39;</span>; <a class="code" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a>);</div>
-<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;    array[last] = <span class="charliteral">&#39;1&#39;</span>; <a class="code" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a>);</div>
-<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;    last--;</div>
-<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;  }</div>
-<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;}</div>
-<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160; </div>
-<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160; </div>
-<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;<span class="keywordtype">void</span> </div>
-<div class="line"><a name="l01098"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688"> 1098</a></span>&#160;<a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>, <span class="keywordtype">char</span> *T[]) {</div>
-<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span> array[FREQ], last = -1;</div>
-<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
-<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a> == NULL &amp;&amp; <a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a> == NULL) {</div>
-<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;    T[<a class="code" href="structtree.html">tree</a>-&gt;chr] = strndup(array, last+1);</div>
-<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;    last++;</div>
-<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;    array[last] = <span class="charliteral">&#39;0&#39;</span>; <a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a>, T);</div>
-<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;    array[last] = <span class="charliteral">&#39;1&#39;</span>; <a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a>, T);</div>
-<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;    last--;</div>
-<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;  }</div>
-<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;}</div>
-<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160; </div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> chr = 0; chr &lt; FREQ; chr++) {</div>
+<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;    <span class="keywordflow">if</span> (leaf[chr] &gt; 0) {</div>
+<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;      <a class="code" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a>(<a class="code" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a>(NULL, chr, leaf[chr], NULL),</div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;      forest, &amp;qty);</div>
+<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;    }</div>
+<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;  }</div>
+<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160; </div>
+<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;  <span class="keywordflow">while</span> (qty &gt; 1) {</div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;    <a class="code" href="structhtree.html">Hufftree</a> right = <a class="code" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a>(forest, &amp;qty);</div>
+<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;    <a class="code" href="structhtree.html">Hufftree</a> left  = <a class="code" href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a>(forest, &amp;qty);</div>
+<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;    <a class="code" href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a>(<a class="code" href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a>(left, <span class="charliteral">&#39;-&#39;</span>, left-&gt;<a class="code" href="structhtree.html#a99e5fd65a5cddcd4d7c37c8aad287788">frq</a> + right-&gt;<a class="code" href="structhtree.html#a99e5fd65a5cddcd4d7c37c8aad287788">frq</a>, right),</div>
+<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;    forest, &amp;qty);</div>
+<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;  }</div>
+<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160; </div>
+<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;  <span class="keywordflow">return</span> forest[0];</div>
+<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;}</div>
+<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160; </div>
+<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160; </div>
+<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l01109"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65"> 1109</a></span>&#160;<a class="code" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
+<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> node = -1;</div>
 <div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160; </div>
-<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;<span class="keywordtype">void</span> </div>
-<div class="line"><a name="l01113"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#aee85a50d942cf4f5ac68431d25ee9ea7"> 1113</a></span>&#160;<a class="code" href="ds-lib_8h.html#aee85a50d942cf4f5ac68431d25ee9ea7">compressString</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
-<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;  <span class="keywordtype">char</span> *T[FREQ];</div>
+<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160; </div>
+<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;  node++;</div>
 <div class="line"><a name="l01115"></a><span class="lineno"> 1115</span>&#160; </div>
-<div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> chr = 0; chr &lt; FREQ; chr++) {</div>
-<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;    T[chr] = NULL;</div>
-<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;  }</div>
-<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160; </div>
-<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;  <a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a>(<a class="code" href="structtree.html">tree</a>, T);</div>
+<div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;  <a class="code" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a>);</div>
+<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160; </div>
+<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; HCOL * node; i++) {</div>
+<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;    putchar(<span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;  }</div>
 <div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160; </div>
-<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <span class="keywordtype">string</span>[i]; i++) {</div>
-<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;    printf(<span class="stringliteral">&quot;%s&quot;</span>, T[<span class="keywordtype">string</span>[i]]);</div>
-<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;  }</div>
+<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;  printf(<span class="stringliteral">&quot;(%c, %i)\n&quot;</span>, <a class="code" href="structtree.html">tree</a>-&gt;chr, <a class="code" href="structtree.html">tree</a>-&gt;frq);</div>
+<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160; </div>
+<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;  <a class="code" href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a>);</div>
 <div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160; </div>
-<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> chr = 0; chr &lt; FREQ; chr++) {</div>
-<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;    free(T[chr]);</div>
-<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;  }</div>
-<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;}</div>
-<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160; </div>
-<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160; </div>
-<div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;<span class="keywordtype">void</span> </div>
-<div class="line"><a name="l01133"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#aabd93b27ce002f023cfcbd7387733640"> 1133</a></span>&#160;<a class="code" href="ds-lib_8h.html#aabd93b27ce002f023cfcbd7387733640">decompressString</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
-<div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
-<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;  <a class="code" href="structhtree.html">Hufftree</a> root = <a class="code" href="structtree.html">tree</a>;</div>
-<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160; </div>
-<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <span class="keywordtype">string</span>[i]; i++) {</div>
-<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;   <span class="keywordflow">if</span> (<span class="keywordtype">string</span>[i] == <span class="charliteral">&#39;0&#39;</span>) {</div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;    root = root-&gt;<a class="code" href="structhtree.html#a84e98587b29735e14578cb65acbe27b2">left</a>;</div>
-<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;   } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;    root = root-&gt;<a class="code" href="structhtree.html#acc5c670e2db5284e8e5020ee84c5ff11">right</a>;</div>
-<div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;   }</div>
-<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160; </div>
-<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;   <span class="keywordflow">if</span> (root-&gt;<a class="code" href="structhtree.html#a84e98587b29735e14578cb65acbe27b2">left</a> == NULL &amp;&amp; root-&gt;<a class="code" href="structhtree.html#acc5c670e2db5284e8e5020ee84c5ff11">right</a> == NULL) {</div>
-<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;    printf(<span class="stringliteral">&quot;%c&quot;</span>, root-&gt;<a class="code" href="structhtree.html#a94e24c4ff5870c1b586ba2fdfc8859b5">chr</a>);</div>
-<div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;    root = <a class="code" href="structtree.html">tree</a>;</div>
-<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;   }</div>
-<div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;  }</div>
-<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;}</div>
+<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;  node--;</div>
+<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;}</div>
+<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160; </div>
+<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160; </div>
+<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l01136"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0"> 1136</a></span>&#160;<a class="code" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
+<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span> array[FREQ], last = -1;</div>
+<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160; </div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a> == NULL &amp;&amp; <a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a> == NULL) {</div>
+<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;    printf(<span class="stringliteral">&quot;%c : %.*s\n&quot;</span>, <a class="code" href="structtree.html">tree</a>-&gt;chr, last + 1, array);</div>
+<div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;    last++; </div>
+<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;    array[last] = <span class="charliteral">&#39;0&#39;</span>; <a class="code" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a>);</div>
+<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;    array[last] = <span class="charliteral">&#39;1&#39;</span>; <a class="code" href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a>);</div>
+<div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;    last--;</div>
+<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;  }</div>
+<div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;}</div>
+<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160; </div>
+<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160; </div>
+<div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l01162"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688"> 1162</a></span>&#160;<a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a> (<a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>, <span class="keywordtype">char</span> *T[]) {</div>
+<div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span> array[FREQ], last = -1;</div>
+<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a> == NULL &amp;&amp; <a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a> == NULL) {</div>
+<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;    T[<a class="code" href="structtree.html">tree</a>-&gt;chr] = strndup(array, last+1);</div>
+<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;    last++;</div>
+<div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;    array[last] = <span class="charliteral">&#39;0&#39;</span>; <a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">left</a>, T);</div>
+<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;    array[last] = <span class="charliteral">&#39;1&#39;</span>; <a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a>(<a class="code" href="structtree.html">tree</a>-&gt;<a class="code" href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">right</a>, T);</div>
+<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;    last--;</div>
+<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;  }</div>
+<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;}</div>
+<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160; </div>
+<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160; </div>
+<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l01183"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#aee85a50d942cf4f5ac68431d25ee9ea7"> 1183</a></span>&#160;<a class="code" href="ds-lib_8h.html#aee85a50d942cf4f5ac68431d25ee9ea7">compressString</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
+<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;  <span class="keywordtype">char</span> *T[FREQ];</div>
+<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160; </div>
+<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> chr = 0; chr &lt; FREQ; chr++) {</div>
+<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;    T[chr] = NULL;</div>
+<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;  }</div>
+<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160; </div>
+<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;  <a class="code" href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a>(<a class="code" href="structtree.html">tree</a>, T);</div>
+<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160; </div>
+<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <span class="keywordtype">string</span>[i]; i++) {</div>
+<div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;    printf(<span class="stringliteral">&quot;%s&quot;</span>, T[<span class="keywordtype">string</span>[i]]);</div>
+<div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;  }</div>
+<div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160; </div>
+<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> chr = 0; chr &lt; FREQ; chr++) {</div>
+<div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;    free(T[chr]);</div>
+<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;  }</div>
+<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;}</div>
+<div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160; </div>
+<div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160; </div>
+<div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l01209"></a><span class="lineno"><a class="line" href="ds-lib_8h.html#aabd93b27ce002f023cfcbd7387733640"> 1209</a></span>&#160;<a class="code" href="ds-lib_8h.html#aabd93b27ce002f023cfcbd7387733640">decompressString</a> (<span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <a class="code" href="structhtree.html">Hufftree</a> <a class="code" href="structtree.html">tree</a>) {</div>
+<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structtree.html">tree</a> == NULL) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l01211"></a><span class="lineno"> 1211</span>&#160;  <a class="code" href="structhtree.html">Hufftree</a> root = <a class="code" href="structtree.html">tree</a>;</div>
+<div class="line"><a name="l01212"></a><span class="lineno"> 1212</span>&#160; </div>
+<div class="line"><a name="l01213"></a><span class="lineno"> 1213</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <span class="keywordtype">string</span>[i]; i++) {</div>
+<div class="line"><a name="l01214"></a><span class="lineno"> 1214</span>&#160;   <span class="keywordflow">if</span> (<span class="keywordtype">string</span>[i] == <span class="charliteral">&#39;0&#39;</span>) {</div>
+<div class="line"><a name="l01215"></a><span class="lineno"> 1215</span>&#160;    root = root-&gt;<a class="code" href="structhtree.html#a84e98587b29735e14578cb65acbe27b2">left</a>;</div>
+<div class="line"><a name="l01216"></a><span class="lineno"> 1216</span>&#160;   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l01217"></a><span class="lineno"> 1217</span>&#160;    root = root-&gt;<a class="code" href="structhtree.html#acc5c670e2db5284e8e5020ee84c5ff11">right</a>;</div>
+<div class="line"><a name="l01218"></a><span class="lineno"> 1218</span>&#160;   }</div>
+<div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160; </div>
+<div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;   <span class="keywordflow">if</span> (root-&gt;<a class="code" href="structhtree.html#a84e98587b29735e14578cb65acbe27b2">left</a> == NULL &amp;&amp; root-&gt;<a class="code" href="structhtree.html#acc5c670e2db5284e8e5020ee84c5ff11">right</a> == NULL) {</div>
+<div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;    printf(<span class="stringliteral">&quot;%c&quot;</span>, root-&gt;<a class="code" href="structhtree.html#a94e24c4ff5870c1b586ba2fdfc8859b5">chr</a>);</div>
+<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;    root = <a class="code" href="structtree.html">tree</a>;</div>
+<div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;   }</div>
+<div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;  }</div>
+<div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructmap_html"><div class="ttname"><a href="structmap.html">map</a></div><div class="ttdoc">Map structure definition.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:153</div></div>
@@ -835,8 +835,8 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="ttc" id="ads-lib_8h_html_a7caa495c3c2422fe0749a388002a4ed1"><div class="ttname"><a href="ds-lib_8h.html#a7caa495c3c2422fe0749a388002a4ed1">createQueue</a></div><div class="ttdeci">Queue createQueue(int max)</div><div class="ttdoc">This function creates a queue.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:364</div></div>
 <div class="ttc" id="ads-lib_8h_html_af163c1ee8be3c2c03314f63a09ba2e38"><div class="ttname"><a href="ds-lib_8h.html#af163c1ee8be3c2c03314f63a09ba2e38">keyExists</a></div><div class="ttdeci">int keyExists(int key, Map index)</div><div class="ttdoc">This function checks if a key exists in the mapping.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:942</div></div>
 <div class="ttc" id="ads-lib_8h_html_a2cb5ba9cb47a3cf10492986b412eb07c"><div class="ttname"><a href="ds-lib_8h.html#a2cb5ba9cb47a3cf10492986b412eb07c">deleteMap</a></div><div class="ttdeci">void deleteMap(Map *index)</div><div class="ttdoc">This function clears the map and frees the memory.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:978</div></div>
-<div class="ttc" id="ads-lib_8h_html_a4efab0163f6e9c75625b1356c66de94d"><div class="ttname"><a href="ds-lib_8h.html#a4efab0163f6e9c75625b1356c66de94d">stackSize</a></div><div class="ttdeci">int stackSize(Stack index)</div><div class="ttdoc">This function returns the number of elements in the stack.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:309</div></div>
 <div class="ttc" id="ads-lib_8h_html_a4a514ce0b92b64fb67cae4ddfbd696b3"><div class="ttname"><a href="ds-lib_8h.html#a4a514ce0b92b64fb67cae4ddfbd696b3">displayInOrder</a></div><div class="ttdeci">void displayInOrder(BSTree *node)</div><div class="ttdoc">This function displays a tree in order on the screen.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:574</div></div>
+<div class="ttc" id="ads-lib_8h_html_a52fa17bbecaf9d5b574a3b9ec7bf0766"><div class="ttname"><a href="ds-lib_8h.html#a52fa17bbecaf9d5b574a3b9ec7bf0766">getStackSize</a></div><div class="ttdeci">int getStackSize(Stack index)</div><div class="ttdoc">This function returns the number of elements in the stack.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:309</div></div>
 <div class="ttc" id="astructhtree_html_acc5c670e2db5284e8e5020ee84c5ff11"><div class="ttname"><a href="structhtree.html#acc5c670e2db5284e8e5020ee84c5ff11">htree::right</a></div><div class="ttdeci">struct htree * right</div><div class="ttdoc">Right huffman tree.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:122</div></div>
 <div class="ttc" id="ads-lib_8h_html_a64ddd067ec4d58576714ba767547c09c"><div class="ttname"><a href="ds-lib_8h.html#a64ddd067ec4d58576714ba767547c09c">Stack</a></div><div class="ttdeci">struct stack * Stack</div><div class="ttdoc">Stack structure definition.</div></div>
 <div class="ttc" id="ads-lib_8h_html_a699e5b0611aef9a557277c00ba4360a5"><div class="ttname"><a href="ds-lib_8h.html#a699e5b0611aef9a557277c00ba4360a5">generateEmptyTree</a></div><div class="ttdeci">BSTree * generateEmptyTree()</div><div class="ttdoc">This function generates an empty tree.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:504</div></div>
@@ -844,7 +844,7 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="ttc" id="ads-lib_8h_html_afecd2a153b7e3dc21958db61959c6b5a"><div class="ttname"><a href="ds-lib_8h.html#afecd2a153b7e3dc21958db61959c6b5a">createMap</a></div><div class="ttdeci">Map createMap(int key, char *value, Map index)</div><div class="ttdoc">This function creates a map.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:870</div></div>
 <div class="ttc" id="astructmap_html_acfac9601113ab18c37aeb58aecfa790c"><div class="ttname"><a href="structmap.html#acfac9601113ab18c37aeb58aecfa790c">map::next</a></div><div class="ttdeci">struct map * next</div><div class="ttdoc">Structure for the next node in the map.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:156</div></div>
 <div class="ttc" id="ads-lib_8h_html_af38a443630448be7e0e515be7f1c9b9c"><div class="ttname"><a href="ds-lib_8h.html#af38a443630448be7e0e515be7f1c9b9c">deleteQueue</a></div><div class="ttdeci">void deleteQueue(Queue *index)</div><div class="ttdoc">This function clears the queue and frees the memory.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:493</div></div>
-<div class="ttc" id="ads-lib_8h_html_ac7d98ce92b0ee643ddbd593fd98b3d65"><div class="ttname"><a href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a></div><div class="ttdeci">void displayHufftree(Hufftree tree)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1060</div></div>
+<div class="ttc" id="ads-lib_8h_html_ac7d98ce92b0ee643ddbd593fd98b3d65"><div class="ttname"><a href="ds-lib_8h.html#ac7d98ce92b0ee643ddbd593fd98b3d65">displayHufftree</a></div><div class="ttdeci">void displayHufftree(Hufftree tree)</div><div class="ttdoc">This function displays a huffman tree on the screen.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1109</div></div>
 <div class="ttc" id="ads-lib_8h_html_af9fc0ec23a6261987c7addc9a5d26605"><div class="ttname"><a href="ds-lib_8h.html#af9fc0ec23a6261987c7addc9a5d26605">listIsEmpty</a></div><div class="ttdeci">int listIsEmpty(List index)</div><div class="ttdoc">This function checks whether the list is empty or not.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:808</div></div>
 <div class="ttc" id="astructmap_html_a2c7bcd67732e2e44be7cdf70724a3f55"><div class="ttname"><a href="structmap.html#a2c7bcd67732e2e44be7cdf70724a3f55">map::key</a></div><div class="ttdeci">int key</div><div class="ttdoc">Key.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:154</div></div>
 <div class="ttc" id="ads-lib_8h_html_a990afd433f844096b6f780af80e12e2b"><div class="ttname"><a href="ds-lib_8h.html#a990afd433f844096b6f780af80e12e2b">List</a></div><div class="ttdeci">struct list * List</div><div class="ttdoc">List structure definition.</div></div>
@@ -853,7 +853,7 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="ttc" id="ads-lib_8h_html_aae113f6792f3b5bcbf6d2033ec96ce5c"><div class="ttname"><a href="ds-lib_8h.html#aae113f6792f3b5bcbf6d2033ec96ce5c">Map</a></div><div class="ttdeci">struct map * Map</div><div class="ttdoc">Map structure definition.</div></div>
 <div class="ttc" id="astructqueue_html_a8243d93f7d4ba0b48a601b856770d096"><div class="ttname"><a href="structqueue.html#a8243d93f7d4ba0b48a601b856770d096">queue::max</a></div><div class="ttdeci">int max</div><div class="ttdoc">Queue capacity.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:82</div></div>
 <div class="ttc" id="ads-lib_8h_html_a1a05984cdb0745f124d7d29530372f09"><div class="ttname"><a href="ds-lib_8h.html#a1a05984cdb0745f124d7d29530372f09">displayReverseList</a></div><div class="ttdeci">void displayReverseList(List index)</div><div class="ttdoc">This function displays the list elements on the screen in reverse order.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:740</div></div>
-<div class="ttc" id="ads-lib_8h_html_aabd93b27ce002f023cfcbd7387733640"><div class="ttname"><a href="ds-lib_8h.html#aabd93b27ce002f023cfcbd7387733640">decompressString</a></div><div class="ttdeci">void decompressString(char *string, Hufftree tree)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1133</div></div>
+<div class="ttc" id="ads-lib_8h_html_aabd93b27ce002f023cfcbd7387733640"><div class="ttname"><a href="ds-lib_8h.html#aabd93b27ce002f023cfcbd7387733640">decompressString</a></div><div class="ttdeci">void decompressString(char *string, Hufftree tree)</div><div class="ttdoc">This function decompresses a string.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1209</div></div>
 <div class="ttc" id="ads-lib_8h_html_a846e366ca3b0fefed8cea405bc3c942e"><div class="ttname"><a href="ds-lib_8h.html#a846e366ca3b0fefed8cea405bc3c942e">BSTree</a></div><div class="ttdeci">struct tree BSTree</div><div class="ttdoc">Binary Search Tree structure definition.</div></div>
 <div class="ttc" id="ads-lib_8h_html_a29812adacf42e200f1e40f505a1a483d"><div class="ttname"><a href="ds-lib_8h.html#a29812adacf42e200f1e40f505a1a483d">displayStack</a></div><div class="ttdeci">void displayStack(Stack index)</div><div class="ttdoc">This function displays the stack on the screen.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:325</div></div>
 <div class="ttc" id="ads-lib_8h_html_a759641a5e35a87a2d62637ec5eef3d31"><div class="ttname"><a href="ds-lib_8h.html#a759641a5e35a87a2d62637ec5eef3d31">createList</a></div><div class="ttdeci">List createList(int element, List index)</div><div class="ttdoc">This function creates a list.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:711</div></div>
@@ -861,23 +861,23 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="ttc" id="ads-lib_8h_html_a4babb4f99e8f17039b5e919f3ed1def1"><div class="ttname"><a href="ds-lib_8h.html#a4babb4f99e8f17039b5e919f3ed1def1">createStack</a></div><div class="ttdeci">Stack createStack(int max)</div><div class="ttdoc">This function creates a stack.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:190</div></div>
 <div class="ttc" id="astructqueue_html_a2309ce63ed3483eb66a8d13b430b65ea"><div class="ttname"><a href="structqueue.html#a2309ce63ed3483eb66a8d13b430b65ea">queue::first</a></div><div class="ttdeci">int first</div><div class="ttdoc">Queue start position.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:84</div></div>
 <div class="ttc" id="ads-lib_8h_html_a72d76013a7a69bf69cee42575c9e55d1"><div class="ttname"><a href="ds-lib_8h.html#a72d76013a7a69bf69cee42575c9e55d1">Queue</a></div><div class="ttdeci">struct queue * Queue</div><div class="ttdoc">Queue structure definition.</div></div>
-<div class="ttc" id="ads-lib_8h_html_a956bafad34a2f98b4cc1a106123bdac6"><div class="ttname"><a href="ds-lib_8h.html#a956bafad34a2f98b4cc1a106123bdac6">createHufftree</a></div><div class="ttdeci">Hufftree createHufftree(char *string)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1036</div></div>
+<div class="ttc" id="ads-lib_8h_html_a956bafad34a2f98b4cc1a106123bdac6"><div class="ttname"><a href="ds-lib_8h.html#a956bafad34a2f98b4cc1a106123bdac6">createHufftree</a></div><div class="ttdeci">Hufftree createHufftree(char *string)</div><div class="ttdoc">This function creates a huffman tree for a string.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1080</div></div>
 <div class="ttc" id="astructqueue_html"><div class="ttname"><a href="structqueue.html">queue</a></div><div class="ttdoc">Queue structure definition.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:81</div></div>
 <div class="ttc" id="astructstack_html_a2d100511cad42e140cbbe2863cab8c8c"><div class="ttname"><a href="structstack.html#a2d100511cad42e140cbbe2863cab8c8c">stack::top</a></div><div class="ttdeci">int top</div><div class="ttdoc">Top stack position.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:66</div></div>
 <div class="ttc" id="astructqueue_html_af1b9435af9ae01649803763ae9f4661f"><div class="ttname"><a href="structqueue.html#af1b9435af9ae01649803763ae9f4661f">queue::item</a></div><div class="ttdeci">char * item</div><div class="ttdoc">Queue items.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:86</div></div>
-<div class="ttc" id="ads-lib_8h_html_a9944b608470f90af54434820ec3e7688"><div class="ttname"><a href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a></div><div class="ttdeci">void createTable(Hufftree tree, char *T[])</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1098</div></div>
+<div class="ttc" id="ads-lib_8h_html_a9944b608470f90af54434820ec3e7688"><div class="ttname"><a href="ds-lib_8h.html#a9944b608470f90af54434820ec3e7688">createTable</a></div><div class="ttdeci">void createTable(Hufftree tree, char *T[])</div><div class="ttdoc">This function creates a table of huffman codes.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1162</div></div>
 <div class="ttc" id="astructqueue_html_a409f14cb964be349361cd0d4bb7a66c3"><div class="ttname"><a href="structqueue.html#a409f14cb964be349361cd0d4bb7a66c3">queue::last</a></div><div class="ttdeci">int last</div><div class="ttdoc">Last queue position.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:85</div></div>
 <div class="ttc" id="ads-lib_8h_html_a7309ce184df2adbc336adb90c607fa0b"><div class="ttname"><a href="ds-lib_8h.html#a7309ce184df2adbc336adb90c607fa0b">getHead</a></div><div class="ttdeci">int getHead(List index)</div><div class="ttdoc">This function gets the first item inserted in the list.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:820</div></div>
 <div class="ttc" id="ads-lib_8h_html_a8b5a05f87addab030e7b7884ed4c782c"><div class="ttname"><a href="ds-lib_8h.html#a8b5a05f87addab030e7b7884ed4c782c">nodeExists</a></div><div class="ttdeci">int nodeExists(BSTree *index)</div><div class="ttdoc">This function checks if the node exists.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:631</div></div>
 <div class="ttc" id="ads-lib_8h_html_a45907492a123f94a49ff31869124b71a"><div class="ttname"><a href="ds-lib_8h.html#a45907492a123f94a49ff31869124b71a">getListSize</a></div><div class="ttdeci">int getListSize(List index)</div><div class="ttdoc">This function gets the number of elements in the list.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:796</div></div>
 <div class="ttc" id="ads-lib_8h_html_aae04b673c14558d2114971b6c806b9d2"><div class="ttname"><a href="ds-lib_8h.html#aae04b673c14558d2114971b6c806b9d2">concatList</a></div><div class="ttdeci">List * concatList(List *A, List *B)</div><div class="ttdoc">This function concatenates a list at the end of the other.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:760</div></div>
 <div class="ttc" id="ads-lib_8h_html_a5ba95b86a066089467875dbcdd4bce7b"><div class="ttname"><a href="ds-lib_8h.html#a5ba95b86a066089467875dbcdd4bce7b">deleteTree</a></div><div class="ttdeci">void deleteTree(BSTree *node)</div><div class="ttdoc">This function clears the tree and frees the memory.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:690</div></div>
-<div class="ttc" id="ads-lib_8h_html_a15d6bbfd19b362d5ab872ff670876992"><div class="ttname"><a href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a></div><div class="ttdeci">Hufftree createHufftreeNode(Hufftree left, char chr, int frq, Hufftree right)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:988</div></div>
+<div class="ttc" id="ads-lib_8h_html_a15d6bbfd19b362d5ab872ff670876992"><div class="ttname"><a href="ds-lib_8h.html#a15d6bbfd19b362d5ab872ff670876992">createHufftreeNode</a></div><div class="ttdeci">Hufftree createHufftreeNode(Hufftree left, char chr, int frq, Hufftree right)</div><div class="ttdoc">This function creates a huffman tree node.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1000</div></div>
 <div class="ttc" id="ads-lib_8h_html_a57b47aff98c489c24a04cf5279ce257d"><div class="ttname"><a href="ds-lib_8h.html#a57b47aff98c489c24a04cf5279ce257d">getQueueSize</a></div><div class="ttdeci">int getQueueSize(Queue index)</div><div class="ttdoc">This function gets the size of the queue.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:455</div></div>
 <div class="ttc" id="ads-lib_8h_html_ac602066bb1358e4ad8a706762175b19a"><div class="ttname"><a href="ds-lib_8h.html#ac602066bb1358e4ad8a706762175b19a">findMax</a></div><div class="ttdeci">BSTree * findMax(BSTree *node)</div><div class="ttdoc">This function searches for the largest node and returns it.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:677</div></div>
 <div class="ttc" id="astructhtree_html_a99e5fd65a5cddcd4d7c37c8aad287788"><div class="ttname"><a href="structhtree.html#a99e5fd65a5cddcd4d7c37c8aad287788">htree::frq</a></div><div class="ttdeci">int frq</div><div class="ttdoc">Frequency.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:121</div></div>
 <div class="ttc" id="astructstack_html"><div class="ttname"><a href="structstack.html">stack</a></div><div class="ttdoc">Stack structure definition.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:64</div></div>
-<div class="ttc" id="ads-lib_8h_html_a2648a209030aa2d1aa0eb9da443de205"><div class="ttname"><a href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a></div><div class="ttdeci">void insertTree(Hufftree tree, Hufftree *forest, int *qty)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1015</div></div>
+<div class="ttc" id="ads-lib_8h_html_a2648a209030aa2d1aa0eb9da443de205"><div class="ttname"><a href="ds-lib_8h.html#a2648a209030aa2d1aa0eb9da443de205">insertTree</a></div><div class="ttdeci">void insertTree(Hufftree tree, Hufftree *forest, int *qty)</div><div class="ttdoc">This function inserts an ordered tree in the forest.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1044</div></div>
 <div class="ttc" id="ads-lib_8h_html_a23110cd153a67197ca9e79824e82cb97"><div class="ttname"><a href="ds-lib_8h.html#a23110cd153a67197ca9e79824e82cb97">findMin</a></div><div class="ttdeci">BSTree * findMin(BSTree *node)</div><div class="ttdoc">This function searches for the smallest node and returns it.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:663</div></div>
 <div class="ttc" id="ads-lib_8h_html_af87df2a9f37b0fc63fb1f5c52012c7b1"><div class="ttname"><a href="ds-lib_8h.html#af87df2a9f37b0fc63fb1f5c52012c7b1">Hufftree</a></div><div class="ttdeci">struct htree * Hufftree</div><div class="ttdoc">Huffman Coding structure definition.</div></div>
 <div class="ttc" id="ads-lib_8h_html_a12891a324bebbbe0d5a6dfb4e5b283c1"><div class="ttname"><a href="ds-lib_8h.html#a12891a324bebbbe0d5a6dfb4e5b283c1">queueIsFull</a></div><div class="ttdeci">int queueIsFull(Queue index)</div><div class="ttdoc">This function checks whether the queue is full.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:392</div></div>
@@ -891,15 +891,15 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="ttc" id="astructhtree_html_a84e98587b29735e14578cb65acbe27b2"><div class="ttname"><a href="structhtree.html#a84e98587b29735e14578cb65acbe27b2">htree::left</a></div><div class="ttdeci">struct htree * left</div><div class="ttdoc">Left huffman tree.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:119</div></div>
 <div class="ttc" id="astructhtree_html"><div class="ttname"><a href="structhtree.html">htree</a></div><div class="ttdoc">Huffman Coding structure definition.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:118</div></div>
 <div class="ttc" id="astructhtree_html_a94e24c4ff5870c1b586ba2fdfc8859b5"><div class="ttname"><a href="structhtree.html#a94e24c4ff5870c1b586ba2fdfc8859b5">htree::chr</a></div><div class="ttdeci">char chr</div><div class="ttdoc">Character.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:120</div></div>
-<div class="ttc" id="ads-lib_8h_html_acdfecaed3b963e39bd69b94a7cbd8f13"><div class="ttname"><a href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a></div><div class="ttdeci">Hufftree removeTree(Hufftree *forest, int *qty)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1029</div></div>
+<div class="ttc" id="ads-lib_8h_html_acdfecaed3b963e39bd69b94a7cbd8f13"><div class="ttname"><a href="ds-lib_8h.html#acdfecaed3b963e39bd69b94a7cbd8f13">removeTree</a></div><div class="ttdeci">Hufftree removeTree(Hufftree *forest, int *qty)</div><div class="ttdoc">This function removes the lightest tree in the forest.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1068</div></div>
 <div class="ttc" id="ads-lib_8h_html_acab2fd519b69131fdf95d4679988cfd4"><div class="ttname"><a href="ds-lib_8h.html#acab2fd519b69131fdf95d4679988cfd4">stackPush</a></div><div class="ttdeci">void stackPush(char element, Stack index)</div><div class="ttdoc">This function inserts an item into the stack.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:251</div></div>
-<div class="ttc" id="ads-lib_8h_html_a04842e7cea5bc69daa422ab0bcfa75f0"><div class="ttname"><a href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a></div><div class="ttdeci">void displayLeaves(Hufftree tree)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1082</div></div>
+<div class="ttc" id="ads-lib_8h_html_a04842e7cea5bc69daa422ab0bcfa75f0"><div class="ttname"><a href="ds-lib_8h.html#a04842e7cea5bc69daa422ab0bcfa75f0">displayLeaves</a></div><div class="ttdeci">void displayLeaves(Hufftree tree)</div><div class="ttdoc">This function displays the tree leaves on the screen.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1136</div></div>
 <div class="ttc" id="ads-lib_8h_html_abcba9631d546ab77e69bbbe433c87a9a"><div class="ttname"><a href="ds-lib_8h.html#abcba9631d546ab77e69bbbe433c87a9a">getRoot</a></div><div class="ttdeci">char getRoot(BSTree *index)</div><div class="ttdoc">This function returns the root of the tree.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:604</div></div>
 <div class="ttc" id="ads-lib_8h_html_a8a272898ef441ca561dd7c1e28d33e25"><div class="ttname"><a href="ds-lib_8h.html#a8a272898ef441ca561dd7c1e28d33e25">displayPreOrder</a></div><div class="ttdeci">void displayPreOrder(BSTree *node)</div><div class="ttdoc">This function displays a tree in pre-order on the screen.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:559</div></div>
 <div class="ttc" id="ads-lib_8h_html_a6bf7156d62a4f7acc958b735b2f305f8"><div class="ttname"><a href="ds-lib_8h.html#a6bf7156d62a4f7acc958b735b2f305f8">getNode</a></div><div class="ttdeci">int getNode(BSTree *index)</div><div class="ttdoc">This function checks if the tree is empty.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:615</div></div>
 <div class="ttc" id="astructlist_html_a18cba09a07b6a54639de8d1f4bc0d126"><div class="ttname"><a href="structlist.html#a18cba09a07b6a54639de8d1f4bc0d126">list::item</a></div><div class="ttdeci">int item</div><div class="ttdoc">List items.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:137</div></div>
 <div class="ttc" id="astructtree_html"><div class="ttname"><a href="structtree.html">tree</a></div><div class="ttdoc">Binary Search Tree structure definition.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:100</div></div>
-<div class="ttc" id="ads-lib_8h_html_aee85a50d942cf4f5ac68431d25ee9ea7"><div class="ttname"><a href="ds-lib_8h.html#aee85a50d942cf4f5ac68431d25ee9ea7">compressString</a></div><div class="ttdeci">void compressString(char *string, Hufftree tree)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1113</div></div>
+<div class="ttc" id="ads-lib_8h_html_aee85a50d942cf4f5ac68431d25ee9ea7"><div class="ttname"><a href="ds-lib_8h.html#aee85a50d942cf4f5ac68431d25ee9ea7">compressString</a></div><div class="ttdeci">void compressString(char *string, Hufftree tree)</div><div class="ttdoc">This function compresses a string.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1183</div></div>
 <div class="ttc" id="astructstack_html_a0f24c76d20b928e61a7c57e7e26523c9"><div class="ttname"><a href="structstack.html#a0f24c76d20b928e61a7c57e7e26523c9">stack::item</a></div><div class="ttdeci">char * item</div><div class="ttdoc">Stack items.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:67</div></div>
 <div class="ttc" id="astructlist_html_a1900fe79e875e2838625b2eb60837f8f"><div class="ttname"><a href="structlist.html#a1900fe79e875e2838625b2eb60837f8f">list::next</a></div><div class="ttdeci">struct list * next</div><div class="ttdoc">Structure for the next node in the list.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:138</div></div>
 <div class="ttc" id="astructtree_html_a719b6f34a3ac12d46c29f9b7d6308438"><div class="ttname"><a href="structtree.html#a719b6f34a3ac12d46c29f9b7d6308438">tree::left</a></div><div class="ttdeci">struct tree * left</div><div class="ttdoc">Left node structure.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:102</div></div>
@@ -917,7 +917,7 @@ $(document).ready(function(){initNavTree('ds-lib_8h_source.html',''); initResiza
 <div class="ttc" id="astructlist_html"><div class="ttname"><a href="structlist.html">list</a></div><div class="ttdoc">List structure definition.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:136</div></div>
 <div class="ttc" id="astructtree_html_a50cf9e7e35dcd0cc2f207389d1ac8852"><div class="ttname"><a href="structtree.html#a50cf9e7e35dcd0cc2f207389d1ac8852">tree::right</a></div><div class="ttdeci">struct tree * right</div><div class="ttdoc">Right node structure.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:103</div></div>
 <div class="ttc" id="ads-lib_8h_html_a6c1e63edc38f52284136c07cf9198eb8"><div class="ttname"><a href="ds-lib_8h.html#a6c1e63edc38f52284136c07cf9198eb8">treeIsEmpty</a></div><div class="ttdeci">int treeIsEmpty(BSTree *node)</div><div class="ttdoc">This function checks if the tree is empty.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:548</div></div>
-<div class="ttc" id="ads-lib_8h_html_abeb9c75439a4fac6bb62c2082464a903"><div class="ttname"><a href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903">frequency</a></div><div class="ttdeci">int * frequency(char *string)</div><div class="ttdef"><b>Definition:</b> ds-lib.h:999</div></div>
+<div class="ttc" id="ads-lib_8h_html_abeb9c75439a4fac6bb62c2082464a903"><div class="ttname"><a href="ds-lib_8h.html#abeb9c75439a4fac6bb62c2082464a903">frequency</a></div><div class="ttdeci">int * frequency(char *string)</div><div class="ttdoc">This function gets the frequency of ASCII characters in a string.</div><div class="ttdef"><b>Definition:</b> ds-lib.h:1017</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

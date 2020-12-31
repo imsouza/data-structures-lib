@@ -1,6 +1,6 @@
 # Data Structures Lib
 
-[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-in%20progress-orange)](https://github.com/imsouza/data-structures-lib) [![Netlify Doc Status](https://api.netlify.com/api/v1/badges/09f24ae2-82ed-4eb3-a08b-2ef2abc658ef/deploy-status)](https://data-structures-lib.netlify.app) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
+[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-complete-green)](https://github.com/imsouza/data-structures-lib) [![Netlify Doc Status](https://api.netlify.com/api/v1/badges/09f24ae2-82ed-4eb3-a08b-2ef2abc658ef/deploy-status)](https://data-structures-lib.netlify.app) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
 
 A library of data structures for academic purposes
 
@@ -12,7 +12,7 @@ A library of data structures for academic purposes
 
 ## Documentation
 
-See the project documentation online [here](https://data-structures-lib.netlify.app/).
+See the project documentation online [here](https://data-structures-lib.netlify.app/ds-lib_8h.html).
 
 ## Table of contents
 
@@ -195,7 +195,7 @@ int main () {
 #include "ds-lib.h"
 
 int main () {
-  Stack S = stack(3);
+  Stack S = createStack(3);
 
   stackPush(1, S);
   stackPush(2, S);
@@ -203,13 +203,13 @@ int main () {
 
   displayStack(S);
 
-  printf("%i\n", stackSize(S));
+  printf("%i\n", getStackSize(S));
 
   stackPop(S);
 
   displayStack(S);
 
-  printf("%i\n", stackSize(S));
+  printf("%i\n", getStackSize(S));
   
   deleteStack(&S);
 
@@ -246,8 +246,8 @@ gcc <filename.c> -o exec
 
 - Extra
   - [x] Configure preprocessor directives
-  - [ ] Document all the code
-  - [ ] Generate doxygen documentation
+  - [x] Document all the code
+  - [x] Generate doxygen documentation
   - [x] Successfully passed the tests
 
 ## Author

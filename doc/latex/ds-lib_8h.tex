@@ -45,7 +45,7 @@ char \mbox{\hyperlink{ds-lib_8h_a6cb1818f912e8e937acf020fa7925fd5}{stack\+Pop}} 
 \begin{DoxyCompactList}\small\item\em This function removes an item from the stack. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{ds-lib_8h_a260df97229d720a3e243d2bec66eef86}{stack\+Top}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
 \begin{DoxyCompactList}\small\item\em This function access to the top of the stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{ds-lib_8h_a4efab0163f6e9c75625b1356c66de94d}{stack\+Size}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
+int \mbox{\hyperlink{ds-lib_8h_a52fa17bbecaf9d5b574a3b9ec7bf0766}{get\+Stack\+Size}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
 \begin{DoxyCompactList}\small\item\em This function returns the number of elements in the stack. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ds-lib_8h_a29812adacf42e200f1e40f505a1a483d}{display\+Stack}} (\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}} index)
 \begin{DoxyCompactList}\small\item\em This function displays the stack on the screen. \end{DoxyCompactList}\item 
@@ -126,25 +126,25 @@ void \mbox{\hyperlink{ds-lib_8h_aea9f419b23425d2b38f7bbdb2d605c16}{display\+Map}
 void \mbox{\hyperlink{ds-lib_8h_a2cb5ba9cb47a3cf10492986b412eb07c}{delete\+Map}} (\mbox{\hyperlink{ds-lib_8h_aae113f6792f3b5bcbf6d2033ec96ce5c}{Map}} $\ast$index)
 \begin{DoxyCompactList}\small\item\em This function clears the map and frees the memory. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{ds-lib_8h_a15d6bbfd19b362d5ab872ff670876992}{create\+Hufftree\+Node}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} left, char chr, int frq, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} right)
-\item 
+\begin{DoxyCompactList}\small\item\em This function creates a huffman tree node. \end{DoxyCompactList}\item 
 int $\ast$ \mbox{\hyperlink{ds-lib_8h_abeb9c75439a4fac6bb62c2082464a903}{frequency}} (char $\ast$string)
-\item 
+\begin{DoxyCompactList}\small\item\em This function gets the frequency of A\+S\+C\+II characters in a string. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ds-lib_8h_a2648a209030aa2d1aa0eb9da443de205}{insert\+Tree}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}}, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$forest, int $\ast$qty)
-\item 
+\begin{DoxyCompactList}\small\item\em This function inserts an ordered tree in the forest. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{ds-lib_8h_acdfecaed3b963e39bd69b94a7cbd8f13}{remove\+Tree}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$forest, int $\ast$qty)
-\item 
+\begin{DoxyCompactList}\small\item\em This function removes the lightest tree in the forest. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{ds-lib_8h_a956bafad34a2f98b4cc1a106123bdac6}{create\+Hufftree}} (char $\ast$string)
-\item 
+\begin{DoxyCompactList}\small\item\em This function creates a huffman tree for a string. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ds-lib_8h_ac7d98ce92b0ee643ddbd593fd98b3d65}{display\+Hufftree}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
-\item 
+\begin{DoxyCompactList}\small\item\em This function displays a huffman tree on the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ds-lib_8h_a04842e7cea5bc69daa422ab0bcfa75f0}{display\+Leaves}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
-\item 
+\begin{DoxyCompactList}\small\item\em This function displays the tree leaves on the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ds-lib_8h_a9944b608470f90af54434820ec3e7688}{create\+Table}} (\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}}, char $\ast$T\mbox{[}$\,$\mbox{]})
-\item 
+\begin{DoxyCompactList}\small\item\em This function creates a table of huffman codes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ds-lib_8h_aee85a50d942cf4f5ac68431d25ee9ea7}{compress\+String}} (char $\ast$string, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
-\item 
+\begin{DoxyCompactList}\small\item\em This function compresses a string. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ds-lib_8h_aabd93b27ce002f023cfcbd7387733640}{decompress\+String}} (char $\ast$string, \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} \mbox{\hyperlink{structtree}{tree}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This function decompresses a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Typedef Documentation}
@@ -262,6 +262,17 @@ This function clones a list and generates a new list.
 \doxysubsubsection{\texorpdfstring{compressString()}{compressString()}}
 {\footnotesize\ttfamily void compress\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
 
+
+
+This function compresses a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String that should be passed as an argument. \\
+\hline
+{\em tree} & Receives a hufftree type structure. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_aae04b673c14558d2114971b6c806b9d2}\label{ds-lib_8h_aae04b673c14558d2114971b6c806b9d2}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!concatList@{concatList}}
 \index{concatList@{concatList}!ds-\/lib.h@{ds-\/lib.h}}
@@ -287,12 +298,38 @@ The function \textquotesingle{}concat\+List\textquotesingle{} takes the address 
 \doxysubsubsection{\texorpdfstring{createHufftree()}{createHufftree()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} create\+Hufftree (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})}
 
+
+
+This function creates a huffman tree for a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String that should be passed as an argument. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_a15d6bbfd19b362d5ab872ff670876992}\label{ds-lib_8h_a15d6bbfd19b362d5ab872ff670876992}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!createHufftreeNode@{createHufftreeNode}}
 \index{createHufftreeNode@{createHufftreeNode}!ds-\/lib.h@{ds-\/lib.h}}
 \doxysubsubsection{\texorpdfstring{createHufftreeNode()}{createHufftreeNode()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} create\+Hufftree\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{left,  }\item[{char}]{chr,  }\item[{int}]{frq,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{right }\end{DoxyParamCaption})}
 
+
+
+This function creates a huffman tree node. 
+
+This function receives two Huffman trees, a character and a frequency as input and the created node address is returned
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Left hufftree. \\
+\hline
+{\em chr} & Fharacter. \\
+\hline
+{\em frq} & Frequency. \\
+\hline
+{\em left} & Right hufftree. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_a759641a5e35a87a2d62637ec5eef3d31}\label{ds-lib_8h_a759641a5e35a87a2d62637ec5eef3d31}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!createList@{createList}}
 \index{createList@{createList}!ds-\/lib.h@{ds-\/lib.h}}
@@ -373,12 +410,37 @@ This function allocates the area of ​​memory where the stack structure will 
 \doxysubsubsection{\texorpdfstring{createTable()}{createTable()}}
 {\footnotesize\ttfamily void create\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree,  }\item[{char $\ast$}]{T\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
+
+
+This function creates a table of huffman codes. 
+
+\begin{DoxyNote}{Note}
+The \textquotesingle{}strndup ()\textquotesingle{} function of the \textquotesingle{}string.\+h\textquotesingle{} library is used to make a copy of the string before saving it to T.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & Receives a hufftree type structure. \\
+\hline
+{\em T} & Vector for storage. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_aabd93b27ce002f023cfcbd7387733640}\label{ds-lib_8h_aabd93b27ce002f023cfcbd7387733640}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!decompressString@{decompressString}}
 \index{decompressString@{decompressString}!ds-\/lib.h@{ds-\/lib.h}}
 \doxysubsubsection{\texorpdfstring{decompressString()}{decompressString()}}
 {\footnotesize\ttfamily void decompress\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
 
+
+
+This function decompresses a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String that should be passed as an argument. \\
+\hline
+{\em tree} & Receives a hufftree type structure. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_a1cb7675cdf0e66de4f81fd629e54325a}\label{ds-lib_8h_a1cb7675cdf0e66de4f81fd629e54325a}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!deleteList@{deleteList}}
 \index{deleteList@{deleteList}!ds-\/lib.h@{ds-\/lib.h}}
@@ -483,6 +545,15 @@ Otherwise, the item at the beginning of the queue must be removed and copied to 
 \doxysubsubsection{\texorpdfstring{displayHufftree()}{displayHufftree()}}
 {\footnotesize\ttfamily void display\+Hufftree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
 
+
+
+This function displays a huffman tree on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & Receives a hufftree type structure. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_a4a514ce0b92b64fb67cae4ddfbd696b3}\label{ds-lib_8h_a4a514ce0b92b64fb67cae4ddfbd696b3}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!displayInOrder@{displayInOrder}}
 \index{displayInOrder@{displayInOrder}!ds-\/lib.h@{ds-\/lib.h}}
@@ -504,6 +575,15 @@ This function displays a tree in order on the screen.
 \doxysubsubsection{\texorpdfstring{displayLeaves()}{displayLeaves()}}
 {\footnotesize\ttfamily void display\+Leaves (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree }\end{DoxyParamCaption})}
 
+
+
+This function displays the tree leaves on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & Receives a hufftree type structure. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_a453d80be49c7f43ec901314b732f7dd6}\label{ds-lib_8h_a453d80be49c7f43ec901314b732f7dd6}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!displayList@{displayList}}
 \index{displayList@{displayList}!ds-\/lib.h@{ds-\/lib.h}}
@@ -664,6 +744,15 @@ This function searches for the smallest node and returns it.
 \doxysubsubsection{\texorpdfstring{frequency()}{frequency()}}
 {\footnotesize\ttfamily int$\ast$ frequency (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})}
 
+
+
+This function gets the frequency of A\+S\+C\+II characters in a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String that should be passed as an argument. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_a699e5b0611aef9a557277c00ba4360a5}\label{ds-lib_8h_a699e5b0611aef9a557277c00ba4360a5}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!generateEmptyTree@{generateEmptyTree}}
 \index{generateEmptyTree@{generateEmptyTree}!ds-\/lib.h@{ds-\/lib.h}}
@@ -749,6 +838,21 @@ This function returns the root of the tree.
 {\em node} & Receives a node structure by reference. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{ds-lib_8h_a52fa17bbecaf9d5b574a3b9ec7bf0766}\label{ds-lib_8h_a52fa17bbecaf9d5b574a3b9ec7bf0766}} 
+\index{ds-\/lib.h@{ds-\/lib.h}!getStackSize@{getStackSize}}
+\index{getStackSize@{getStackSize}!ds-\/lib.h@{ds-\/lib.h}}
+\doxysubsubsection{\texorpdfstring{getStackSize()}{getStackSize()}}
+{\footnotesize\ttfamily int get\+Stack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
+
+
+
+This function returns the number of elements in the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Receives a stack type structure. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_adf1858bc99fc0cef5b96522f5a7e2453}\label{ds-lib_8h_adf1858bc99fc0cef5b96522f5a7e2453}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!insertMap@{insertMap}}
 \index{insertMap@{insertMap}!ds-\/lib.h@{ds-\/lib.h}}
@@ -798,6 +902,21 @@ When calling the \textquotesingle{}insert\+Node\textquotesingle{} function, the 
 \doxysubsubsection{\texorpdfstring{insertTree()}{insertTree()}}
 {\footnotesize\ttfamily void insert\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}}}]{tree,  }\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$}]{forest,  }\item[{int $\ast$}]{qty }\end{DoxyParamCaption})}
 
+
+
+This function inserts an ordered tree in the forest. 
+
+Given a tree passed by argument and a forest with a \textquotesingle{}qty\textquotesingle{} number of trees, this function inserts the tree into the forest, in descending order and then increments \textquotesingle{}qty\textquotesingle{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & Receive a tree. \\
+\hline
+{\em forest} & Receive a forest by reference. \\
+\hline
+{\em qty} & Receives the size of the forest by reference. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_aca1a7ca7bfdda70bad198a0a220373a0}\label{ds-lib_8h_aca1a7ca7bfdda70bad198a0a220373a0}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!itemExists@{itemExists}}
 \index{itemExists@{itemExists}!ds-\/lib.h@{ds-\/lib.h}}
@@ -915,6 +1034,19 @@ The repetition begins to move the \textquotesingle{}index\textquotesingle{} poin
 \doxysubsubsection{\texorpdfstring{removeTree()}{removeTree()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} remove\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_af87df2a9f37b0fc63fb1f5c52012c7b1}{Hufftree}} $\ast$}]{forest,  }\item[{int $\ast$}]{qty }\end{DoxyParamCaption})}
 
+
+
+This function removes the lightest tree in the forest. 
+
+The forest is a vector of trees of decreasing order, to remove a tree of less weight from the forest it is necessary to remove the last tree in the vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em forest} & Receive a forest by reference. \\
+\hline
+{\em qty} & Receives the size of the forest by reference. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{ds-lib_8h_a7670a12d87a409373ddc249058f9c45f}\label{ds-lib_8h_a7670a12d87a409373ddc249058f9c45f}} 
 \index{ds-\/lib.h@{ds-\/lib.h}!search@{search}}
 \index{search@{search}!ds-\/lib.h@{ds-\/lib.h}}
@@ -999,21 +1131,6 @@ To insert an item in the stack, you must first check that the stack is not full.
 \begin{DoxyParams}{Parameters}
 {\em element} & Item to be inserted. \\
 \hline
-{\em index} & Receives a stack type structure. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{ds-lib_8h_a4efab0163f6e9c75625b1356c66de94d}\label{ds-lib_8h_a4efab0163f6e9c75625b1356c66de94d}} 
-\index{ds-\/lib.h@{ds-\/lib.h}!stackSize@{stackSize}}
-\index{stackSize@{stackSize}!ds-\/lib.h@{ds-\/lib.h}}
-\doxysubsubsection{\texorpdfstring{stackSize()}{stackSize()}}
-{\footnotesize\ttfamily int stack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ds-lib_8h_a64ddd067ec4d58576714ba767547c09c}{Stack}}}]{index }\end{DoxyParamCaption})}
-
-
-
-This function returns the number of elements in the stack. 
-
-
-\begin{DoxyParams}{Parameters}
 {\em index} & Receives a stack type structure. \\
 \hline
 \end{DoxyParams}

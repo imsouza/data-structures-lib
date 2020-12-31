@@ -15,7 +15,7 @@ int main () {
   displayStack(S);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", stackSize(S));
+  printf("%i\n", getStackSize(S));
 
   printf(">>> POP:\n");
   stackPop(S);
@@ -24,7 +24,7 @@ int main () {
   displayStack(S);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", stackSize(S));
+  printf("%i\n", getStackSize(S));
   
   deleteStack(&S);
 
