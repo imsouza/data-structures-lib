@@ -24,9 +24,7 @@ See the project documentation online [here](https://data-structures-lib.netlify.
 ## Usage
 
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ds-lib.h"
+#include "dslib.h"
 
 int main () {
   ...
@@ -38,9 +36,7 @@ Obs.: all demos can be found in this [folder](https://github.com/imsouza/data-st
 
 - Binary Search Tree
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ds-lib.h"
+#include "dslib.h"
 
 int main () {
   BSTree *root = NULL;
@@ -82,9 +78,7 @@ int main () {
 
 - Hufftree
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ds-lib.h"
+#include "dslib.h"
 
 int main () {
   displayHufftree(createHufftree("WORD"));
@@ -102,9 +96,7 @@ int main () {
 
 - Linked List
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ds-lib.h"
+#include "dslib.h"
 
 int main () {
   List A = createList(3, createList(1, createList(5, NULL)));
@@ -134,9 +126,7 @@ int main () {
 
 - Map
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ds-lib.h"
+#include "dslib.h"
 
 int main () {
   Map M = createMap(145, "Test Drive", NULL);
@@ -165,9 +155,7 @@ int main () {
 
 - Queue
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ds-lib.h"
+#include "dslib.h"
 
 int main () {
   Queue Q = createQueue(3);
@@ -190,9 +178,7 @@ int main () {
 
 - Stack
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ds-lib.h"
+#include "dslib.h"
 
 int main () {
   Stack S = createStack(3);
@@ -219,7 +205,7 @@ int main () {
 
 ## Run
 
-gcc <filename.c> -o exec
+gcc <file.c> dslib.c -o exec
 
 ## TODO
 
@@ -230,9 +216,6 @@ gcc <filename.c> -o exec
   - [ ] Doubly linked list
   - [ ] Graph
   - [ ] Hash table
-  - [ ] Hash table linear probing
-  - [ ] Hash table linear probing lazy
-  - [ ] Hash table separate chaining
   - [ ] Heap
   - [x] Huffman coding
   - [x] Linked list

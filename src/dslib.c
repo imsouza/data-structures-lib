@@ -23,143 +23,16 @@
  **********************************************************************************/
 
 /**
- * @file ds-lib.c
+ * @file dslib.c
  * @brief A library of data structures for academic purposes
  * @author Mateus Almeida
  * @version 1.0
  */
 
-#include <string.h>
-
-/**
- * Macro definitions.
- *
- * @warning Any changes made to the values ​​of the macros directly 
- * affect the processing of structures, avoid changes.
- */
-#ifndef NEXT         ///< Macro to advance the index circularly.
-#define NEXT(element) \
-(element = (element + 1) % index->max)
-#endif
-#ifndef FREQ
-#define FREQ 256    ///< Frequency constant.
-#endif
-#ifndef SIZE
-#define SIZE 25     ///< Define the size of the 'value' field.
-#endif
-#ifndef HCOL
-#define HCOL 5      ///< Define the number of columns that will be displayed.
-#endif
-
-/**
- * @brief Stack structure definition.
- *
- * The stack is defined as a pointer that points to
- * a structure with three fields and a vector of characters.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
- */
-typedef struct stack {
-  int max;      /**< Stack capacity. */  
-  int top;      /**< Top stack position. */  
-  char *item;   /**< Stack items. */  
-} *Stack;
-
-
-/**
- * @brief Queue structure definition.
- *
- * The queue is defined as a pointer that points to a structure with 
- * four integer fields and a vector of characters.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
- */
-typedef struct queue {
-  int max;      /**< Queue capacity. */ 
-  int count;    /**< Top queue position. */ 
-  int first;    /**< Queue start position. */ 
-  int last;     /**< Last queue position. */ 
-  char *item;   /**< Queue items. */ 
-} *Queue;
-
-
-/**
- * @brief Binary Search Tree structure definition.
- *
- * The binary search tree is defined with
- * a character field and two other internal structures of the same type.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
- */
-typedef struct tree {
-  char node;            /**< Tree items. */ 
-  struct tree *left;    /**< Left node structure. */ 
-  struct tree *right;   /**< Right node structure. */ 
-} BSTree;
-
-
-/**
- * @brief Huffman Coding structure definition.
- *
- * The hufftree is defined as a pointer that points to a structure with
- * the definition of two structures of the same type and 
- * two other fields of type char and int.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
- */
-typedef struct htree {
-  struct htree *left;   /**< Left huffman tree. */ 
-  char chr;             /**< Character. */ 
-  int  frq;             /**< Frequency. */ 
-  struct htree *right;  /**< Right huffman tree. */ 
-} *Hufftree;
-
-
-/**
- * @brief List structure definition.
- *
- * The list is defined as a pointer that points to a structure with an entire 
- * field and the definition of a structure of the same type.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
- */
-typedef struct list {
-  int item;            /**< List items. */
-  struct list *next;   /**< Structure for the next node in the list. */
-} *List;
-
-
-/**
- * @brief Map structure definition.
- *
- * The mapping is defined as a pointer that points to a structure with 
- * an entire key field, a character-type field defined by the constant 
- * that represents the value, and a structure definition of the same type.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
- */
-typedef struct map {
-  int key;            /**< Key. */ 
-  char value[SIZE];   /**< List of values. */ 
-  struct map *next;   /**< Structure for the next node in the map. */
-} *Map;
-
-
+#include "dslib.h"
 
 //! brief Static message array for error handling.
-static const char * const messages[] = {
+const char * const messages[] = {
     "[!] Stack overflow!\n",
     "[!] Stack underflow!\n",
     "[!] Empty stack!\n",

@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "../src/ds-lib.h"
+#include "../src/dslib.h"
 
 int main () {
   printf("Linked List ------------------\n");
