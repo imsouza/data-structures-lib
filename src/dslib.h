@@ -126,116 +126,61 @@
   } *Map;
 
 
-  Stack 
-  createStack (int max);
-  int 
-  stackIsEmpty (Stack index);
-  int 
-  stackIsFull (Stack index);
-  void 
-  stackPush (char element, Stack index);
-  char 
-  stackPop (Stack index);
-  char 
-  stackTop (Stack index);
-  int 
-  getStackSize (Stack index);
-  void 
-  displayStack (Stack index);
-  void 
-  deleteStack (Stack *index);
-  Queue 
-  createQueue (int max);
-  int 
-  queueIsEmpty (Queue index);
-  int 
-  queueIsFull (Queue index);
-  void 
-  enqueue (char element, Queue index);
-  char 
-  dequeue (Queue index);
-  int 
-  getQueueSize (Queue index);
-  void 
-  displayQueue (Queue index);
-  void 
-  deleteQueue (Queue *index);
-  BSTree 
-  *generateEmptyTree ();
-  void 
-  insertNode (int key, BSTree **node);
-  int 
-  treeIsEmpty (BSTree *node);
-  void 
-  displayPreOrder (BSTree *node);
-  void 
-  displayInOrder (BSTree *node);
-  void 
-  displayPostOrder (BSTree *node);
-  char 
-  getRoot (BSTree *index);
-  int 
-  getNode (BSTree *index);
-  int 
-  nodeExists (BSTree *index);
-  int 
-  search (int key, BSTree **node);
-  BSTree 
-  *findMin (BSTree *node);
-  BSTree 
-  *findMax (BSTree *node);
-  void 
-  deleteTree (BSTree *node);
-  List 
-  createList (int element, List index);
-  void 
-  displayList (List index);
-  void 
-  displayReverseList (List index);
-  List 
-  *concatList (List *A, List *B);
-  List 
-  cloneList (List index);
-  int 
-  getListSize (List index);
-  int 
-  listIsEmpty (List index);
-  int 
-  getHead (List index);
-  int 
-  itemExists (int item, List index);
-  void 
-  deleteList (List *index);
-  Map 
-  createMap (int key, char *value, Map index);
-  void 
-  insertMap (int key, char *value, Map *index);
-  int 
-  removeMap (int key, Map *index);
-  int 
-  keyExists (int key, Map index);
-  void 
-  displayMap (Map index);
-  void 
-  deleteMap (Map *index);
-  Hufftree 
-  createHufftreeNode (Hufftree left, char chr, int frq, Hufftree right);
-  int 
-  *frequency (char *string);
-  void 
-  insertTree (Hufftree tree, Hufftree *forest, int *qty);
-  Hufftree 
-  removeTree (Hufftree *forest, int *qty);
-  Hufftree 
-  createHufftree (char *string);
-  void 
-  displayHufftree (Hufftree tree);
-  void 
-  displayLeaves (Hufftree tree);
-  void 
-  createTable (Hufftree tree, char *T[]);
-  void 
-  compressString (char *string, Hufftree tree);
-  void 
-  decompressString (char *string, Hufftree tree);
+  Stack createStack();
+  int stackIsEmpty();
+  int stackIsFull();
+  void stackPush(char element, Stack index);
+  char stackPop();
+  char stackTop();
+  int getStackSize();
+  void displayStack();
+  void deleteStack();
+  Queue createQueue();
+  int queueIsEmpty();
+  int queueIsFull();
+  void enqueue(char element, Queue index);
+  char dequeue ();
+  int getQueueSize ();
+  void displayQueue ();
+  void deleteQueue ();
+  BSTree *generateEmptyTree ();
+  void insertNode();
+  int treeIsEmpty();
+  void displayPreOrder();
+  void displayInOrder();
+  void displayPostOrder();
+  char getRoot();
+  int getNode();
+  int nodeExists();
+  int search();
+  BSTree *findMin();
+  BSTree *findMax();
+  void deleteTree();
+  List createList();
+  void displayList();
+  void displayReverseList();
+  List *concatList();
+  List cloneList();
+  int getListSize();
+  int listIsEmpty();
+  int getHead();
+  int itemExists();
+  void deleteList();
+  Map createMap();
+  void insertMap();
+  int removeMap();
+  int keyExists();
+  void displayMap();
+  void deleteMap();
+  Hufftree createHufftreeNode(Hufftree left, char chr, 
+  int frq, Hufftree right);
+  int *frequency();
+  void insertTree();
+  Hufftree removeTree();
+  Hufftree createHufftree();
+  void displayHufftree();
+  void displayLeaves();
+  void createTable();
+  void compressString();
+  void decompressString();
 #endif
