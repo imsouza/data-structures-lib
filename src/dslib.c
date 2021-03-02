@@ -31,6 +31,112 @@
 
 #include "dslib.h"
 
+/**
+ * @brief Stack structure definition.
+ *
+ * The stack is defined as a pointer that points to
+ * a structure with three fields and a vector of characters.
+ *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
+ */
+struct stack {
+  int max;      /**< Stack capacity. */  
+  int top;      /**< Top stack position. */  
+  char *item;   /**< Stack items. */  
+};
+
+
+/**
+ * @brief Queue structure definition.
+ *
+ * The queue is defined as a pointer that points to a structure with 
+ * four integer fields and a vector of characters.
+ *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
+ */
+struct queue {
+  int max;      /**< Queue capacity. */ 
+  int count;    /**< Top queue position. */ 
+  int first;    /**< Queue start position. */ 
+  int last;     /**< Last queue position. */ 
+  char *item;   /**< Queue items. */ 
+};
+
+
+/**
+ * @brief Binary Search Tree structure definition.
+ *
+ * The binary search tree is defined with
+ * a character field and two other internal structures of the same type.
+ *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
+ */
+struct tree {
+  char node;            /**< Tree items. */ 
+  struct tree *left;    /**< Left node structure. */ 
+  struct tree *right;   /**< Right node structure. */ 
+};
+
+
+/**
+ * @brief Huffman Coding structure definition.
+ *
+ * The hufftree is defined as a pointer that points to a structure with
+ * the definition of two structures of the same type and 
+ * two other fields of type char and int.
+ *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
+ */
+struct htree {
+  struct htree *left;   /**< Left huffman tree. */ 
+  char chr;             /**< Character. */ 
+  int  frq;             /**< Frequency. */ 
+  struct htree *right;  /**< Right huffman tree. */ 
+};
+
+
+/**
+ * @brief List structure definition.
+ *
+ * The list is defined as a pointer that points to a structure with an entire 
+ * field and the definition of a structure of the same type.
+ *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
+ */
+struct list {
+  int item;            /**< List items. */
+  struct list *next;   /**< Structure for the next node in the list. */
+};
+
+
+/**
+ * @brief Map structure definition.
+ *
+ * The mapping is defined as a pointer that points to a structure with 
+ * an entire key field, a character-type field defined by the constant 
+ * that represents the value, and a structure definition of the same type.
+ *
+ * @warning the fields should never be accessed directly by the program. 
+ * All manipulation of data structure should be done 
+ * only by the functions implemented.
+ */
+struct map {
+  int key;            /**< Key. */ 
+  char value[SIZE];   /**< List of values. */ 
+  struct map *next;   /**< Structure for the next node in the map. */
+};
+
+
 //! brief Static message array for error handling.
 const char * const messages[] = {
     "[!] Stack overflow!\n",
