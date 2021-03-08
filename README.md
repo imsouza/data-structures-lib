@@ -36,6 +36,8 @@ Obs.: all demos can be found in this [folder](https://github.com/imsouza/data-st
 
 - Binary Search Tree
 ```
+#include <stdio.h>
+#include <stdlib.h>
 #include "dslib.h"
 
 int main () {
@@ -78,6 +80,8 @@ int main () {
 
 - Hufftree
 ```
+#include <stdio.h>
+#include <stdlib.h>
 #include "dslib.h"
 
 int main () {
@@ -96,6 +100,8 @@ int main () {
 
 - Linked List
 ```
+#include <stdio.h>
+#include <stdlib.h>
 #include "dslib.h"
 
 int main () {
@@ -126,6 +132,8 @@ int main () {
 
 - Map
 ```
+#include <stdio.h>
+#include <stdlib.h>
 #include "dslib.h"
 
 int main () {
@@ -155,6 +163,8 @@ int main () {
 
 - Queue
 ```
+#include <stdio.h>
+#include <stdlib.h>
 #include "dslib.h"
 
 int main () {
@@ -178,6 +188,8 @@ int main () {
 
 - Stack
 ```
+#include <stdio.h>
+#include <stdlib.h>
 #include "dslib.h"
 
 int main () {
