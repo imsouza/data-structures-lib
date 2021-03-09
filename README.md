@@ -24,6 +24,8 @@ See the project documentation online [here](https://data-structures-lib.netlify.
 ## Usage
 
 ```
+#include <stdio.h>
+#include <stdlib.h>
 #include "dslib.h"
 
 int main () {
