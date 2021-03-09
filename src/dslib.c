@@ -181,10 +181,6 @@ createStack (int max) {
 /**
  * @brief This function checks whether the stack is empty or not.
  *
- * The logic is simple, if the 'upper' field accessed by 'index' 
- * is equal to -1, it means that the stack is empty because there 
- * are no elements at the top.
- *
  * @param index Receives a stack type structure.
  */
 int 
@@ -199,10 +195,6 @@ stackIsEmpty (Stack index) {
 
 /**
  * @brief This function checks if the stack is full.
- *
- * It will be checked if the top of the stack is equal to the 
- * maximum capacity, if true 1 will be returned, otherwise 0 
- * will be returned.
  *
  * @param index Receives a stack type structure.
  */
