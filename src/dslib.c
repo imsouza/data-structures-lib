@@ -37,9 +37,6 @@
 /**
  * @brief Stack structure definition.
  *
- * The stack is defined as a pointer that points to
- * a structure with three fields and a vector of characters.
- *
  * @warning the fields should never be accessed directly by the program. 
  * All manipulation of data structure should be done 
  * only by the functions implemented.
@@ -53,9 +50,6 @@ struct stack {
 
 /**
  * @brief Queue structure definition.
- *
- * The queue is defined as a pointer that points to a structure with 
- * four integer fields and a vector of characters.
  *
  * @warning the fields should never be accessed directly by the program. 
  * All manipulation of data structure should be done 
@@ -73,9 +67,6 @@ struct queue {
 /**
  * @brief Binary Search Tree structure definition.
  *
- * The binary search tree is defined with
- * a character field and two other internal structures of the same type.
- *
  * @warning the fields should never be accessed directly by the program. 
  * All manipulation of data structure should be done 
  * only by the functions implemented.
@@ -89,10 +80,6 @@ struct tree {
 
 /**
  * @brief Huffman Coding structure definition.
- *
- * The hufftree is defined as a pointer that points to a structure with
- * the definition of two structures of the same type and 
- * two other fields of type char and int.
  *
  * @warning the fields should never be accessed directly by the program. 
  * All manipulation of data structure should be done 
@@ -109,9 +96,6 @@ struct htree {
 /**
  * @brief List structure definition.
  *
- * The list is defined as a pointer that points to a structure with an entire 
- * field and the definition of a structure of the same type.
- *
  * @warning the fields should never be accessed directly by the program. 
  * All manipulation of data structure should be done 
  * only by the functions implemented.
@@ -124,10 +108,6 @@ struct list {
 
 /**
  * @brief Map structure definition.
- *
- * The mapping is defined as a pointer that points to a structure with 
- * an entire key field, a character-type field defined by the constant 
- * that represents the value, and a structure definition of the same type.
  *
  * @warning the fields should never be accessed directly by the program. 
  * All manipulation of data structure should be done 
