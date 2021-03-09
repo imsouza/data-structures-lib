@@ -156,16 +156,6 @@ const char * const messages[] = {
 /**
  * @brief This function creates a stack.
  *
- * This function allocates the area of ​​memory where the stack 
- * structure will be created, in case of error NULL will be returned. 
- * Then, the 'max' field pointed to by 'index' will receive the value 
- * of the corresponding parameter. In the next line, the 'top' field 
- * is indicated by 'index' and the value -1 is assigned, indicating 
- * that there are no items at the top of the stack and that the stack 
- * is empty. Finally, the 'item' field pointed to by 'index' is accessed 
- * and assigned to the address of a dynamic vector that stores a 'max' 
- * number of items.
- *
  * @param max Maximum number of items in the stack.
  */
 Stack 
@@ -211,13 +201,6 @@ stackIsFull (Stack index) {
 /**
  * @brief This function inserts an item into the stack.
  *
- * To insert an item in the stack, you must first check that the stack 
- * is not full. If true, an error message will be displayed and processing 
- * will be aborted. If the stack has space, the item will be inserted at 
- * the top of the stack based on the increment of the 'top' field, 
- * so the new value of this field will be used to access the position of the 
- * 'index-> ​​item' field where the new item will be stored.
- *
  * @param element Item to be inserted.
  * @param index Receives a stack type structure.
  */
@@ -235,13 +218,6 @@ stackPush (char element, Stack index) {
 
 /**
  * @brief This function removes an item from the stack.
- *
- * To remove an item from the stack, you must first verify 
- * that the stack is not empty. If true, an error message will be 
- * displayed and processing will be aborted. If the stack is not empty, 
- * the top item must be removed and returned. This is done by assigning 
- * the return of access to the fields 'index-> ​​item [index-top]' to a variable. 
- * Then, the top is decremented so that the item is removed from the stack.
  *
  * @param index Receives a stack type structure.
  */
@@ -327,11 +303,6 @@ deleteStack (Stack *index) {
 /**
  * @brief This function creates a queue.
  *
- * This function allocates a memory area where a queue 
- * structure will be created. The 'item' field pointed to 
- * by 'index' is assigned to an address of a dynamic array 
- * and, finally, the address of the queue structure is returned.
- *
  * @param max Maximum number of items in the stack.
  */
 Queue 
@@ -371,13 +342,6 @@ queueIsFull (Queue index) {
 /**
  * @brief This function insert an item in the queue.
  *
- * First, it is checked whether the queue is full, if true, 
- * processing will be aborted. Otherwise, the item must be 
- * inserted at the end of the queue with the code 
- * 'index-> ​​item [index-> ​​last]', then it will be advanced 
- * circularly to the index' index-> ​​last 'and will be increased 
- * in the counting field.
- *
  * @param element Item that will be inserted at the end of the queue.
  * @param index Receives a queue type structure.
  */
@@ -396,13 +360,6 @@ enqueue (char element, Queue index) {
 
 /**
  * @brief This function removes an item in the queue.
- *
- * Otherwise, the item at the beginning of the 
- * queue must be removed and copied to an auxiliary 
- * variable, in this case, 'element'. Then the index 
- * 'index-> ​​first' will be circularly advanced and the 
- * field 'count' decremented and finally the auxiliary 
- * variable will be returned.
  *
  * @param index Receives a queue type structure.
  */
@@ -482,14 +439,6 @@ BSTree
 
 /**
  * @brief This function checks if the node exists.
- *
- * The insertion process starts by initializing an auxiliary 
- * structure with a NULL pointer and checking that the node 
- * is not present in the tree. If true, the auxiliary variable 
- * will be allocated and the fields will be initialized and assigned 
- * to the respective values. If the key is smaller than the current node, 
- * it means that the item will be added on the left, otherwise it will 
- * be added on the right.
  *
  * @param key Key that will be inserted in the tree.
  * @param node Double pointer to a node.
@@ -674,10 +623,6 @@ deleteTree (BSTree *node) {
 /**
  * @brief This function creates a list.
  *
- * This function allocates a memory area for the node. 
- * Assign the received values ​​and return the address of the 
- * memory area in which it was created.
- *
  * @param element Element that will be inserted in the list.
  * @param index Receives a list type structure.
  */
@@ -720,12 +665,6 @@ displayReverseList (List index) {
 
 /**
  * This function concatenates a list at the end of the other.
- *
- * The function 'concatList' takes the address of two lists as 
- * a parameter by reference. When the function is called, it is 
- * checked if any of the two lists is NULL, if true, the list 
- * itself will be returned. Then there will be a loop where each 
- * value of 'B' will be assigned at the end of the 'A' list.
  *
  * @param A Receives a list type structure by reference.
  * @param B Receives a list type structure by reference.
@@ -832,9 +771,6 @@ deleteList (List *index) {
 /**
  * @brief This function creates a map.
  *
- * This function allocates a memory area for mapping and assigns
- * the respective parameter values ​​for the fields.
- *
  * @param key Key that will be inserted in the mapping.
  * @param value Value passed by reference that will be inserted 
  * in the mapping.
@@ -852,13 +788,6 @@ createMap (int key, char *value, Map index) {
 
 /**
  * @brief This function inserts a key and a value in the mapping.
- *
- * Repeat starts to move the 'index' pointer to
- * that points to a null pointer or that points to a
- * larger key equal to the 'key' parameter. So, if the pointed key 
- * is equal to the 'key' parameter the value associated with the 
- * key is changed to the 'value' parameter.
- * Otherwise, a new node is created.
  *
  * @param key Key that will be inserted in the mapping.
  * @param value Value passed by reference that will be inserted 
@@ -879,14 +808,6 @@ insertMap (int key, char *value, Map *index) {
 
 /**
  * @brief This function removes a key from the mapping.
- *
- * The repetition begins to move the 'index' pointer so 
- * that it points to a null pointer or that it points to a 
- * larger key equal to the 'key' parameter. At the end of 
- * the repetition, if the pointer pointed to by 'index' is 
- * null or pointing to a key greater than the 'key' parameter, 
- * 0 is returned indicating that the key does not exist. 
- * Otherwise, the node is deallocated and returned 1.
  *
  * @param key Key that will be inserted in the mapping.
  * @param index Receives a map type structure by reference.
@@ -961,10 +882,6 @@ deleteMap (Map *index) {
 /**
  * @brief This function creates a huffman tree node.
  *
- * This function receives two Huffman trees, a character 
- * and a frequency as input and the created node 
- * address is returned
- *
  * @param left Left hufftree.
  * @param chr Fharacter.
  * @param frq Frequency.
@@ -1006,10 +923,6 @@ int
 /**
  * @brief This function inserts an ordered tree in the forest.
  * 
- * Given a tree passed by argument and a forest with a 'qty' 
- * number of trees, this function inserts the tree into the 
- * forest, in descending order and then increments 'qty'
- * 
  * @param tree Receive a tree.
  * @param forest Receive a forest by reference.
  * @param qty Receives the size of the forest by reference.
@@ -1030,10 +943,6 @@ insertTree (Hufftree tree, Hufftree *forest, int *qty) {
 
 /**
  * @brief This function removes the lightest tree in the forest.
- * 
- * The forest is a vector of trees of decreasing order, to 
- * remove a tree of less weight from the forest it is necessary 
- * to remove the last tree in the vector.
  * 
  * @param forest Receive a forest by reference.
  * @param qty Receives the size of the forest by reference.
