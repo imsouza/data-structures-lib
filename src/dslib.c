@@ -36,10 +36,6 @@
 
 /**
  * @brief Stack structure definition.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
  */
 struct stack {
   int max;      /**< Stack capacity. */  
@@ -50,10 +46,6 @@ struct stack {
 
 /**
  * @brief Queue structure definition.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
  */
 struct queue {
   int max;      /**< Queue capacity. */ 
@@ -66,10 +58,6 @@ struct queue {
 
 /**
  * @brief Binary Search Tree structure definition.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
  */
 struct tree {
   char node;            /**< Tree items. */ 
@@ -80,10 +68,6 @@ struct tree {
 
 /**
  * @brief Huffman Coding structure definition.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
  */
 struct htree {
   struct htree *left;   /**< Left huffman tree. */ 
@@ -95,10 +79,6 @@ struct htree {
 
 /**
  * @brief List structure definition.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
  */
 struct list {
   int item;            /**< List items. */
@@ -108,10 +88,6 @@ struct list {
 
 /**
  * @brief Map structure definition.
- *
- * @warning the fields should never be accessed directly by the program. 
- * All manipulation of data structure should be done 
- * only by the functions implemented.
  */
 struct map {
   int key;            /**< Key. */ 
