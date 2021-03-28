@@ -583,7 +583,7 @@ deleteTree (BSTree *node) {
  * @param index Receives a list type structure.
  */
 List 
-createList (int element, List index) {
+createNodeList (int element, List index) {
   List node = malloc(sizeof(struct list));
   node->item = element;
   node->next = index;
@@ -652,7 +652,7 @@ List
 List 
 cloneList (List index) {
   if (index == NULL) { return NULL; }
-  return createList(index->item, cloneList(index->next));
+  return createNodeList(index->item, cloneList(index->next));
 }
 
 
@@ -1060,5 +1060,15 @@ decompressString (char *string, Hufftree tree) {
     printf("%c", root->chr);
     root = tree;
    }
+  }
+}
+
+
+void 
+deleteHufftree (Hufftree tree) {
+  if (tree) {
+    deleteHufftree(tree->left);
+    deleteHufftree(tree->right);
+    free(tree);
   }
 }

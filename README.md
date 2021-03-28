@@ -1,6 +1,6 @@
 # Data Structures Lib
 
-[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-complete-green)](https://github.com/imsouza/data-structures-lib) [![Netlify Doc Status](https://api.netlify.com/api/v1/badges/09f24ae2-82ed-4eb3-a08b-2ef2abc658ef/deploy-status)](https://data-structures-lib.netlify.app) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
+[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-complete-green)](https://github.com/imsouza/data-structures-lib) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
 
 A library of data structures for academic purposes
 
@@ -9,17 +9,6 @@ A library of data structures for academic purposes
 - Efficient 
 - Flexible
 - Open source
-
-## Documentation
-
-See the project documentation online [here](https://data-structures-lib.netlify.app/ds-lib_8h.html).
-
-## Table of contents
-
-- [Usage](#usage)
-- [Run](#run)
-- [Todo](#todo)
-- [License](#license)
 
 ## Usage
 
@@ -33,8 +22,7 @@ int main () {
 }
 ```
 
-#### Demonstrations:
-Obs.: all demos can be found in this [folder](https://github.com/imsouza/data-structures-lib/tree/main/tests)
+#### Demonstrations
 
 - Binary Search Tree
 ```
@@ -87,16 +75,28 @@ int main () {
 #include "dslib.h"
 
 int main () {
-  displayHufftree(createHufftree("WORD"));
+  Hufftree H1 = createHufftree("WORD");
+  displayHufftree(H1);
+  putchar('\n');
 
-  displayLeaves(createHufftree("DRIVE"));
+  Hufftree H2 = createHufftree("DRIVE");
+  displayLeaves(H2);
+  putchar('\n');
 
   char *string = "TEST";
-  compressString(string, createHufftree(string));
+  Hufftree H3 = createHufftree(string);
+  compressString(string, H3);
 
-  decompressString("010110", createHufftree(string));
+  putchar('\n');
 
-  return 0;
+  Hufftree H4 = createHufftree(string);
+  decompressString("010110", H4);
+  putchar('\n');
+
+  deleteHufftree(H1);
+  deleteHufftree(H2);
+  deleteHufftree(H3);
+  deleteHufftree(H4);
 }
 ```
 
@@ -107,28 +107,47 @@ int main () {
 #include "dslib.h"
 
 int main () {
-  List A = createList(3, createList(1, createList(5, NULL)));
-  List B = createList(2, createList(6, createList(5, createList(8, NULL))));
+  List A = \
+  createNodeList(3, \
+  createNodeList(1, \
+  createNodeList(5, NULL)));
 
   printf("%i\n", getListSize(A));
 
   displayList(A);
 
+  putchar('\n');
+
   displayReverseList(A);
+
+  putchar('\n');
 
   printf("%i\n", listIsEmpty(A));
 
   printf("%i\n", getHead(A));
 
-  concatList(&A, &B);
 
-  List C = createList(-1, cloneList(A));
+  List B = \
+  createNodeList(2, \
+  createNodeList(6, \
+  createNodeList(5, \
+  createNodeList(8, NULL))));
 
+  //deleteList(&A);
+  //deleteList(&B);
+
+  List C = *concatList(&A, &B);
+  displayList(C);
+
+  putchar('\n');
   printf("%i\n", itemExists(10, C));
 
-  deleteList(&A);
+  List D = cloneList(C);
 
-  return 0;
+  deleteList(&C);
+
+  displayList(D);
+  deleteList(&D);
 }
 ```
 
@@ -217,9 +236,13 @@ int main () {
 }
 ``` 
 
-## Run
+## Test
 
-gcc <file.c> dslib.c -o exec
+```$ make && make run ```
+
+Check for memory leaks:
+
+```$ make && make memcheck ```
 
 ## TODO
 
@@ -227,7 +250,6 @@ gcc <file.c> dslib.c -o exec
   - [ ] Avl tree
   - [x] Binary search tree
   - [ ] Circular linked list
-  - [ ] Doubly linked list
   - [ ] Graph
   - [ ] Hash table
   - [ ] Heap
@@ -238,14 +260,11 @@ gcc <file.c> dslib.c -o exec
   - [ ] Set
   - [ ] Sorted linked list
   - [x] Stack
-  - [ ] Stack array
-  - [ ] Stack linked list
 
 - Extra
   - [x] Configure preprocessor directives
-  - [x] Document all the code
-  - [x] Generate doxygen documentation
   - [x] Successfully passed the tests
+  - [x] Check memory leaks
 
 ## Author
 

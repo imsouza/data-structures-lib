@@ -54,7 +54,7 @@ int search(int key, BSTree **node);
 BSTree *findMin(BSTree *node);
 BSTree *findMax(BSTree *node);
 void deleteTree(BSTree *node);
-List createList(int element, List index);
+List createNodeList(int element, List index);
 void displayList(List index);
 void displayReverseList(List index);
 List *concatList(List *A, List *B);
@@ -81,4 +81,5 @@ void displayLeaves(Hufftree tree);
 void createTable(Hufftree tree, char *T[]);
 void compressString(char *string, Hufftree tree);
 void decompressString(char *string, Hufftree tree);
+void deleteHufftree(Hufftree tree);
 #endif
