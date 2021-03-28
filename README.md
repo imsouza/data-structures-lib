@@ -240,9 +240,9 @@ int main () {
 
 ```$ make && make run ```
 
-Check for memory leaks:
+Valgrind:
 
-```$ make && make memcheck ```
+```$ make memcheck ```
 
 ## TODO
 
@@ -264,7 +264,7 @@ Check for memory leaks:
 - Extra
   - [x] Configure preprocessor directives
   - [x] Successfully passed the tests
-  - [x] Check memory leaks
+  - [x] Fix memory leaks
 
 ## Author
 
