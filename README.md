@@ -1,6 +1,6 @@
 # Data Structures Lib
 
-[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![Docs](https://img.shields.io/badge/docs-complete-green)](https://github.com/imsouza/data-structures-lib) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
+[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
 
 A library of data structures for academic purposes
 
@@ -236,6 +236,61 @@ int main () {
 }
 ``` 
 
+- Set
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "dslib.h"
+
+int main () {
+  Set *s = createEmptySet(5);
+
+  insertItemSet(s, 1);
+  insertItemSet(s, 2);
+  insertItemSet(s, 3);
+  insertItemSet(s, 0);
+  insertItemSet(s, 5);
+
+  displaySet(s);
+
+  removeItemSet(s, 0);
+  displaySet(s);
+
+  Set *t = createEmptySet(4);
+  insertItemSet(t, 5);
+  insertItemSet(t, 6);
+  insertItemSet(t, 3);
+  insertItemSet(t, 8);
+
+  displaySet(t);
+
+  Set *u = unionSet(s, t);
+
+  displaySet(u);
+
+  Set *i = intersectionSet(s, t);
+  displaySet(i); 
+
+  Set *d = differenceSet(s, t);
+
+  displaySet(d);
+
+  printf("Highest value: %i\n", highestSetValue(d));
+  printf("Lowest value: %i\n", lowestSetValue(d));
+  printf("Size: %i\n", setSize(d));
+  printf("Empty: %i\n", setIsEmpty(d));
+
+  deleteSet(u);
+  deleteSet(s);
+  deleteSet(t);
+  deleteSet(i);
+  deleteSet(d);
+
+  return 0;
+}
+``` 
+
+
 ## Test
 
 ```$ make && make run ```
@@ -257,7 +312,7 @@ Valgrind:
   - [x] Linked list
   - [x] Map
   - [x] Queue
-  - [ ] Set
+  - [x] Set
   - [ ] Sorted linked list
   - [x] Stack
 

@@ -96,6 +96,12 @@ struct map {
 };
 
 
+struct set {
+  int *values;
+  int size;
+};
+
+
 //! brief Static message array for error handling.
 const char * const messages[] = {
     "[!] Stack overflow!\n",
@@ -1071,4 +1077,158 @@ deleteHufftree (Hufftree tree) {
     deleteHufftree(tree->right);
     free(tree);
   }
+}
+
+
+Set *createEmptySet (int max) {
+  Set *set = malloc (sizeof(Set));
+  set->values = malloc (max * sizeof(Set));
+  set->size = 0;
+
+  return set;
+}
+
+
+void insertItemSet (Set *set, int item) {
+  if (searchItemSet(set, item) == -1) {
+    set->values[set->size] = item;
+    set->size++;
+  } else {
+    return;
+  }
+}
+
+
+void removeItemSet (Set *set, int item) {
+  if (searchItemSet(set, item) == -1 || setIsEmpty(set)) {
+    printf("Element not found");
+    return;
+  } else {
+    int index = -1;
+    for (int i = 0; i < set->size; i++) {
+      if (set->values[i] == item) {
+        index = i;
+        break;
+      }
+    } 
+
+    if (index != -1) {
+      for (int i = index; i < set->size - 1; i++) {
+        set->values[i] = set->values[i + 1];
+      }
+
+      set->size--;
+    } else {
+      printf("Element not found\n");
+      return;
+    }
+  }
+}
+
+
+Set *unionSet (Set *A, Set *B) {
+  Set *C = createEmptySet((A->size + B->size));
+
+  for (int i = 0; i < A->size; i++) {
+    insertItemSet(C, A->values[i]);
+  }
+
+  for (int i = 0; i < B->size; i++) {
+    insertItemSet(C, B->values[i]);
+  }
+
+  return C;
+}
+
+
+Set *intersectionSet (Set *A, Set *B) {
+  int max = (A->size >= B->size) ? A->size : B->size;
+
+  Set *C = createEmptySet(max);
+
+  for (int i = 0; i < max; i++) {
+    if (searchItemSet(A, B->values[i]) != -1) {
+      C->values[C->size++] = B->values[i];
+    }
+  }
+
+  return C;
+}
+
+
+Set *differenceSet (Set *A, Set *B) {
+  int max = (A->size >= B->size) ? A->size : B->size;
+
+  Set *C = createEmptySet(max);
+
+  for (int i = 0; i < max; i++) {
+    if (searchItemSet(B, A->values[i]) == -1) {
+      C->values[C->size++] = A->values[i];
+    }
+  }
+
+  return C;
+}
+
+
+int setSize (Set *set) {
+  return set->size;
+}
+
+
+int highestSetValue (Set *set) {
+  int value = 0;
+
+  for (int i = 0; i < set->size; i++) {
+    if (set->values[i] > value) {
+      value = set->values[i];
+    }
+  }
+
+  return value;
+}
+
+
+int lowestSetValue (Set *set) {
+  int value = 1;
+
+  for (int i = 0; i < set->size; i++) {
+    if (set->values[i] < value) {
+      value = set->values[i];
+    }
+  }
+
+  return value;
+}
+
+
+int setIsEmpty (Set *set) {
+  return (set->size == 0);
+}
+
+
+int searchItemSet (Set *set, int item) {
+  for (int i = 0; i < set->size; i++) {
+    if (set->values[i] == item) {
+      return set->values[i];
+    }
+  }
+
+  return -1;
+}
+
+
+void displaySet (Set *set) {
+  printf("{ ");
+  for (int i = 0; i < set->size; i++) {
+    printf("%i ", set->values[i]);
+  }
+
+  printf("}\n");
+}
+
+
+void deleteSet (Set *set) {
+  free(set->values);
+  free(set);
 }

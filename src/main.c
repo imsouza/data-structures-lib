@@ -208,5 +208,65 @@ int main () {
 
   putchar('\n');
 
+  /***********************************************************/
+
+  sleep(1); printf("\n\n");
+
+  /***********************************************************/
+  printf("Set ------------------\n");
+
+  Set *s = createEmptySet(5);
+
+  printf(">>> INSERT SET S\n");
+  insertItemSet(s, 1);
+  insertItemSet(s, 2);
+  insertItemSet(s, 3);
+  insertItemSet(s, 0);
+  insertItemSet(s, 5);
+
+  printf(">>> DISPLAY SET S\n");
+  displaySet(s);
+
+  printf(">>> REMOVE SET S\n");
+  removeItemSet(s, 0);
+
+  printf(">>> DISPLAY SET S\n");
+  displaySet(s);
+
+  Set *t = createEmptySet(4);
+  printf(">>> INSERT SET T\n");
+  insertItemSet(t, 5);
+  insertItemSet(t, 6);
+  insertItemSet(t, 3);
+  insertItemSet(t, 8);
+
+  printf(">>> DISPLAY SET T\n");
+  displaySet(t);
+
+  Set *u = unionSet(s, t);
+
+  printf(">>> DISPLAY SET U (union (s, t))\n");
+  displaySet(u);
+
+  Set *i = intersectionSet(s, t);
+  printf(">>> DISPLAY SET I (intersection (s, t))\n");
+  displaySet(i); 
+
+  Set *d = differenceSet(s, t);
+
+  printf(">>> DISPLAY SET D (difference (d, s))\n");
+  displaySet(d);
+
+  printf("Highest value: %i\n", highestSetValue(d));
+  printf("Lowest value: %i\n", lowestSetValue(d));
+  printf("Size: %i\n", setSize(d));
+  printf("Empty: %i\n", setIsEmpty(d));
+
+  deleteSet(u);
+  deleteSet(s);
+  deleteSet(t);
+  deleteSet(i);
+  deleteSet(d);
+
   return 0;
 }

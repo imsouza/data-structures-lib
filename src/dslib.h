@@ -20,6 +20,7 @@ typedef struct tree BSTree;
 typedef struct htree *Hufftree;
 typedef struct list *List;
 typedef struct map *Map;
+typedef struct set Set;
 
 extern const char * const messages[];
 
@@ -82,4 +83,18 @@ void createTable(Hufftree tree, char *T[]);
 void compressString(char *string, Hufftree tree);
 void decompressString(char *string, Hufftree tree);
 void deleteHufftree(Hufftree tree);
+Set *createEmptySet(int max);
+void deleteSet(Set *set);
+void insertItemSet(Set *set, int item); 
+void removeItemSet(Set *set, int item);
+int setSize(Set *set);
+int setIsEmpty(Set *set);
+int searchItemSet(Set *set, int item);
+void displaySet(Set *set);
+Set *unionSet(Set *A, Set *B);
+Set *intersectionSet(Set *A, Set *B);
+Set *differenceSet(Set *A, Set *B);
+int highestSetValue(Set *set);
+int lowestSetValue(Set *set);
+
 #endif
