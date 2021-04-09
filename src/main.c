@@ -6,7 +6,7 @@
 
 int main () {
   printf("Queue ------------------\n");
-  Queue Q = createQueue(3);
+  Queue *Q = createQueue(3);
 
   printf(">>> ENQUEUE:\n");
   enqueue(1, Q);
@@ -37,13 +37,13 @@ int main () {
   printf(">>> DISPLAY:\n");
   displayQueue(Q);
 
-  deleteQueue(&Q);
+  deleteQueue(Q);
 
   sleep(1); printf("\n\n");
 
   /***********************************************************/
   printf("Stack ------------------\n");
-  Stack S = createStack(3);
+  Stack *S = createStack(3);
 
   printf(">>> PUSH:\n");
   stackPush(1, S);
@@ -65,7 +65,7 @@ int main () {
   printf(">>> SIZE:\n");
   printf("%i\n", getStackSize(S));
   
-  deleteStack(&S);
+  deleteStack(S);
   /***********************************************************/
 
   sleep(1); printf("\n\n");
@@ -156,32 +156,32 @@ int main () {
 
   /***********************************************************/
   printf("Linked List ------------------\n");
-  List A = \
+  List listA = \
   createNodeList(3, \
   createNodeList(1, \
   createNodeList(5, NULL)));
 
-  printf(">>> SIZE\n");
-  printf("%i\n", getListSize(A));
+  printf(">>> SIZE LIST A\n");
+  printf("%i\n", getListSize(listA));
 
-  printf(">>> DISPLAY\n");
-  displayList(A);
-
-  putchar('\n');
-
-  printf(">>> REVERSE DISPLAY\n");
-  displayReverseList(A);
+  printf(">>> DISPLAY LIST A\n");
+  displayList(listA);
 
   putchar('\n');
 
-  printf(">>> EMPTY\n");
-  printf("%i\n", listIsEmpty(A));
+  printf(">>> REVERSE DISPLAY LIST A\n");
+  displayReverseList(listA);
 
-  printf(">>> HEAD\n");
-  printf("%i\n", getHead(A));
+  putchar('\n');
+
+  printf(">>> EMPTY LIST A\n");
+  printf("%i\n", listIsEmpty(listA));
+
+  printf(">>> HEAD LIST A\n");
+  printf("%i\n", getListHead(listA));
 
 
-  List B = \
+  List listB = \
   createNodeList(2, \
   createNodeList(6, \
   createNodeList(5, \
@@ -190,21 +190,21 @@ int main () {
   //deleteList(&A);
   //deleteList(&B);
 
-  List C = *concatList(&A, &B);
-  printf(">>> DISPLAY\n");
-  displayList(C);
+  List listC = *concatList(&listA, &listB);
+  printf(">>> DISPLAY LIST C\n");
+  displayList(listC);
 
   putchar('\n');
   printf(">>> EXIST\n");
-  printf("%i\n", itemExists(10, C));
+  printf("%i\n", listItemExists(10, listC));
 
-  List D = cloneList(C);
+  List listD = cloneList(listC);
 
-  deleteList(&C);
+  deleteList(&listC);
 
   printf(">>> DISPLAY CLONE\n");
-  displayList(D);
-  deleteList(&D);
+  displayList(listD);
+  deleteList(&listD);
 
   putchar('\n');
 
@@ -213,60 +213,89 @@ int main () {
   sleep(1); printf("\n\n");
 
   /***********************************************************/
+  printf("Map ------------------\n");
+  Map MapA = createMap(145, "Test Drive", NULL);
+
+  printf(">>> DISPLAY MAP A\n");
+  displayMap(MapA);
+
+  printf(">>> INSERT MAP A\n");
+  insertMap(122, "Test 2", &MapA);
+  insertMap(4, "Test 3", &MapA);
+  insertMap(3, "Test 4", &MapA);
+  insertMap(99, "Test 5", &MapA);
+
+  removeMap(4, &MapA);
+
+  printf(">>> FIND KEY\n");
+  if (mapKeyExists(3, MapA)) {
+    printf("Key found!\n");
+  } else {
+    printf("Key not found!\n");
+  }
+
+  deleteMap(&MapA);
+
+
+  /***********************************************************/
+
+  sleep(1); printf("\n\n");
+
+  /***********************************************************/
   printf("Set ------------------\n");
 
-  Set *s = createEmptySet(5);
+  Set *SetA = createEmptySet(5);
 
-  printf(">>> INSERT SET S\n");
-  insertItemSet(s, 1);
-  insertItemSet(s, 2);
-  insertItemSet(s, 3);
-  insertItemSet(s, 0);
-  insertItemSet(s, 5);
+  printf(">>> INSERT SET A\n");
+  insertItemSet(SetA, 1);
+  insertItemSet(SetA, 2);
+  insertItemSet(SetA, 3);
+  insertItemSet(SetA, 0);
+  insertItemSet(SetA, 5);
 
-  printf(">>> DISPLAY SET S\n");
-  displaySet(s);
+  printf(">>> DISPLAY SET A\n");
+  displaySet(SetA);
 
-  printf(">>> REMOVE SET S\n");
-  removeItemSet(s, 0);
+  printf(">>> REMOVE SET A\n");
+  removeItemSet(SetA, 0);
 
-  printf(">>> DISPLAY SET S\n");
-  displaySet(s);
+  printf(">>> DISPLAY SET A\n");
+  displaySet(SetA);
 
-  Set *t = createEmptySet(4);
-  printf(">>> INSERT SET T\n");
-  insertItemSet(t, 5);
-  insertItemSet(t, 6);
-  insertItemSet(t, 3);
-  insertItemSet(t, 8);
+  Set *SetB = createEmptySet(4);
+  printf(">>> INSERT SET B\n");
+  insertItemSet(SetB, 5);
+  insertItemSet(SetB, 6);
+  insertItemSet(SetB, 3);
+  insertItemSet(SetB, 8);
 
-  printf(">>> DISPLAY SET T\n");
-  displaySet(t);
+  printf(">>> DISPLAY SET B\n");
+  displaySet(SetB);
 
-  Set *u = unionSet(s, t);
+  Set *SetC = unionSet(SetA, SetB);
 
-  printf(">>> DISPLAY SET U (union (s, t))\n");
-  displaySet(u);
+  printf(">>> DISPLAY SET C (union (SetA, SetB))\n");
+  displaySet(SetC);
 
-  Set *i = intersectionSet(s, t);
-  printf(">>> DISPLAY SET I (intersection (s, t))\n");
-  displaySet(i); 
+  Set *SetD = intersectionSet(SetA, SetB);
+  printf(">>> DISPLAY SET D (intersection (SetA, SetB))\n");
+  displaySet(SetD); 
 
-  Set *d = differenceSet(s, t);
+  Set *SetE = differenceSet(SetA, SetB);
 
-  printf(">>> DISPLAY SET D (difference (d, s))\n");
-  displaySet(d);
+  printf(">>> DISPLAY SET E (difference (SetA, SetB))\n");
+  displaySet(SetE);
 
-  printf("Highest value: %i\n", highestSetValue(d));
-  printf("Lowest value: %i\n", lowestSetValue(d));
-  printf("Size: %i\n", setSize(d));
-  printf("Empty: %i\n", setIsEmpty(d));
+  printf("Highest value: %i\n", highestSetValue(SetE));
+  printf("Lowest value: %i\n", lowestSetValue(SetE));
+  printf("Size: %i\n", setSize(SetE));
+  printf("Empty: %i\n", setIsEmpty(SetE));
 
-  deleteSet(u);
-  deleteSet(s);
-  deleteSet(t);
-  deleteSet(i);
-  deleteSet(d);
+  deleteSet(SetA);
+  deleteSet(SetB);
+  deleteSet(SetC);
+  deleteSet(SetD);
+  deleteSet(SetE);
 
   return 0;
 }

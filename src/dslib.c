@@ -96,9 +96,12 @@ struct map {
 };
 
 
+/**
+ * @brief Set structure definition.
+ */
 struct set {
-  int *values;
-  int size;
+  int *values;        /**< Set values */
+  int size;           /**< Set size */
 };
 
 
@@ -110,8 +113,10 @@ const char * const messages[] = {
     "[!] The queue is full!\n",
     "[!] The queue is empty!\n",
     "[!] The tree is empty!\n",
-    "[!] Node not found in the tree\n",
-    "[!] The list is empty\n",
+    "[!] Node not found in the tree!\n",
+    "[!] The list is empty!\n",
+    "[!] Error allocating memory!\n",
+    "[!] Element not found!\n"
 };
 
 
@@ -121,12 +126,25 @@ const char * const messages[] = {
  * @param max Maximum number of items in the stack.
  */
 Stack 
-createStack (int max) {
-  Stack index = malloc(sizeof(struct stack));
-  index->max  = max;
-  index->top  = -1;
-  index->item = malloc(max * sizeof(char));
-  return index;
+*createStack (int max) {
+  Stack *index = malloc(sizeof(struct stack));
+
+  if (index != NULL) {
+    index->max  = max;
+    index->top  = -1;
+    index->item = malloc(max * sizeof(char));
+
+    if (index->item == NULL) {
+      free(index);
+      printf("%s", messages[8]);
+      exit(1);
+    }
+
+    return index;
+  } else {
+    printf("%s", messages[8]);
+    exit(1);
+  }
 }
 
 
@@ -136,7 +154,7 @@ createStack (int max) {
  * @param index Receives a stack type structure.
  */
 int 
-stackIsEmpty (Stack index) {
+stackIsEmpty (Stack *index) {
   if (index->top == -1) {
     return 1;
   } else {
@@ -151,7 +169,7 @@ stackIsEmpty (Stack index) {
  * @param index Receives a stack type structure.
  */
 int 
-stackIsFull (Stack index) {
+stackIsFull (Stack *index) {
   if (index->top == index->max - 1) {
     return 1;
   } else {
@@ -167,7 +185,7 @@ stackIsFull (Stack index) {
  * @param index Receives a stack type structure.
  */
 void 
-stackPush (char element, Stack index) {
+stackPush (char element, Stack *index) {
   if (stackIsFull(index)) {
     printf("%s", messages[0]);
     abort();
@@ -184,7 +202,7 @@ stackPush (char element, Stack index) {
  * @param index Receives a stack type structure.
  */
 char 
-stackPop (Stack index) {
+stackPop (Stack *index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[1]);
     abort();
@@ -202,7 +220,7 @@ stackPop (Stack index) {
  * @param index Receives a stack type structure.
  */
 char 
-stackTop (Stack index) {
+stackTop (Stack *index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
@@ -218,7 +236,7 @@ stackTop (Stack index) {
  * @param index Receives a stack type structure.
  */
 int 
-getStackSize (Stack index) {
+getStackSize (Stack *index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
@@ -234,7 +252,7 @@ getStackSize (Stack index) {
  * @param index Receives a stack type structure.
  */
 void 
-displayStack (Stack index) {
+displayStack (Stack *index) {
   if (stackIsEmpty(index)) {
     printf("%s", messages[2]);
     abort();
@@ -256,9 +274,9 @@ displayStack (Stack index) {
  */
 void 
 deleteStack (Stack *index) {
-  free((*index)->item);
-  free(*index);
-  *index = NULL;
+  free(index->item);
+  free(index);
+  index = NULL;
 }
 
 
@@ -268,8 +286,8 @@ deleteStack (Stack *index) {
  * @param max Maximum number of items in the stack.
  */
 Queue 
-createQueue (int max) {
-  Queue index  = malloc(sizeof(struct queue));
+*createQueue (int max) {
+  Queue *index  = malloc(sizeof(struct queue));
   index->max   = max;
   index->count = 0;
   index->first = 0;
@@ -285,7 +303,7 @@ createQueue (int max) {
  * @param index Receives a queue type structure.
  */
 int 
-queueIsEmpty (Queue index) {
+queueIsEmpty (Queue *index) {
   return (index->count == 0);
 }
 
@@ -296,7 +314,7 @@ queueIsEmpty (Queue index) {
  * @param index Receives a queue type structure.
  */
 int 
-queueIsFull (Queue index) {
+queueIsFull (Queue *index) {
   return (index->count == index->max);
 }
 
@@ -308,7 +326,7 @@ queueIsFull (Queue index) {
  * @param index Receives a queue type structure.
  */
 void 
-enqueue (char element, Queue index) {
+enqueue (char element, Queue *index) {
   if (queueIsFull (index)) {
     printf("%s", messages[3]);
     abort();
@@ -326,7 +344,7 @@ enqueue (char element, Queue index) {
  * @param index Receives a queue type structure.
  */
 char 
-dequeue (Queue index) {
+dequeue (Queue *index) {
   if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
@@ -345,7 +363,7 @@ dequeue (Queue index) {
  * @param index Receives a queue type structure.
  */
 int 
-getQueueSize (Queue index) {
+getQueueSize (Queue *index) {
   if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
@@ -361,7 +379,7 @@ getQueueSize (Queue index) {
  * @param index Receives a queue type structure.
  */
 void 
-displayQueue (Queue index) {
+displayQueue (Queue *index) {
   if (queueIsEmpty(index)) {
     printf("%s", messages[4]);
     abort();
@@ -384,18 +402,9 @@ displayQueue (Queue index) {
  */
 void 
 deleteQueue (Queue *index) {
-  free((*index)->item);
-  free(*index);
-  *index = NULL;
-}
-
-
-/**
- * This function generates an empty tree.
- */
-BSTree 
-*generateEmptyTree () {
-  return NULL;
+  free(index->item);
+  free(index);
+  index = NULL;
 }
 
 
@@ -692,7 +701,7 @@ listIsEmpty (List index) {
  * @param index Receives a list type structure.
  */
 int 
-getHead (List index) {
+getListHead (List index) {
   if (listIsEmpty(index) == 1 || index == NULL) {
     abort();
   }
@@ -707,10 +716,10 @@ getHead (List index) {
  * @param index Receives a list type structure.
  */
 int 
-itemExists (int item, List index) {
+listItemExists (int item, List index) {
   if (index == NULL) { return 0; }
   if (item == index->item) { return 1; }
-  return itemExists(item, index->next);
+  return listItemExists(item, index->next);
 }
 
 
@@ -796,7 +805,7 @@ removeMap (int key, Map *index) {
  * @param index Receives a map type structure.
  */
 int 
-keyExists (int key, Map index) {
+mapKeyExists (int key, Map index) {
   while (index != NULL && index->key < key) {
     index = index->next;
   }
@@ -946,7 +955,7 @@ createHufftree (char *string) {
 
 
 /**
- * This function displays a huffman tree on the screen.
+ * @brief This function displays a huffman tree on the screen.
  *
  * @param tree Receives a hufftree type structure.
  */
@@ -973,7 +982,7 @@ displayHufftree (Hufftree tree) {
 
 
 /**
- * This function displays the tree leaves on the screen.
+ * @brief This function displays the tree leaves on the screen.
  *
  * @param tree Receives a hufftree type structure.
  */
@@ -994,7 +1003,7 @@ displayLeaves (Hufftree tree) {
 
 
 /**
- * This function creates a table of huffman codes.
+ * @brief This function creates a table of huffman codes.
  *
  * @note The 'strndup ()' function of the 'string.h' 
  * library is used to make a copy of the string before 
@@ -1019,7 +1028,7 @@ createTable (Hufftree tree, char *T[]) {
 
 
 /**
- * This function compresses a string.
+ * @brief This function compresses a string.
  *
  * @param string String that should be passed as an argument.
  * @param tree Receives a hufftree type structure.
@@ -1045,7 +1054,7 @@ compressString (char *string, Hufftree tree) {
 
 
 /**
- * This function decompresses a string.
+ * @brief This function decompresses a string.
  *
  * @param string String that should be passed as an argument.
  * @param tree Receives a hufftree type structure.
@@ -1070,6 +1079,11 @@ decompressString (char *string, Hufftree tree) {
 }
 
 
+/**
+ * @brief This function clears the hufftree and frees the memory.
+ *
+ * @param tree Receives a hufftree type structure.
+ */
 void 
 deleteHufftree (Hufftree tree) {
   if (tree) {
@@ -1080,6 +1094,11 @@ deleteHufftree (Hufftree tree) {
 }
 
 
+/**
+ * @brief This function creates a empty set of integers.
+ *
+ * @param max Total integer size.
+ */
 Set *createEmptySet (int max) {
   Set *set = malloc (sizeof(Set));
   set->values = malloc (max * sizeof(Set));
@@ -1089,6 +1108,12 @@ Set *createEmptySet (int max) {
 }
 
 
+/**
+ * @brief Insert a integer in the set.
+ *
+ * @param set Receives a set pointer.
+ * @param item Item to be inserted.
+ */
 void insertItemSet (Set *set, int item) {
   if (searchItemSet(set, item) == -1) {
     set->values[set->size] = item;
@@ -1099,9 +1124,15 @@ void insertItemSet (Set *set, int item) {
 }
 
 
+/**
+ * @brief Removes a integer in the set.
+ *
+ * @param set Receives a set pointer.
+ * @param item Item to be removed.
+ */
 void removeItemSet (Set *set, int item) {
   if (searchItemSet(set, item) == -1 || setIsEmpty(set)) {
-    printf("Element not found");
+    printf("%s", messages[9]);
     return;
   } else {
     int index = -1;
@@ -1119,13 +1150,18 @@ void removeItemSet (Set *set, int item) {
 
       set->size--;
     } else {
-      printf("Element not found\n");
+      printf("%s", messages[9]);
       return;
     }
   }
 }
 
-
+/**
+ * @brief This function applies the union of two sets.
+ *
+ * @param *A Set A pointer.
+ * @param *B Set B pointer. 
+ */
 Set *unionSet (Set *A, Set *B) {
   Set *C = createEmptySet((A->size + B->size));
 
@@ -1141,6 +1177,12 @@ Set *unionSet (Set *A, Set *B) {
 }
 
 
+/**
+ * @brief This function applies the intersection of two sets.
+ *
+ * @param *A Set A pointer.
+ * @param *B Set B pointer. 
+ */
 Set *intersectionSet (Set *A, Set *B) {
   int max = (A->size >= B->size) ? A->size : B->size;
 
@@ -1156,6 +1198,12 @@ Set *intersectionSet (Set *A, Set *B) {
 }
 
 
+/**
+ * @brief This function applies the difference of two sets.
+ *
+ * @param *A Set A pointer.
+ * @param *B Set B pointer. 
+ */
 Set *differenceSet (Set *A, Set *B) {
   int max = (A->size >= B->size) ? A->size : B->size;
 
@@ -1171,11 +1219,21 @@ Set *differenceSet (Set *A, Set *B) {
 }
 
 
+/**
+ * @brief Returns the size of the set.
+ *
+ * @param *set Set pointer.
+ */
 int setSize (Set *set) {
   return set->size;
 }
 
 
+/**
+ * @brief Returns the highest set value in the set.
+ *
+ * @param *set Set pointer.
+ */
 int highestSetValue (Set *set) {
   int value = 0;
 
@@ -1189,6 +1247,11 @@ int highestSetValue (Set *set) {
 }
 
 
+/**
+ * @brief Returns the lowest set value in the set.
+ *
+ * @param *set Set pointer.
+ */
 int lowestSetValue (Set *set) {
   int value = 1;
 
@@ -1202,11 +1265,22 @@ int lowestSetValue (Set *set) {
 }
 
 
+/**
+ * @brief Checks if the set is empty.
+ *
+ * @param *set Set pointer.
+ */
 int setIsEmpty (Set *set) {
   return (set->size == 0);
 }
 
 
+/**
+ * @brief Search for a value in the set.
+ *
+ * @param *set Set pointer.
+ * @param item Item to be searched.
+ */
 int searchItemSet (Set *set, int item) {
   for (int i = 0; i < set->size; i++) {
     if (set->values[i] == item) {
@@ -1218,6 +1292,11 @@ int searchItemSet (Set *set, int item) {
 }
 
 
+/**
+ * @brief Displays the set of integers.
+ *
+ * @param *set Set pointer.
+ */
 void displaySet (Set *set) {
   printf("{ ");
   for (int i = 0; i < set->size; i++) {
@@ -1228,6 +1307,11 @@ void displaySet (Set *set) {
 }
 
 
+/**
+ * @brief Frees the allocated memory of the set.
+ *
+ * @param *set Set pointer.
+ */
 void deleteSet (Set *set) {
   free(set->values);
   free(set);
