@@ -8,7 +8,7 @@ CC			=	gcc
 
 LIBS		=	-lm
  
-C_FLAGS =		-O2		\
+C_FLAGS =		-O0		\
 						-Werror		\
 						-Wextra		\
 						-Wno-sign-compare			\

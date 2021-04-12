@@ -1,26 +1,32 @@
 #ifndef DSLIB_H_
 #define DSLIB_H_
-#ifndef NEXT         ///< Macro to advance the index circularly.
+#ifndef NEXT
 #define NEXT(element) \
 (element = (element + 1) % index->max)
 #endif
 #ifndef FREQ
-#define FREQ 256    ///< Frequency constant.
+#define FREQ 256
 #endif
 #ifndef SIZE
-#define SIZE 25     ///< Define the size of the 'value' field.
+#define SIZE 25
 #endif
 #ifndef HCOL
-#define HCOL 5      ///< Define the number of columns that will be displayed.
+#define HCOL 5
 #endif
 
 typedef struct stack Stack;
 typedef struct queue Queue;
 typedef struct tree BSTree;
 typedef struct htree *Hufftree;
-typedef struct list *List;
+typedef struct list List;
 typedef struct map *Map;
 typedef struct set Set;
+
+typedef struct node {
+  int item;
+  struct node *next;
+  struct node *prev;
+} Node;
 
 extern const char * const messages[];
 
@@ -57,16 +63,19 @@ BSTree *findMin(BSTree *node);
 BSTree *findMax(BSTree *node);
 void deleteTree(BSTree *node);
 
-List createNodeList(int element, List index);
-void displayList(List index);
-void displayReverseList(List index);
-List *concatList(List *A, List *B);
-List cloneList(List index);
-int getListSize(List index);
-int listIsEmpty(List index);
-int getListHead(List index);
-int listItemExists(int item, List index);
-void deleteList(List *index);
+List *createLinkedList();
+void insertItemBeginLinkedList(int item, List *list);
+void insertItemEndLinkedList(int item, List *list);
+void displayLinkedList(List *list);
+void displayReverseLinkedList(List *list);
+int getLinkedListNodeItem(Node *index);
+Node *getLinkedListHead(List *list);
+Node *getLinkedListTail(List *list);
+Node *searchLinkedListItem(int item, List *list);
+int getLinkedListSize(List *list);
+int linkedListIsEmpty(List *list);
+void removeLinkedListItem(int item, List *list);
+void deleteLinkedList(List *list);
 
 Map createMap(int key, char *value, Map index);
 void insertMap(int key, char *value, Map *index);
@@ -90,16 +99,16 @@ void deleteHufftree(Hufftree tree);
 
 Set *createEmptySet(int max);
 void deleteSet(Set *set);
-void insertItemSet(Set *set, int item); 
-void removeItemSet(Set *set, int item);
-int setSize(Set *set);
+void insertItemSet(int item, Set *set); 
+void removeItemSet(int item, Set *set);
+int getSetSize(Set *set);
 int setIsEmpty(Set *set);
-int searchItemSet(Set *set, int item);
+int searchItemSet(int item, Set *set);
 void displaySet(Set *set);
 Set *unionSet(Set *A, Set *B);
 Set *intersectionSet(Set *A, Set *B);
 Set *differenceSet(Set *A, Set *B);
-int highestSetValue(Set *set);
-int lowestSetValue(Set *set);
+int getHighestSetValue(Set *set);
+int getLowestSetValue(Set *set);
 
 #endif
