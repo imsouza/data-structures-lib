@@ -101,21 +101,21 @@ const char * const messages[] = {
 
 
 Stack 
-*createStack (int max) {
-  Stack *index = malloc(sizeof(struct stack));
+*stackCreate (int max) {
+  Stack *stack = malloc(sizeof(struct stack));
 
-  if (index != NULL) {
-    index->max  = max;
-    index->top  = -1;
-    index->item = malloc(max * sizeof(char));
+  if (stack != NULL) {
+    stack->max  = max;
+    stack->top  = -1;
+    stack->item = malloc(max * sizeof(char));
 
-    if (index->item == NULL) {
-      free(index);
+    if (stack->item == NULL) {
+      free(stack);
       printf("%s", messages[8]);
       exit(1);
     }
 
-    return index;
+    return stack;
   } else {
     printf("%s", messages[8]);
     exit(1);
@@ -124,8 +124,8 @@ Stack
 
 
 int 
-stackIsEmpty (Stack *index) {
-  if (index->top == -1) {
+stackIsEmpty (Stack *stack) {
+  if (stack->top == -1) {
     return 1;
   } else {
     return 0;
@@ -134,8 +134,8 @@ stackIsEmpty (Stack *index) {
 
 
 int 
-stackIsFull (Stack *index) {
-  if (index->top == index->max - 1) {
+stackIsFull (Stack *stack) {
+  if (stack->top == stack->max - 1) {
     return 1;
   } else {
     return 0;
@@ -144,158 +144,158 @@ stackIsFull (Stack *index) {
 
 
 void 
-stackPush (char element, Stack *index) {
-  if (stackIsFull(index)) {
+stackPush (char element, Stack *stack) {
+  if (stackIsFull(stack)) {
     printf("%s", messages[0]);
     abort();
   } else {
-    index->top++;
-    index->item[index->top] = element;
+    stack->top++;
+    stack->item[stack->top] = element;
   }
 }
 
 
 char 
-stackPop (Stack *index) {
-  if (stackIsEmpty(index)) {
+stackPop (Stack *stack) {
+  if (stackIsEmpty(stack)) {
     printf("%s", messages[1]);
     abort();
   } else {
-    char element = index->item[index->top];
-    index->top--;
+    char element = stack->item[stack->top];
+    stack->top--;
     return element;
   }
 }
 
 
 char 
-stackTop (Stack *index) {
-  if (stackIsEmpty(index)) {
+stackTop (Stack *stack) {
+  if (stackIsEmpty(stack)) {
     printf("%s", messages[2]);
     abort();
   } else {
-    return index->item[index->top];
+    return stack->item[stack->top];
   }
 }
 
 
 int 
-getStackSize (Stack *index) {
-  if (stackIsEmpty(index)) {
+stackSize (Stack *stack) {
+  if (stackIsEmpty(stack)) {
     printf("%s", messages[2]);
     abort();
   } else {
-    return index->top + 1;
+    return stack->top + 1;
   }
 }
 
 
 void 
-displayStack (Stack *index) {
-  if (stackIsEmpty(index)) {
+stackDisplay (Stack *stack) {
+  if (stackIsEmpty(stack)) {
     printf("%s", messages[2]);
     abort();
   } else {
-    for (int i = 0; i <= index->top; i++) {
-      printf("%i\n", index->item[i]);
+    for (int i = 0; i <= stack->top; i++) {
+      printf("%i\n", stack->item[i]);
     }
   }
 }
 
 
 void 
-deleteStack (Stack *index) {
-  free(index->item);
-  free(index);
-  index = NULL;
+stackDestroy (Stack *stack) {
+  free(stack->item);
+  free(stack);
+  stack = NULL;
 }
 
 
 Queue 
-*createQueue (int max) {
-  Queue *index  = malloc(sizeof(struct queue));
-  index->max   = max;
-  index->count = 0;
-  index->first = 0;
-  index->last  = 0;
-  index->item  = malloc(sizeof(max * sizeof(char)));
-  return index;
+*queueCreate (int max) {
+  Queue *queue  = malloc(sizeof(struct queue));
+  queue->max   = max;
+  queue->count = 0;
+  queue->first = 0;
+  queue->last  = 0;
+  queue->item  = malloc(sizeof(max * sizeof(char)));
+  return queue;
 }
 
 
 int 
-queueIsEmpty (Queue *index) {
-  return (index->count == 0);
+queueIsEmpty (Queue *queue) {
+  return (queue->count == 0);
 }
 
 
 int 
-queueIsFull (Queue *index) {
-  return (index->count == index->max);
+queueIsFull (Queue *queue) {
+  return (queue->count == queue->max);
 }
 
 
 void 
-enqueue (char element, Queue *index) {
-  if (queueIsFull (index)) {
+queueEnqueue (char element, Queue *queue) {
+  if (queueIsFull (queue)) {
     printf("%s", messages[3]);
     abort();
   } else {
-    index->item[index->last] = element;
-    NEXT(index->last);
-    index->count++;
+    queue->item[queue->last] = element;
+    NEXT(queue->last);
+    queue->count++;
   }
 }
 
 
 char 
-dequeue (Queue *index) {
-  if (queueIsEmpty(index)) {
+queueDequeue (Queue *queue) {
+  if (queueIsEmpty(queue)) {
     printf("%s", messages[4]);
     abort();
   } else {
-    char element = index->item[index->first];
-    NEXT(index->first);
-    index->count--;
+    char element = queue->item[queue->first];
+    NEXT(queue->first);
+    queue->count--;
     return element;
   }
 }
 
 
 int 
-getQueueSize (Queue *index) {
-  if (queueIsEmpty(index)) {
+queueSize (Queue *queue) {
+  if (queueIsEmpty(queue)) {
     printf("%s", messages[4]);
     abort();
   } else {
-    return index->count;
+    return queue->count;
   }
 }
 
 
 void 
-displayQueue (Queue *index) {
-  if (queueIsEmpty(index)) {
+queueDisplay (Queue *queue) {
+  if (queueIsEmpty(queue)) {
     printf("%s", messages[4]);
     abort();
   } else {
-    for (int i = index->first; i < index->max; i++) {
-      printf("%i\n", index->item[i]);
+    for (int i = queue->first; i < queue->max; i++) {
+      printf("%i\n", queue->item[i]);
     }
   }
 }
 
 
 void 
-deleteQueue (Queue *index) {
-  free(index->item);
-  free(index);
-  index = NULL;
+queueDestroy (Queue *queue) {
+  free(queue->item);
+  free(queue);
+  queue = NULL;
 }
 
 
 void 
-insertNode (int key, BSTree **node) {
+binarySearchTreeInsertNode (int key, BSTree **node) {
   BSTree *temp = NULL;
   if (!(*node)) {
     temp = (BSTree *) malloc(sizeof(BSTree));
@@ -303,57 +303,57 @@ insertNode (int key, BSTree **node) {
     temp->node = key;
     *node = temp;
   } if (key < (*node)->node) {
-    insertNode(key, &(*node)->left);
+    binarySearchTreeInsertNode(key, &(*node)->left);
   } else if (key > (*node)->node) {
-    insertNode(key, &(*node)->right);
+    binarySearchTreeInsertNode(key, &(*node)->right);
   }
 }
 
 
 int 
-treeIsEmpty (BSTree *node) {
+binarySearchTreeIsEmpty (BSTree *node) {
   return (node == NULL);
 }
 
 
 void 
-displayPreOrder (BSTree *node) {
+binarySearchTreeDisplayPreOrder (BSTree *node) {
   if (node) {
     printf("%i\n",node->node);
-    displayPreOrder(node->left);
-    displayPreOrder(node->right);
+    binarySearchTreeDisplayPreOrder(node->left);
+    binarySearchTreeDisplayPreOrder(node->right);
   }
 }
 
 
 void 
-displayInOrder (BSTree *node) {
+binarySearchTreeDisplayInOrder (BSTree *node) {
   if (node) {
-    displayInOrder(node->left);
+    binarySearchTreeDisplayInOrder(node->left);
     printf("%i\n",node->node);
-    displayInOrder(node->right);
+    binarySearchTreeDisplayInOrder(node->right);
   }
 }
 
 
 void 
-displayPostOrder (BSTree *node) {
+binarySearchTreeDisplayPostOrder (BSTree *node) {
   if (node) {
-    displayPostOrder(node->left);
-    displayPostOrder(node->right);
+    binarySearchTreeDisplayPostOrder(node->left);
+    binarySearchTreeDisplayPostOrder(node->right);
     printf("%i\n",node->node);
   }
 }
 
 
 char 
-getRoot (BSTree *index) {
+binarySearchTreeRoot (BSTree *index) {
   return index->node;
 }
 
 
 int 
-getNode (BSTree *index) {
+binarySearchTreeNode (BSTree *index) {
   if (index) {
     return index->node;
   } else {
@@ -364,7 +364,7 @@ getNode (BSTree *index) {
 
 
 int 
-nodeExists (BSTree *index) {
+binarySearchTreeNodeExists (BSTree *index) {
   if (index != NULL) {
     return 1;
   } else {
@@ -374,35 +374,43 @@ nodeExists (BSTree *index) {
 
 
 int 
-search (int key, BSTree **node) {
+binarySearchTreeSearch (int key, BSTree **node) {
   if (!(*node)) { return 0; }
-  if(key < (*node)->node) { search(key, &((*node)->left)); }
-  else if(key > (*node)->node) { search(key, &((*node)->right)); }
-  else if(key == (*node)->node) { return nodeExists(*node); }
+  if (key < (*node)->node) { 
+    binarySearchTreeSearch(key, &((*node)->left)); 
+  } else if (key > (*node)->node) { 
+    binarySearchTreeSearch(key, &((*node)->right)); 
+  } else if (key == (*node)->node) { 
+    return binarySearchTreeNodeExists(*node); 
+  }
 }
 
 
 BSTree 
-*findMin (BSTree *node) {
+*binarySearchTreeFindMin (BSTree *node) {
   if (node == NULL) { return NULL; }
   else if (node->left == NULL) { return node; }
-  else { return findMin(node->left); }
+  else { 
+    return binarySearchTreeFindMin(node->left); 
+  }
 }
 
 
 BSTree 
-*findMax (BSTree *node) {
+*binarySearchTreeFindMax (BSTree *node) {
   if (node == NULL) { return NULL; }
   else if (node->right == NULL) { return node; }
-  else { return findMax(node->right); }
+  else { 
+    return binarySearchTreeFindMax(node->right); 
+  }
 }
 
 
 void 
-deleteTree (BSTree *node) {
+binarySearchTreeDestroy (BSTree *node) {
   if (node) {
-    deleteTree(node->left);
-    deleteTree(node->right);
+    binarySearchTreeDestroy(node->left);
+    binarySearchTreeDestroy(node->right);
     free(node);
     node = NULL;
   } 
@@ -410,7 +418,7 @@ deleteTree (BSTree *node) {
 
 
 List 
-*createLinkedList () {
+*linkedListCreate () {
   List *list = malloc (sizeof(List));
   list->head = NULL;
   list->head = list->tail =  NULL;
@@ -420,7 +428,7 @@ List
 
 
 void 
-insertItemBeginLinkedList(int item, List *list) {
+linkedListInsertItemBegin (int item, List *list) {
   Node *node = malloc (sizeof(Node));
   node->item = item;
   node->next = list->head;
@@ -437,7 +445,7 @@ insertItemBeginLinkedList(int item, List *list) {
 
 
 void 
-insertItemEndLinkedList(int item, List *list) {
+linkedListInsertItemEnd (int item, List *list) {
   Node *node = malloc (sizeof(Node));
   node->item = item;
   node->next = NULL;
@@ -455,7 +463,7 @@ insertItemEndLinkedList(int item, List *list) {
 
 
 void 
-displayLinkedList (List *list) {
+linkedListDisplay (List *list) {
   Node *node = list->head;
 
   while (node != NULL) {
@@ -468,7 +476,7 @@ displayLinkedList (List *list) {
 
 
 void 
-displayReverseLinkedList (List *list) {
+linkedListReverseDisplay (List *list) {
   Node *node = list->tail;
 
   while (node != NULL) {
@@ -481,19 +489,19 @@ displayReverseLinkedList (List *list) {
 
 
 Node
-*getLinkedListHead (List *list) {
+*linkedListHead (List *list) {
   return list->head;
 }
 
 
 Node
-*getLinkedListTail (List *list) {
+*linkedListTail (List *list) {
   return list->tail;
 }
 
 
 int
-getLinkedListNodeItem (Node *index) {
+linkedListNode (Node *index) {
   if (index != NULL) {
     return index->item;
   }
@@ -501,7 +509,7 @@ getLinkedListNodeItem (Node *index) {
 
 
 Node
-*searchLinkedListItem (int item, List *list) {
+*linkedListSearch (int item, List *list) {
   if(linkedListIsEmpty(list)) { return NULL; }
 
   Node *node = list->head;
@@ -515,7 +523,7 @@ Node
 
 
 int 
-getLinkedListSize (List *list) {
+linkedListSize (List *list) {
   return list->qty;
 } 
 
@@ -527,10 +535,10 @@ linkedListIsEmpty (List *list) {
 
 
 void
-removeLinkedListItem (int item, List *list) {
+linkedListRemove (int item, List *list) {
   if(linkedListIsEmpty(list)) { return; }
 
-  Node *node = searchLinkedListItem(item, list);
+  Node *node = linkedListSearch(item, list);
 
   if (node == NULL) {
     return;
@@ -551,7 +559,7 @@ removeLinkedListItem (int item, List *list) {
 
 
 void 
-deleteLinkedList (List *list) {
+linkedListDestroy (List *list) {
   Node *node = list->head;
 
   while (node != NULL) {
@@ -566,7 +574,7 @@ deleteLinkedList (List *list) {
 
 
 Map 
-createMap (int key, char *value, Map index) {
+mapCreate (int key, char *value, Map index) {
   Map node = malloc(sizeof(struct map));
   node->key = key;
   strcpy(node->value, value);
@@ -576,19 +584,19 @@ createMap (int key, char *value, Map index) {
 
 
 void 
-insertMap (int key, char *value, Map *index) {
+mapInsert (int key, char *value, Map *index) {
   while (*index != NULL && (*index)->key < *value) {
     index = &(*index)->next;
   } if (*index != NULL && (*index)->key == *value) {
     strcpy((*index)->value, value);
   } else {
-    *index = createMap(key, value, *index);
+    *index = mapCreate(key, value, *index);
   }
 }
 
 
 int 
-removeMap (int key, Map *index) {
+mapRemove (int key, Map *index) {
   while (*index != NULL && (*index)->key < key) {
     index = &(*index)->next;
   } if (*index == NULL || (*index)->key > key) {
@@ -613,7 +621,7 @@ mapKeyExists (int key, Map index) {
 
 
 void 
-displayMap (Map index) {
+mapDisplay (Map index) {
   printf("{\n");
   while(index != NULL) {
     printf("[%i, %s]", index->key, index->value);
@@ -629,7 +637,7 @@ displayMap (Map index) {
 
 
 void 
-deleteMap (Map *index) {
+mapDestroy (Map *index) {
   while ((*index) != NULL) {
     Map node = *index;
     *index = node->next;
@@ -639,7 +647,7 @@ deleteMap (Map *index) {
 
 
 Hufftree 
-createHufftreeNode (Hufftree left, char chr, int frq, Hufftree right) {
+hufftreeCreateNode (Hufftree left, char chr, int frq, Hufftree right) {
   Hufftree index = malloc(sizeof(struct htree));
   index->left  = left;
   index->chr   = chr;
@@ -650,7 +658,7 @@ createHufftreeNode (Hufftree left, char chr, int frq, Hufftree right) {
 
 
 int 
-*frequency (char *string) {
+*hufftreeFrequency (char *string) {
   static int array[FREQ];
 
   for (int i = 0; i < FREQ; i++) {
@@ -666,7 +674,7 @@ int
 
 
 void 
-insertTree (Hufftree tree, Hufftree *forest, int *qty) {
+hufftreeInsert (Hufftree tree, Hufftree *forest, int *qty) {
   int i = *qty;
 
   while(i > 0 && forest[i - 1]->frq < tree->frq) {
@@ -680,29 +688,29 @@ insertTree (Hufftree tree, Hufftree *forest, int *qty) {
 
 
 Hufftree 
-removeTree (Hufftree *forest, int *qty) {
+hufftreeRemove (Hufftree *forest, int *qty) {
   if (*qty == 0) { abort(); }
   return forest[--(*qty)];
 }
 
 
 Hufftree 
-createHufftree (char *string) {
+hufftreeCreate (char *string) {
   Hufftree forest[FREQ];
   int qty = 0;
-  int *leaf = frequency(string);
+  int *leaf = hufftreeFrequency(string);
 
   for (int chr = 0; chr < FREQ; chr++) {
     if (leaf[chr] > 0) {
-      insertTree(createHufftreeNode(NULL, chr, leaf[chr], NULL),
+      hufftreeInsert(hufftreeCreateNode(NULL, chr, leaf[chr], NULL),
       forest, &qty);
     }
   }
 
   while (qty > 1) {
-    Hufftree right = removeTree(forest, &qty);
-    Hufftree left  = removeTree(forest, &qty);
-    insertTree(createHufftreeNode(left, '-', left->frq + right->frq, right),
+    Hufftree right = hufftreeRemove(forest, &qty);
+    Hufftree left  = hufftreeRemove(forest, &qty);
+    hufftreeInsert(hufftreeCreateNode(left, '-', left->frq + right->frq, right),
     forest, &qty);
   }
 
@@ -711,14 +719,14 @@ createHufftree (char *string) {
 
 
 void 
-displayHufftree (Hufftree tree) {
+hufftreeDisplay (Hufftree tree) {
   static int node = -1;
 
   if (tree == NULL) { return; }
 
   node++;
 
-  displayHufftree(tree->right);
+  hufftreeDisplay(tree->right);
 
   for (int i = 0; i < HCOL * node; i++) {
     putchar(' ');
@@ -726,14 +734,14 @@ displayHufftree (Hufftree tree) {
 
   printf("(%c, %i)\n", tree->chr, tree->frq);
 
-  displayHufftree(tree->left);
+  hufftreeDisplay(tree->left);
 
   node--;
 }
 
 
 void 
-displayLeaves (Hufftree tree) {
+hufftreeDisplayLeaves (Hufftree tree) {
   static char array[FREQ], last = -1;
 
   if (tree == NULL) { return; }
@@ -741,37 +749,37 @@ displayLeaves (Hufftree tree) {
     printf("%c : %.*s\n", tree->chr, last + 1, array);
   } else {
     last++; 
-    array[last] = '0'; displayLeaves(tree->left);
-    array[last] = '1'; displayLeaves(tree->right);
+    array[last] = '0'; hufftreeDisplayLeaves(tree->left);
+    array[last] = '1'; hufftreeDisplayLeaves(tree->right);
     last--;
   }
 }
 
 
 void 
-createTable (Hufftree tree, char *T[]) {
+hufftreeCreateTable (Hufftree tree, char *T[]) {
   static char array[FREQ], last = -1;
   if (tree == NULL) { return; }
   if (tree->left == NULL && tree->right == NULL) {
     T[tree->chr] = strndup(array, last+1);
   } else {
     last++;
-    array[last] = '0'; createTable(tree->left, T);
-    array[last] = '1'; createTable(tree->right, T);
+    array[last] = '0'; hufftreeCreateTable(tree->left, T);
+    array[last] = '1'; hufftreeCreateTable(tree->right, T);
     last--;
   }
 }
 
 
 void 
-compressString (char *string, Hufftree tree) {
+hufftreeCompressString (char *string, Hufftree tree) {
   char *T[FREQ];
 
   for (int chr = 0; chr < FREQ; chr++) {
     T[chr] = NULL;
   }
 
-  createTable(tree, T);
+  hufftreeCreateTable(tree, T);
 
   for (int i = 0; string[i]; i++) {
     printf("%s", T[string[i]]);
@@ -784,7 +792,7 @@ compressString (char *string, Hufftree tree) {
 
 
 void 
-decompressString (char *string, Hufftree tree) {
+hufftreeDecompressString (char *string, Hufftree tree) {
   if (tree == NULL) { return; }
   Hufftree root = tree;
 
@@ -804,17 +812,17 @@ decompressString (char *string, Hufftree tree) {
 
 
 void 
-deleteHufftree (Hufftree tree) {
+hufftreeDestroy (Hufftree tree) {
   if (tree) {
-    deleteHufftree(tree->left);
-    deleteHufftree(tree->right);
+    hufftreeDestroy(tree->left);
+    hufftreeDestroy(tree->right);
     free(tree);
   }
 }
 
 
 Set 
-*createEmptySet (int max) {
+*setCreate (int max) {
   Set *set = malloc (sizeof(Set));
   set->values = malloc (max * sizeof(Set));
   set->size = 0;
@@ -824,8 +832,8 @@ Set
 
 
 void 
-insertItemSet (int item, Set *set) {
-  if (searchItemSet(item, set) == -1) {
+setInsert (int item, Set *set) {
+  if (setSearch(item, set) == -1) {
     set->values[set->size] = item;
     set->size++;
   } else {
@@ -835,8 +843,8 @@ insertItemSet (int item, Set *set) {
 
 
 void 
-removeItemSet (int item, Set *set) {
-  if (searchItemSet(item, set) == -1 || setIsEmpty(set)) {
+setRemove (int item, Set *set) {
+  if (setSearch(item, set) == -1 || setIsEmpty(set)) {
     printf("%s", messages[9]);
     return;
   } else {
@@ -863,15 +871,15 @@ removeItemSet (int item, Set *set) {
 
 
 Set 
-*unionSet (Set *A, Set *B) {
-  Set *C = createEmptySet((A->size + B->size));
+*setUnion (Set *A, Set *B) {
+  Set *C = setCreate((A->size + B->size));
 
   for (int i = 0; i < A->size; i++) {
-    insertItemSet(A->values[i], C);
+    setInsert(A->values[i], C);
   }
 
   for (int i = 0; i < B->size; i++) {
-    insertItemSet(B->values[i], C);
+    setInsert(B->values[i], C);
   }
 
   return C;
@@ -879,13 +887,13 @@ Set
 
 
 Set 
-*intersectionSet (Set *A, Set *B) {
+*setIntersection (Set *A, Set *B) {
   int max = (A->size >= B->size) ? A->size : B->size;
 
-  Set *C = createEmptySet(max);
+  Set *C = setCreate(max);
 
   for (int i = 0; i < max; i++) {
-    if (searchItemSet(B->values[i], A) != -1) {
+    if (setSearch(B->values[i], A) != -1) {
       C->values[C->size++] = B->values[i];
     }
   }
@@ -895,13 +903,13 @@ Set
 
 
 Set 
-*differenceSet (Set *A, Set *B) {
+*setDifference (Set *A, Set *B) {
   int max = (A->size >= B->size) ? A->size : B->size;
 
-  Set *C = createEmptySet(max);
+  Set *C = setCreate(max);
 
   for (int i = 0; i < max; i++) {
-    if (searchItemSet(A->values[i], B) == -1) {
+    if (setSearch(A->values[i], B) == -1) {
       C->values[C->size++] = A->values[i];
     }
   }
@@ -911,13 +919,13 @@ Set
 
 
 int 
-getSetSize (Set *set) {
+setSize (Set *set) {
   return set->size;
 }
 
 
 int 
-getHighestSetValue (Set *set) {
+setHighestValue (Set *set) {
   int value = 0;
 
   for (int i = 0; i < set->size; i++) {
@@ -931,7 +939,7 @@ getHighestSetValue (Set *set) {
 
 
 int 
-getLowestSetValue (Set *set) {
+setLowestValue (Set *set) {
   int value = 1;
 
   for (int i = 0; i < set->size; i++) {
@@ -951,7 +959,7 @@ setIsEmpty (Set *set) {
 
 
 int 
-searchItemSet (int item, Set *set) {
+setSearch (int item, Set *set) {
   for (int i = 0; i < set->size; i++) {
     if (set->values[i] == item) {
       return set->values[i];
@@ -963,7 +971,7 @@ searchItemSet (int item, Set *set) {
 
 
 void 
-displaySet (Set *set) {
+setDisplay (Set *set) {
   printf("{ ");
   for (int i = 0; i < set->size; i++) {
     printf("%i ", set->values[i]);
@@ -974,7 +982,7 @@ displaySet (Set *set) {
 
 
 void 
-deleteSet (Set *set) {
+setDestroy (Set *set) {
   free(set->values);
   free(set);
 

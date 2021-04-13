@@ -6,38 +6,38 @@
 
 int main () {
   printf("Queue ------------------\n");
-  Queue *Q = createQueue(3);
+  Queue *Q = queueCreate(3);
 
   printf(">>> ENQUEUE:\n");
-  enqueue(1, Q);
-  enqueue(5, Q);
-  enqueue(7, Q);
+  queueEnqueue(1, Q);
+  queueEnqueue(5, Q);
+  queueEnqueue(7, Q);
 
   printf(">>> DISPLAY:\n");
-  displayQueue(Q);
+  queueDisplay(Q);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", getQueueSize(Q));
+  printf("%i\n", queueSize(Q));
 
   printf(">>> DEQUEUE:\n");
-  dequeue(Q);
+  queueDequeue(Q);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", getQueueSize(Q));
+  printf("%i\n", queueSize(Q));
 
   printf(">>> DISPLAY:\n");
-  displayQueue(Q);
+  queueDisplay(Q);
 
   printf(">>> DEQUEUE:\n");
-  dequeue(Q);
+  queueDequeue(Q);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", getQueueSize(Q));
+  printf("%i\n", queueSize(Q));
 
   printf(">>> DISPLAY:\n");
-  displayQueue(Q);
+  queueDisplay(Q);
 
-  deleteQueue(Q);
+  queueDestroy(Q);
 
   /***********************************************************/
 
@@ -45,7 +45,7 @@ int main () {
 
   /***********************************************************/
   printf("Stack ------------------\n");
-  Stack *S = createStack(3);
+  Stack *S = stackCreate(3);
 
   printf(">>> PUSH:\n");
   stackPush(1, S);
@@ -53,21 +53,21 @@ int main () {
   stackPush(3, S);
 
   printf(">>> DISPLAY:\n");
-  displayStack(S);
+  stackDisplay(S);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", getStackSize(S));
+  printf("%i\n", stackSize(S));
 
   printf(">>> POP:\n");
   stackPop(S);
 
   printf(">>> DISPLAY:\n");
-  displayStack(S);
+  stackDisplay(S);
 
   printf(">>> SIZE:\n");
-  printf("%i\n", getStackSize(S));
+  printf("%i\n", stackSize(S));
   
-  deleteStack(S);
+  stackDestroy(S);
 
   /***********************************************************/
 
@@ -82,45 +82,45 @@ int main () {
   BSTree *min;
 
   printf(">>> INSERT:\n");
-  insertNode(9, &root);
-  insertNode(2, &root);
-  insertNode(3, &root);
-  insertNode(15, &root);
-  insertNode(4, &root);
-  insertNode(1, &root);
-  insertNode(3, &root);
-  insertNode(7, &root);
-  insertNode(8, &root);
+  binarySearchTreeInsertNode(9, &root);
+  binarySearchTreeInsertNode(2, &root);
+  binarySearchTreeInsertNode(3, &root);
+  binarySearchTreeInsertNode(15, &root);
+  binarySearchTreeInsertNode(4, &root);
+  binarySearchTreeInsertNode(1, &root);
+  binarySearchTreeInsertNode(3, &root);
+  binarySearchTreeInsertNode(7, &root);
+  binarySearchTreeInsertNode(8, &root);
 
   printf(">>> DISPLAYS:\n");
-  displayPreOrder(root);
+  binarySearchTreeDisplayPreOrder(root);
   printf("------------------\n");
-  displayInOrder(root);
+  binarySearchTreeDisplayInOrder(root);
   printf("------------------\n");
-  displayPostOrder(root);
+  binarySearchTreeDisplayPostOrder(root);
   printf("------------------\n");
 
   printf(">>> SEARCH:\n");
-  printf("%i\n", search(545, &root));
+  printf("%i\n", binarySearchTreeSearch(545, &root));
 
   printf(">>> SEARCH:\n");
-  printf("%i\n", search(15, &root));
+  printf("%i\n", binarySearchTreeSearch(15, &root));
 
   printf(">>> ROOT:\n");
-  printf("%i\n", getRoot(root));
+  printf("%i\n", binarySearchTreeRoot(root));
 
   printf(">>> FIND MAX\n");
-  max = findMax(root);
-  printf("%i\n", getNode(max));
+  max = binarySearchTreeFindMax(root);
+  printf("%i\n", binarySearchTreeNode(max));
 
   printf(">>> FIND MIN\n");
-  min = findMin(root);
-  printf("%i\n", getNode(min));
+  min = binarySearchTreeFindMin(root);
+  printf("%i\n", binarySearchTreeNode(min));
 
   printf(">>> EMPTY:\n");
-  printf("%i\n", treeIsEmpty(root));
+  printf("%i\n", binarySearchTreeIsEmpty(root));
 
-  deleteTree(root);
+  binarySearchTreeDestroy(root);
 
   /***********************************************************/
 
@@ -131,31 +131,31 @@ int main () {
   printf("Hufftree ------------------\n");
 
   printf(">>> DISPLAY + CREATE:\n");
-  Hufftree H1 = createHufftree("WORD");
-  displayHufftree(H1);
+  Hufftree H1 = hufftreeCreate("WORD");
+  hufftreeDisplay(H1);
   putchar('\n');
 
   printf(">>> DISPLAY LEAVES + CREATE:\n");
-  Hufftree H2 = createHufftree("DRIVE");
-  displayLeaves(H2);
+  Hufftree H2 = hufftreeCreate("DRIVE");
+  hufftreeDisplayLeaves(H2);
   putchar('\n');
 
   printf(">>> COMPRESS + CREATE:\n");
   char *string = "TEST";
-  Hufftree H3 = createHufftree(string);
-  compressString(string, H3);
+  Hufftree H3 = hufftreeCreate(string);
+  hufftreeCompressString(string, H3);
 
   putchar('\n');
 
   printf(">>> DECOMPRESS + CREATE:\n");
-  Hufftree H4 = createHufftree(string);
-  decompressString("010110", H4);
+  Hufftree H4 = hufftreeCreate(string);
+  hufftreeDecompressString("010110", H4);
   putchar('\n');
 
-  deleteHufftree(H1);
-  deleteHufftree(H2);
-  deleteHufftree(H3);
-  deleteHufftree(H4);
+  hufftreeDestroy(H1);
+  hufftreeDestroy(H2);
+  hufftreeDestroy(H3);
+  hufftreeDestroy(H4);
 
   /***********************************************************/
 
@@ -164,38 +164,38 @@ int main () {
   /***********************************************************/
 
   printf("Linked List ------------------\n");
-  List *listA = createLinkedList();
+  List *listA = linkedListCreate();
 
-  insertItemEndLinkedList(1, listA);
-  insertItemEndLinkedList(2, listA);
-  insertItemEndLinkedList(3, listA);
-  insertItemEndLinkedList(4, listA);
-  insertItemEndLinkedList(5, listA);
+  linkedListInsertItemEnd(1, listA);
+  linkedListInsertItemEnd(2, listA);
+  linkedListInsertItemEnd(3, listA);
+  linkedListInsertItemEnd(4, listA);
+  linkedListInsertItemEnd(5, listA);
 
   printf(">>> DISPLAY LIST\n");
-  displayLinkedList(listA);
+  linkedListDisplay(listA);
 
   printf(">>> REMOVE ELEMENT\n");
-  removeLinkedListItem(5, listA);
+  linkedListRemove(5, listA);
 
   printf(">>> DISPLAY LIST\n");
-  displayLinkedList(listA);
+  linkedListDisplay(listA);
 
   printf(">>> SIZE LIST\n");
-  printf("%i\n", getLinkedListSize(listA));
+  printf("%i\n", linkedListSize(listA));
 
   printf(">>> EMPTY LIST\n");
   printf("%i\n", linkedListIsEmpty(listA));
 
   printf(">>> LIST HEAD\n");
-  Node *head = getLinkedListHead(listA);
-  printf("%i\n", getLinkedListNodeItem(head));
+  Node *head = linkedListHead(listA);
+  printf("%i\n", linkedListNode(head));
 
   printf(">>> LIST TAIL\n");
-  Node *tail = getLinkedListTail(listA);
-  printf("%i\n", getLinkedListNodeItem(tail));
+  Node *tail = linkedListTail(listA);
+  printf("%i\n", linkedListNode(tail));
 
-  deleteLinkedList(listA);
+  linkedListDestroy(listA);
 
   putchar('\n');
 
@@ -205,25 +205,25 @@ int main () {
 
   /***********************************************************/
   printf("Map ------------------\n");
-  Map MapA = createMap(145, "Test Drive", NULL);
+  Map MapA = mapCreate(145, "Test Drive", NULL);
 
   printf(">>> DISPLAY MAP A\n");
-  displayMap(MapA);
+  mapDisplay(MapA);
 
   printf(">>> INSERT MAP A\n");
-  insertMap(122, "Test 2", &MapA);
-  insertMap(4, "Test 3", &MapA);
-  insertMap(3, "Test 4", &MapA);
-  insertMap(99, "Test 5", &MapA);
+  mapInsert(122, "Test 2", &MapA);
+  mapInsert(4, "Test 3", &MapA);
+  mapInsert(3, "Test 4", &MapA);
+  mapInsert(99, "Test 5", &MapA);
 
   printf(">>> DISPLAY MAP A\n");
-  displayMap(MapA);
+  mapDisplay(MapA);
 
   printf(">>> REMOVE MAP A\n");
-  removeMap(4, &MapA);
+  mapRemove(4, &MapA);
 
   printf(">>> DISPLAY MAP A\n");
-  displayMap(MapA);
+  mapDisplay(MapA);
 
   printf(">>> FIND KEY\n");
   if (mapKeyExists(3, MapA)) {
@@ -232,7 +232,7 @@ int main () {
     printf("Key not found!\n");
   }
 
-  deleteMap(&MapA);
+  mapDestroy(&MapA);
 
   /***********************************************************/
 
@@ -242,58 +242,58 @@ int main () {
 
   printf("Set ------------------\n");
 
-  Set *SetA = createEmptySet(5);
+  Set *SetA = setCreate(5);
 
   printf(">>> INSERT SET A\n");
-  insertItemSet(0, SetA);
-  insertItemSet(5, SetA);
-  insertItemSet(6, SetA);
-  insertItemSet(2, SetA);
-  insertItemSet(1, SetA);
+  setInsert(0, SetA);
+  setInsert(5, SetA);
+  setInsert(6, SetA);
+  setInsert(2, SetA);
+  setInsert(1, SetA);
 
   printf(">>> DISPLAY SET A\n");
-  displaySet(SetA);
+  setDisplay(SetA);
 
   printf(">>> REMOVE SET A\n");
-  removeItemSet(1, SetA);
+  setRemove(1, SetA);
 
   printf(">>> DISPLAY SET A\n");
-  displaySet(SetA);
+  setDisplay(SetA);
 
-  Set *SetB = createEmptySet(4);
+  Set *SetB = setCreate(4);
   printf(">>> INSERT SET B\n");
-  insertItemSet(1, SetB);
-  insertItemSet(2, SetB);
-  insertItemSet(3, SetB);
-  insertItemSet(4, SetB);
+  setInsert(1, SetB);
+  setInsert(2, SetB);
+  setInsert(3, SetB);
+  setInsert(4, SetB);
 
   printf(">>> DISPLAY SET B\n");
-  displaySet(SetB);
+  setDisplay(SetB);
 
-  Set *SetC = unionSet(SetA, SetB);
+  Set *SetC = setUnion(SetA, SetB);
 
   printf(">>> DISPLAY SET C (union (SetA, SetB))\n");
-  displaySet(SetC);
+  setDisplay(SetC);
 
-  Set *SetD = intersectionSet(SetA, SetB);
+  Set *SetD = setIntersection(SetA, SetB);
   printf(">>> DISPLAY SET D (intersection (SetA, SetB))\n");
-  displaySet(SetD); 
+  setDisplay(SetD); 
 
-  Set *SetE = differenceSet(SetA, SetB);
+  Set *SetE = setDifference(SetA, SetB);
 
   printf(">>> DISPLAY SET E (difference (SetA, SetB))\n");
-  displaySet(SetE);
+  setDisplay(SetE);
 
-  printf("Highest value: %i\n", getHighestSetValue(SetE));
-  printf("Lowest value: %i\n", getLowestSetValue(SetE));
-  printf("Size: %i\n", getSetSize(SetE));
+  printf("Highest value: %i\n", setHighestValue(SetE));
+  printf("Lowest value: %i\n", setLowestValue(SetE));
+  printf("Size: %i\n", setSize(SetE));
   printf("Empty: %i\n", setIsEmpty(SetE));
 
-  deleteSet(SetA);
-  deleteSet(SetB);
-  deleteSet(SetC);
-  deleteSet(SetD);
-  deleteSet(SetE);
+  setDestroy(SetA);
+  setDestroy(SetB);
+  setDestroy(SetC);
+  setDestroy(SetD);
+  setDestroy(SetE);
 
   return 0;
 }
