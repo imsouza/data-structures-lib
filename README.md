@@ -4,12 +4,6 @@
 
 A library of data structures for academic purposes
 
-## Features
-
-- Efficient 
-- Flexible
-- Open source
-
 ## Usage
 
 ```
@@ -40,7 +34,6 @@ Valgrind:
   - [ ] Avl tree
   - [x] Binary search tree
   - [ ] Graph
-  - [ ] Hash table
   - [ ] Heap
   - [x] Huffman coding
   - [x] Linked list
@@ -48,6 +41,8 @@ Valgrind:
   - [x] Queue
   - [x] Set
   - [x] Stack
+  - [ ] Deque
+  - [x] Priority queue
 
 - Extra
   - [x] Configure preprocessor directives

@@ -41,9 +41,8 @@ int main () {
 
   /***********************************************************/
 
-  sleep(1); printf("\n\n");
+  printf("\n\n");
 
-  /***********************************************************/
   printf("Stack ------------------\n");
   Stack *S = stackCreate(3);
 
@@ -71,9 +70,7 @@ int main () {
 
   /***********************************************************/
 
-  sleep(1); printf("\n\n");
-
-  /***********************************************************/
+  printf("\n\n");
 
   printf("Binary Search Tree ------------------\n");
   BSTree *root = NULL;
@@ -124,9 +121,7 @@ int main () {
 
   /***********************************************************/
 
-  sleep(1); printf("\n\n");
-
-  /***********************************************************/
+  printf("\n\n");
 
   printf("Hufftree ------------------\n");
 
@@ -159,9 +154,7 @@ int main () {
 
   /***********************************************************/
 
-  sleep(1); printf("\n\n");
-
-  /***********************************************************/
+  printf("\n\n");
 
   printf("Linked List ------------------\n");
   List *listA = linkedListCreate();
@@ -201,9 +194,8 @@ int main () {
 
   /***********************************************************/
 
-  sleep(1); printf("\n\n");
+  printf("\n\n");
 
-  /***********************************************************/
   printf("Map ------------------\n");
   Map MapA = mapCreate(145, "Test Drive", NULL);
 
@@ -236,9 +228,7 @@ int main () {
 
   /***********************************************************/
 
-  sleep(1); printf("\n\n");
-
-  /***********************************************************/
+  printf("\n\n");
 
   printf("Set ------------------\n");
 
@@ -294,6 +284,37 @@ int main () {
   setDestroy(SetC);
   setDestroy(SetD);
   setDestroy(SetE);
+
+  /***********************************************************/
+
+  printf("\n\n");
+
+  printf("Priority Queue ------------------\n");
+
+  PrioQ *queue = priorityQueueCreate();
+
+  printf(">>> INSERT\n");
+  priorityQueueInsert(0, queue);
+  priorityQueueInsert(5, queue);
+  priorityQueueInsert(1, queue);
+  priorityQueueInsert(3, queue);
+  priorityQueueInsert(6, queue);
+  priorityQueueInsert(2, queue);
+
+  printf(">>> FIRST\n");
+  printf("%i\n", priorityQueueFirst(queue));
+
+  printf(">>> REMOVE MAX\n");
+  priorityQueueRemoveHighestPrio(queue);
+
+  printf(">>> REMOVE MAX\n");
+  priorityQueueRemoveHighestPrio(queue);
+
+
+  printf(">>> FIRST\n");
+  printf("%i\n", priorityQueueFirst(queue));
+
+  priorityQueueDestroy(queue);
 
   return 0;
 }

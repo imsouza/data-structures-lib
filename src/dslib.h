@@ -8,7 +8,7 @@
 #define FREQ 256
 #endif
 #ifndef SIZE
-#define SIZE 25
+#define SIZE 200
 #endif
 #ifndef HCOL
 #define HCOL 5
@@ -21,12 +21,18 @@ typedef struct htree *Hufftree;
 typedef struct list List;
 typedef struct map *Map;
 typedef struct set Set;
+typedef struct prioq PrioQ;
 
 typedef struct node {
   int item;
   struct node *next;
   struct node *prev;
 } Node;
+
+typedef enum {
+  false,
+  true
+} bool;
 
 extern const char * const messages[];
 
@@ -109,4 +115,12 @@ int setSearch(int item, Set *set);
 void setDisplay(Set *set);
 void setDestroy(Set *set);
 
+PrioQ *priorityQueueCreate();
+void priorityQueueDestroy(PrioQ *queue);
+void priorityQueueInsert( int value, PrioQ *queue);
+void priorityQueueRemoveHighestPrio(PrioQ *queue);
+int priorityQueueFirst(PrioQ *queue);
+bool priorityQueueIsEmpty(PrioQ *queue);
+bool priorityQueueIsFull(PrioQ *queue);
+int priorityQueueSize(PrioQ *queue);
 #endif
