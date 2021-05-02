@@ -1,19 +1,19 @@
 PROJECT = dslib
 
-SRC			=	$(wildcard *.c)
+SRC			= $(wildcard *.c)
 
-OBJS		=	$(patsubst %.c, %.o, $(SRC))
+OBJS		= $(patsubst %.c, %.o, $(SRC))
 
-CC			=	gcc
+CC 			= gcc
 
-LIBS		=	-lm
+LIBS		= -lm
  
-C_FLAGS =		-O0		\
-						-Werror		\
-						-Wextra		\
-						-Wno-sign-compare			\
-						-Wno-unused-parameter	\
-						-Wno-unused-variable	\
+C_FLAGS =   -O0   \
+						-Werror   \
+						-Wextra   \
+						-Wno-sign-compare     \
+						-Wno-unused-parameter \
+						-Wno-unused-variable  \
 						-Wshadow
 
 .PHONY: all

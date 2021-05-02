@@ -32,6 +32,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 #include "dslib.h"
 
 
@@ -51,10 +52,10 @@ struct queue {
 };
 
 
-struct tree {
-  char node;
-  struct tree *left;
-  struct tree *right;
+struct bstree {
+  int item;
+  struct bstree *left;
+  struct bstree *right;
 };
 
 
@@ -100,16 +101,17 @@ struct prioq {
 
 
 const char * const messages[] = {
-    "[!] Stack overflow!\n",
-    "[!] Stack underflow!\n",
-    "[!] Empty stack!\n",
-    "[!] The queue is full!\n",
-    "[!] The queue is empty!\n",
-    "[!] The tree is empty!\n",
-    "[!] Node not found in the tree!\n",
-    "[!] The list is empty!\n",
-    "[!] Error allocating memory!\n",
-    "[!] Element not found!\n"
+    "[!] Stack overflow!\n",  // 0
+    "[!] Stack underflow!\n", // 1
+    "[!] Empty stack!\n",     // 2
+    "[!] The queue is full!\n", // 3
+    "[!] The queue is empty!\n",// 4
+    "[!] The tree is empty!\n", // 5
+    "[!] Node not found in the tree!\n", // 6 
+    "[!] The list is empty!\n",          // 7
+    "[!] Error allocating memory!\n",    // 8
+    "[!] Element not found!\n",          // 9
+    "[!] Key not found!\n",              // 10
 };
 
 
@@ -307,125 +309,295 @@ queueDestroy (Queue *queue) {
 }
 
 
-void 
-binarySearchTreeInsertNode (int key, BSTree **node) {
-  BSTree *temp = NULL;
-  if (!(*node)) {
-    temp = (BSTree *) malloc(sizeof(BSTree));
-    temp->left = temp->right = NULL;
-    temp->node = key;
-    *node = temp;
-  } if (key < (*node)->node) {
-    binarySearchTreeInsertNode(key, &(*node)->left);
-  } else if (key > (*node)->node) {
-    binarySearchTreeInsertNode(key, &(*node)->right);
-  }
+BSTree 
+*binarySearchTreeCreateNode (int item) {
+  BSTree *node = malloc(sizeof(BSTree));
+  node->item  = item;
+  node->left  = NULL;
+  node->right = NULL;
+  return node;
 }
 
 
-int 
-binarySearchTreeIsEmpty (BSTree *node) {
-  return (node == NULL);
-}
-
-
-void 
-binarySearchTreeDisplayPreOrder (BSTree *node) {
-  if (node) {
-    printf("%i\n",node->node);
-    binarySearchTreeDisplayPreOrder(node->left);
-    binarySearchTreeDisplayPreOrder(node->right);
-  }
-}
-
-
-void 
-binarySearchTreeDisplayInOrder (BSTree *node) {
-  if (node) {
-    binarySearchTreeDisplayInOrder(node->left);
-    printf("%i\n",node->node);
-    binarySearchTreeDisplayInOrder(node->right);
-  }
-}
-
-
-void 
-binarySearchTreeDisplayPostOrder (BSTree *node) {
-  if (node) {
-    binarySearchTreeDisplayPostOrder(node->left);
-    binarySearchTreeDisplayPostOrder(node->right);
-    printf("%i\n",node->node);
-  }
-}
-
-
-char 
-binarySearchTreeRoot (BSTree *index) {
-  return index->node;
-}
-
-
-int 
-binarySearchTreeNode (BSTree *index) {
-  if (index) {
-    return index->node;
+BSTree
+*binarySearchTreeInsertNode (BSTree *newNode, BSTree *root) {
+  if(root == NULL) {
+    return newNode;
+  } if (root->item > newNode->item) {
+    root->left = binarySearchTreeInsertNode(newNode, root->left);
   } else {
-    printf("%s", messages[6]);
-    abort();
+    root->right = binarySearchTreeInsertNode(newNode, root->right);
+  }
+
+  return root;
+}
+
+
+BSTree 
+*binarySearchTreeRemoveNode (int key, BSTree *root) {
+  BSTree *father = NULL;
+  BSTree *temp   = root;
+
+  while (temp != NULL && temp->item != key) {
+    father = temp;
+    if (temp->item > key) {
+      temp = temp->left;
+    } else {
+      temp = temp->right;
+    }
+  }
+
+  if(temp == NULL) {
+    printf("%s", messages[10]);
+    return root;
+  }
+
+  if (temp->right == NULL && temp->left == NULL) {
+    if(temp != root) {
+      if(father->left == temp) {
+        father->left = NULL;
+      } else {
+        father->right = NULL;
+      }
+    } else {
+      root = NULL;
+    }
+
+    free(temp);
+  } 
+
+  else if (temp->right == NULL) {
+    if (temp != root) {
+      if (father->left == temp) {
+        father->left = temp->left;
+      } else {
+        father->right = temp->left;
+      }
+    } else {
+      root = temp->left;
+    }
+
+    free(temp);
+  }
+
+  else if (temp->left == NULL) {
+    if (temp != root) { 
+      if (father->left == temp) {
+        father->left = temp->right;
+      } else {
+        father->right = temp->right; 
+      }
+    } else {
+      root = temp->right;
+    }
+
+    free(temp);
+  }
+
+  else {
+    BSTree *aux = temp->left;
+    father = NULL;
+
+    while (aux->right != NULL) {
+      father = aux;
+      aux = aux->right;
+    }
+
+    if (father != NULL) {
+      father->right = aux->left;
+    } else {
+      temp->left = aux->left;
+    }
+
+    temp->item = aux->item;
+    free(aux);
+  }
+
+  return root;
+}
+
+
+int 
+binarySearchTreeIsEmpty (BSTree *root) {
+  return (root == NULL);
+}
+
+
+void 
+binarySearchTreeDisplayPreOrder (BSTree *root) {
+  if (root) {
+    printf("%i\n",root->item);
+    binarySearchTreeDisplayPreOrder(root->left);
+    binarySearchTreeDisplayPreOrder(root->right);
+  }
+}
+
+
+void 
+binarySearchTreeDisplayInOrder (BSTree *root) {
+  if (root) {
+    binarySearchTreeDisplayInOrder(root->left);
+    printf("%i\n",root->item);
+    binarySearchTreeDisplayInOrder(root->right);
+  }
+}
+
+
+void 
+binarySearchTreeDisplayPostOrder (BSTree *root) {
+  if (root) {
+    binarySearchTreeDisplayPostOrder(root->left);
+    binarySearchTreeDisplayPostOrder(root->right);
+    printf("%i\n",root->item);
+  }
+}
+
+
+void 
+binarySearchTreePadding (char ch, int n) {
+  for (int i = 0; i < n; i++ ) {
+    putchar(ch);
+  }
+}
+
+
+void 
+binarySearchTreeDisplayTree (int level, BSTree *root) {
+  if (root == NULL) {
+    binarySearchTreePadding('\t', level);
+    puts("~");
+  } else {
+    binarySearchTreeDisplayTree(level + 1, root->right);
+    binarySearchTreePadding('\t', level);
+    printf("%d\n", root->item);
+    binarySearchTreeDisplayTree(level + 1, root->left);
   }
 }
 
 
 int 
-binarySearchTreeNodeExists (BSTree *index) {
-  if (index != NULL) {
+binarySearchTreeGetItem (BSTree *root) {
+  return root->item;
+}
+
+
+int 
+binarySearchTreeItemExists (int item, BSTree *root) {
+  if (root == NULL) {
+    return 0;
+  } if(root->item == item) {
+    return 1;
+  } else if (binarySearchTreeItemExists(item, root->left)) {
     return 1;
   } else {
-    return 0;
+    return binarySearchTreeItemExists(item, root->right);
+  }
+}
+
+
+BSTree 
+*binarySearchTreeSearch (int key, BSTree *root) {
+  if (root == NULL || root->item == key) { 
+    return root; 
+  }
+
+  if (root->item > key) {
+    return binarySearchTreeSearch(key, root->left);
+  } else {
+    return binarySearchTreeSearch(key, root->right);
   }
 }
 
 
 int 
-binarySearchTreeSearch (int key, BSTree **node) {
-  if (!(*node)) { return 0; }
-  if (key < (*node)->node) { 
-    binarySearchTreeSearch(key, &((*node)->left)); 
-  } else if (key > (*node)->node) { 
-    binarySearchTreeSearch(key, &((*node)->right)); 
-  } else if (key == (*node)->node) { 
-    return binarySearchTreeNodeExists(*node); 
+binarySearchTreeTotalNodes (BSTree *root) {
+  if (root == NULL) {
+    return 0;
+  } else  {
+    return binarySearchTreeTotalNodes(root->left) + \
+    binarySearchTreeTotalNodes(root->right) + 1;
+  }
+}
+
+
+int 
+binarySearchTreeHeight (BSTree *root) {
+  if (root == NULL) {
+    return -1;
+  }
+
+  int hSTL = binarySearchTreeHeight(root->left);
+  int hSTR = binarySearchTreeHeight(root->right);
+
+  if (hSTL > hSTR) {
+    return hSTL + 1;
+  } else {
+    return hSTR + 1;
+  }
+}
+
+
+int 
+binarySearchTreeIsBalanced (BSTree *root) {
+  if (root == NULL) { 
+    return 1; 
+  } else if (!binarySearchTreeIsBalanced(root->left)) {
+    return 0;
+  } else if (!binarySearchTreeIsBalanced(root->right)) {
+    return 0;
+  } else if (abs(binarySearchTreeHeight(root->left) - \
+    binarySearchTreeHeight(root->right)) > 1) {
+    return 0;
+  }
+
+  return 1;
+}
+
+
+int 
+binarySearchTreeTotalLeafs (BSTree *root) {
+  if (root == NULL) {
+    return 0;
+  } else if (root->left == NULL && root->right == NULL) { 
+    return 1; 
+  }
+
+  return binarySearchTreeTotalLeafs(root->left) + \
+  binarySearchTreeTotalLeafs(root->right);
+}
+
+
+BSTree 
+*binarySearchTreeFindMin (BSTree *root) {
+  if (root == NULL) { 
+    return NULL; 
+  } else if (root->left == NULL) { 
+    return root; 
+  } else { 
+    return binarySearchTreeFindMin(root->left); 
   }
 }
 
 
 BSTree 
-*binarySearchTreeFindMin (BSTree *node) {
-  if (node == NULL) { return NULL; }
-  else if (node->left == NULL) { return node; }
-  else { 
-    return binarySearchTreeFindMin(node->left); 
-  }
-}
-
-
-BSTree 
-*binarySearchTreeFindMax (BSTree *node) {
-  if (node == NULL) { return NULL; }
-  else if (node->right == NULL) { return node; }
-  else { 
-    return binarySearchTreeFindMax(node->right); 
+*binarySearchTreeFindMax (BSTree *root) {
+  if (root == NULL) { 
+    return NULL; 
+  } else if (root->right == NULL) { 
+    return root; 
+  } else { 
+    return binarySearchTreeFindMax(root->right); 
   }
 }
 
 
 void 
-binarySearchTreeDestroy (BSTree *node) {
-  if (node) {
-    binarySearchTreeDestroy(node->left);
-    binarySearchTreeDestroy(node->right);
-    free(node);
-    node = NULL;
+binarySearchTreeDestroy (BSTree *root) {
+  if (root) {
+    binarySearchTreeDestroy(root->left);
+    binarySearchTreeDestroy(root->right);
+    free(root);
+    root = NULL;
   } 
 }
 

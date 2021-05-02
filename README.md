@@ -42,6 +42,7 @@ Valgrind:
   - [x] Set
   - [x] Stack
   - [ ] Deque
+  - [ ] Symbol Table 
   - [x] Priority queue
 
 - Extra

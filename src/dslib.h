@@ -16,7 +16,7 @@
 
 typedef struct stack Stack;
 typedef struct queue Queue;
-typedef struct tree BSTree;
+typedef struct bstree BSTree;
 typedef struct htree *Hufftree;
 typedef struct list List;
 typedef struct map *Map;
@@ -55,18 +55,24 @@ int queueSize(Queue *queue);
 void queueDisplay(Queue *queue);
 void queueDestroy(Queue *queue);
 
-BSTree *binarySearchTreeFindMin(BSTree *node);
-BSTree *binarySearchTreeFindMax(BSTree *node);
-void binarySearchTreeInsertNode(int key, BSTree **node);
-int binarySearchTreeIsEmpty(BSTree *node);
-void binarySearchTreeDisplayPreOrder(BSTree *node);
-void binarySearchTreeDisplayInOrder(BSTree *node);
-void binarySearchTreeDisplayPostOrder(BSTree *node);
-char binarySearchTreeRoot(BSTree *index);
-int binarySearchTreeNode(BSTree *index);
-int binarySearchTreeNodeExists(BSTree *index);
-int binarySearchTreeSearch(int key, BSTree **node);
-void binarySearchTreeDestroy(BSTree *node);
+BSTree *binarySearchTreeCreateNode(int item);
+BSTree *binarySearchTreeInsertNode(BSTree *newNode, BSTree *root);
+BSTree *binarySearchTreeRemoveNode(int key, BSTree *root);
+BSTree *binarySearchTreeSearch(int key, BSTree *root);
+BSTree *binarySearchTreeFindMin(BSTree *root);
+BSTree *binarySearchTreeFindMax(BSTree *root);
+int binarySearchTreeIsEmpty(BSTree *root);
+void binarySearchTreeDisplayPreOrder(BSTree *root);
+void binarySearchTreeDisplayInOrder(BSTree *root);
+void binarySearchTreeDisplayPostOrder(BSTree *root);
+void binarySearchTreeDisplayTree(int level, BSTree *root);
+int binarySearchTreeGetItem(BSTree *root);
+int binarySearchTreeItemExists(int item, BSTree *root);
+int binarySearchTreeTotalNodes(BSTree *root);
+int binarySearchTreeHeight(BSTree *root);
+int binarySearchTreeIsBalanced(BSTree *root);
+int binarySearchTreeTotalLeafs(BSTree *root);
+void binarySearchTreeDestroy(BSTree *root);
 
 List *linkedListCreate();
 Node *linkedListHead(List *list);
