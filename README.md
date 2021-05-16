@@ -31,7 +31,7 @@ Valgrind:
 ## TODO
 
 - Data Structures
-  - [ ] AVL tree
+  - [x] AVL tree
   - [x] Binary search tree
   - [ ] Graph
   - [x] Huffman coding

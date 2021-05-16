@@ -17,6 +17,7 @@
 typedef struct stack Stack;
 typedef struct queue Queue;
 typedef struct bstree BSTree;
+typedef struct avltree AVLTree;
 typedef struct htree *Hufftree;
 typedef struct list List;
 typedef struct map *Map;
@@ -74,6 +75,14 @@ long int binarySearchTreeHeight(BSTree *root);
 long int binarySearchTreeIsBalanced(BSTree *root);
 long int binarySearchTreeTotalLeafs(BSTree *root);
 void binarySearchTreeDestroy(BSTree *root);
+
+AVLTree *AVLTreeCreateNode(long int item);
+AVLTree *AVLTreeSearch(long int item, AVLTree *root);
+long int AVLTreeHeight(AVLTree *root);
+void AVLTreeDisplayTree (long int level, AVLTree *root);
+AVLTree *AVLTreeInsertNode(AVLTree *new, AVLTree *root);
+AVLTree *AVLTreeRemoveNode(long int key, AVLTree *root);
+void AVLTreeDestroy(AVLTree *root);
 
 List *linkedListCreate();
 Node *linkedListHead(List *list);

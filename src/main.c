@@ -118,6 +118,29 @@ int main () {
 
   binarySearchTreeDestroy(root);
 
+
+  /***********************************************************/
+
+  printf("\n\n");
+
+  printf("AVL Tree ------------------\n");
+
+  AVLTree *AVLRoot = NULL;
+
+  for (int i = 10; i<= 200; i += 10) {
+    AVLRoot = AVLTreeInsertNode(AVLTreeCreateNode(i), AVLRoot);
+  }
+
+  AVLTreeDisplayTree(0, AVLRoot);
+
+  printf("%li", AVLTreeHeight(AVLRoot));
+
+  for (int i = 10; i<= 200; i += 10) {
+    AVLRoot = AVLTreeRemoveNode(i, AVLRoot);
+  }
+
+  AVLTreeDestroy(AVLRoot);
+
   /***********************************************************/
 
   printf("\n\n");
