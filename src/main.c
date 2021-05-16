@@ -6,7 +6,7 @@
 
 int main () {
   printf("Queue ------------------\n");
-  Queue *Q = queueCreate(3);
+  Queue *Q = queueCreate();
 
   queueEnqueue(1, Q);
   queueEnqueue(5, Q);
@@ -14,17 +14,17 @@ int main () {
 
   queueDisplay(Q);
 
-  printf("%i\n", queueSize(Q));
+  printf("%li\n", queueSize(Q));
 
   queueDequeue(Q);
 
-  printf("%i\n", queueSize(Q));
+  printf("%li\n", queueSize(Q));
 
   queueDisplay(Q);
 
   queueDequeue(Q);
 
-  printf("%i\n", queueSize(Q));
+  printf("%li\n", queueSize(Q));
 
   queueDisplay(Q);
 
@@ -35,7 +35,7 @@ int main () {
   printf("\n\n");
 
   printf("Stack ------------------\n");
-  Stack *S = stackCreate(3);
+  Stack *S = stackCreate();
 
   stackPush(1, S);
   stackPush(2, S);
@@ -43,13 +43,13 @@ int main () {
 
   stackDisplay(S);
 
-  printf("%i\n", stackSize(S));
+  printf("%li\n", stackSize(S));
 
   stackPop(S);
 
   stackDisplay(S);
 
-  printf("%i\n", stackSize(S));
+  printf("%li\n", stackSize(S));
   
   stackDestroy(S);
 
@@ -91,30 +91,30 @@ int main () {
 
   putchar('\n');
 
-  printf("%i\n", binarySearchTreeHeight(root));
+  printf("%li\n", binarySearchTreeHeight(root));
 
   BSTree *searched = binarySearchTreeSearch(3, root);
 
   if (searched) {
-    printf("%i? %i\n", 3, binarySearchTreeGetItem(searched));
+    printf("%i? %li\n", 3, binarySearchTreeGetItem(searched));
   } else {
     printf("Node not found!\n");
   }
 
-  printf("%i\n", binarySearchTreeTotalNodes(root));
-  printf("%i\n", binarySearchTreeTotalLeafs(root));
+  printf("%li\n", binarySearchTreeTotalNodes(root));
+  printf("%li\n", binarySearchTreeTotalLeafs(root));
 
   BSTree *max = binarySearchTreeFindMax(root);
-  printf("%i\n", binarySearchTreeGetItem(max));
+  printf("%li\n", binarySearchTreeGetItem(max));
 
   BSTree *min = binarySearchTreeFindMin(root);
-  printf("%i\n", binarySearchTreeGetItem(min));
+  printf("%li\n", binarySearchTreeGetItem(min));
 
-  printf("%i\n", binarySearchTreeIsEmpty(root));
+  printf("%li\n", binarySearchTreeIsEmpty(root));
 
-  printf("%i\n", binarySearchTreeIsBalanced(root));
+  printf("%li\n", binarySearchTreeIsBalanced(root));
 
-  printf("%i\n", binarySearchTreeItemExists(1, root));
+  printf("%li\n", binarySearchTreeItemExists(1, root));
 
   binarySearchTreeDestroy(root);
 
@@ -166,15 +166,15 @@ int main () {
 
   linkedListDisplay(listA);
 
-  printf("%i\n", linkedListSize(listA));
+  printf("%li\n", linkedListSize(listA));
 
-  printf("%i\n", linkedListIsEmpty(listA));
+  printf("%li\n", linkedListIsEmpty(listA));
 
   Node *head = linkedListHead(listA);
-  printf("%i\n", linkedListNode(head));
+  printf("%li\n", linkedListNode(head));
 
   Node *tail = linkedListTail(listA);
-  printf("%i\n", linkedListNode(tail));
+  printf("%li\n", linkedListNode(tail));
 
   linkedListDestroy(listA);
 
@@ -247,10 +247,10 @@ int main () {
 
   setDisplay(SetE);
 
-  printf("%i\n", setHighestValue(SetE));
-  printf("%i\n", setLowestValue(SetE));
-  printf("%i\n", setSize(SetE));
-  printf("%i\n", setIsEmpty(SetE));
+  printf("%li\n", setHighestValue(SetE));
+  printf("%li\n", setLowestValue(SetE));
+  printf("%li\n", setSize(SetE));
+  printf("%li\n", setIsEmpty(SetE));
 
   setDestroy(SetA);
   setDestroy(SetB);
@@ -273,13 +273,13 @@ int main () {
   priorityQueueInsert(6, queue);
   priorityQueueInsert(2, queue);
 
-  printf("%i\n", priorityQueueFirst(queue));
+  printf("%li\n", priorityQueueFirst(queue));
 
   priorityQueueRemoveHighestPrio(queue);
 
   priorityQueueRemoveHighestPrio(queue);
 
-  printf("%i\n", priorityQueueFirst(queue));
+  printf("%li\n", priorityQueueFirst(queue));
 
   priorityQueueDestroy(queue);
 

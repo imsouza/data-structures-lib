@@ -19,11 +19,9 @@ C_FLAGS =   -O0   \
 .PHONY: all
 
 all: $(OBJS)
-	@echo Creating executable file: $@
 	$(CC) $(OBJS) $(LIBS) -o $(PROJECT)
 
 %.o: %.c
-	@echo Compiling object file: $@
 	$(CC) $(C_FLAGS) -c $(SRC)
 
 clean:

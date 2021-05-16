@@ -31,18 +31,15 @@ Valgrind:
 ## TODO
 
 - Data Structures
-  - [ ] Avl tree
+  - [ ] AVL tree
   - [x] Binary search tree
   - [ ] Graph
-  - [ ] Heap
   - [x] Huffman coding
   - [x] Linked list
   - [x] Map
   - [x] Queue
   - [x] Set
   - [x] Stack
-  - [ ] Deque
-  - [ ] Symbol Table 
   - [x] Priority queue
 
 - Extra

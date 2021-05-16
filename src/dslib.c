@@ -37,23 +37,20 @@
 
 
 struct stack {
-  int max;
-  int top; 
-  char *item;
+  Node *head;
+  int qty;
 };
 
 
 struct queue {
-  int max;
-  int count;
-  int first;
-  int last;
-  char *item;
+  Node *head;
+  Node *tail;
+  int qty;
 };
 
 
 struct bstree {
-  int item;
+  long int item;
   struct bstree *left;
   struct bstree *right;
 };
@@ -62,7 +59,7 @@ struct bstree {
 struct htree {
   struct htree *left;
   char chr;
-  int  frq;
+  long int frq;
   struct htree *right;
 };
 
@@ -75,26 +72,26 @@ struct list {
 
 
 struct map {
-  int key;
+  long int key;
   char value[SIZE];
   struct map *next;
 };
 
 
 struct set {
-  int *values;
-  int size;
+  long int *values;
+  long int size;
 };
 
 
 struct pvalue {
-  int prio;
+  long int prio;
 };
 
 
 struct prioq {
-  int first;
-  int last;
+  long int first;
+  long int last;
   int qty;
   struct pvalue pvalue_t[SIZE];
 };
@@ -116,92 +113,58 @@ const char * const messages[] = {
 
 
 Stack 
-*stackCreate (int max) {
-  Stack *stack = malloc(sizeof(struct stack));
-
-  if (stack != NULL) {
-    stack->max  = max;
-    stack->top  = -1;
-    stack->item = malloc(max * sizeof(char));
-
-    if (stack->item == NULL) {
-      free(stack);
-      printf("%s", messages[8]);
-      exit(1);
-    }
-
-    return stack;
-  } else {
-    printf("%s", messages[8]);
-    exit(1);
-  }
+*stackCreate () {
+  Stack *stack = malloc (sizeof(Stack));
+  stack->head = NULL;
+  stack->qty = 0;
+  return stack;
 }
 
 
-int 
+long int 
 stackIsEmpty (Stack *stack) {
-  if (stack->top == -1) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
-
-
-int 
-stackIsFull (Stack *stack) {
-  if (stack->top == stack->max - 1) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return stack->qty == 0;
 }
 
 
 void 
-stackPush (char element, Stack *stack) {
-  if (stackIsFull(stack)) {
-    printf("%s", messages[0]);
-    abort();
-  } else {
-    stack->top++;
-    stack->item[stack->top] = element;
-  }
+stackPush (long int item, Stack *stack) {
+  Node *new = malloc (sizeof(Node));
+  new->item = item;
+  new->next = stack->head;
+  stack->head = new;
+  stack->qty++;
 }
 
 
-char 
+void 
 stackPop (Stack *stack) {
   if (stackIsEmpty(stack)) {
     printf("%s", messages[1]);
     abort();
   } else {
-    char element = stack->item[stack->top];
-    stack->top--;
-    return element;
+    Node *temp = stack->head;
+    stack->head = temp->next;
+    stack->qty--;
+    free(temp);
   }
 }
 
 
-char 
+long int
 stackTop (Stack *stack) {
   if (stackIsEmpty(stack)) {
     printf("%s", messages[2]);
     abort();
   } else {
-    return stack->item[stack->top];
+    return stack->head->item;
   }
 }
 
 
-int 
+long int 
 stackSize (Stack *stack) {
-  if (stackIsEmpty(stack)) {
-    printf("%s", messages[2]);
-    abort();
-  } else {
-    return stack->top + 1;
-  }
+  return stack->qty;
 }
 
 
@@ -211,79 +174,87 @@ stackDisplay (Stack *stack) {
     printf("%s", messages[2]);
     abort();
   } else {
-    for (int i = 0; i <= stack->top; i++) {
-      printf("%i\n", stack->item[i]);
+    Node *temp = stack->head;
+
+    while (temp) {
+      printf("%li ", temp->item);
+      temp = temp->next;
     }
+
+    putchar('\n');
   }
 }
 
 
 void 
 stackDestroy (Stack *stack) {
-  free(stack->item);
+  Node *aux = stack->head;
+
+  while (aux) {
+    Node *temp = aux->next;
+    free(aux);
+    aux = temp;
+  }
+
   free(stack);
   stack = NULL;
 }
 
 
 Queue 
-*queueCreate (int max) {
-  Queue *queue  = malloc(sizeof(struct queue));
-  queue->max   = max;
-  queue->count = 0;
-  queue->first = 0;
-  queue->last  = 0;
-  queue->item  = malloc(sizeof(max * sizeof(char)));
+*queueCreate () {
+  Queue *queue  = malloc (sizeof(Queue));
+  queue->head = queue->tail = NULL;
+  queue->qty = 0;
   return queue;
 }
 
 
-int 
+long int 
 queueIsEmpty (Queue *queue) {
-  return (queue->count == 0);
+  return queue->qty == 0;
 }
 
 
-int 
-queueIsFull (Queue *queue) {
-  return (queue->count == queue->max);
+long int 
+queueSize (Queue *queue) {
+  return queue->qty;
+}
+
+
+long int
+queueFront (Queue *queue) {
+  return queue->head->item;
 }
 
 
 void 
-queueEnqueue (char element, Queue *queue) {
-  if (queueIsFull (queue)) {
-    printf("%s", messages[3]);
-    abort();
+queueEnqueue (long int item, Queue *queue) {
+  Node *new = malloc (sizeof(Node));
+  new->item = item;
+  new->next = NULL;
+
+  if (queueIsEmpty(queue)) {
+    queue->head = new;
   } else {
-    queue->item[queue->last] = element;
-    NEXT(queue->last);
-    queue->count++;
+    queue->tail->next = new;
   }
+
+  queue->tail = new;
+  queue->qty++;
 }
 
 
-char 
+void
 queueDequeue (Queue *queue) {
   if (queueIsEmpty(queue)) {
     printf("%s", messages[4]);
     abort();
   } else {
-    char element = queue->item[queue->first];
-    NEXT(queue->first);
-    queue->count--;
-    return element;
-  }
-}
-
-
-int 
-queueSize (Queue *queue) {
-  if (queueIsEmpty(queue)) {
-    printf("%s", messages[4]);
-    abort();
-  } else {
-    return queue->count;
+    Node *temp  = queue->head;
+    queue->head = temp->next;
+    queue->qty--;
+    free(temp);
   }
 }
 
@@ -294,23 +265,35 @@ queueDisplay (Queue *queue) {
     printf("%s", messages[4]);
     abort();
   } else {
-    for (int i = queue->first; i < queue->max; i++) {
-      printf("%i\n", queue->item[i]);
+    Node *temp = queue->head;
+
+    while (temp) {
+      printf("%li ", temp->item);
+      temp = temp->next;
     }
+
+    putchar('\n');
   }
 }
 
 
 void 
 queueDestroy (Queue *queue) {
-  free(queue->item);
+  Node *aux = queue->head;
+
+  while (aux) {
+    Node *temp = aux->next;
+    free(aux);
+    aux = temp;
+  }
+
   free(queue);
   queue = NULL;
 }
 
 
 BSTree 
-*binarySearchTreeCreateNode (int item) {
+*binarySearchTreeCreateNode (long int item) {
   BSTree *node = malloc(sizeof(BSTree));
   node->item  = item;
   node->left  = NULL;
@@ -334,7 +317,7 @@ BSTree
 
 
 BSTree 
-*binarySearchTreeRemoveNode (int key, BSTree *root) {
+*binarySearchTreeRemoveNode (long int key, BSTree *root) {
   BSTree *father = NULL;
   BSTree *temp   = root;
 
@@ -417,7 +400,7 @@ BSTree
 }
 
 
-int 
+long int 
 binarySearchTreeIsEmpty (BSTree *root) {
   return (root == NULL);
 }
@@ -426,7 +409,7 @@ binarySearchTreeIsEmpty (BSTree *root) {
 void 
 binarySearchTreeDisplayPreOrder (BSTree *root) {
   if (root) {
-    printf("%i\n",root->item);
+    printf("%li\n",root->item);
     binarySearchTreeDisplayPreOrder(root->left);
     binarySearchTreeDisplayPreOrder(root->right);
   }
@@ -437,7 +420,7 @@ void
 binarySearchTreeDisplayInOrder (BSTree *root) {
   if (root) {
     binarySearchTreeDisplayInOrder(root->left);
-    printf("%i\n",root->item);
+    printf("%li\n",root->item);
     binarySearchTreeDisplayInOrder(root->right);
   }
 }
@@ -448,41 +431,41 @@ binarySearchTreeDisplayPostOrder (BSTree *root) {
   if (root) {
     binarySearchTreeDisplayPostOrder(root->left);
     binarySearchTreeDisplayPostOrder(root->right);
-    printf("%i\n",root->item);
+    printf("%li\n",root->item);
   }
 }
 
 
 void 
-binarySearchTreePadding (char ch, int n) {
-  for (int i = 0; i < n; i++ ) {
+binarySearchTreePadding (char ch, long int n) {
+  for (long int i = 0; i < n; i++ ) {
     putchar(ch);
   }
 }
 
 
 void 
-binarySearchTreeDisplayTree (int level, BSTree *root) {
+binarySearchTreeDisplayTree (long int level, BSTree *root) {
   if (root == NULL) {
     binarySearchTreePadding('\t', level);
     puts("~");
   } else {
     binarySearchTreeDisplayTree(level + 1, root->right);
     binarySearchTreePadding('\t', level);
-    printf("%d\n", root->item);
+    printf("%li\n", root->item);
     binarySearchTreeDisplayTree(level + 1, root->left);
   }
 }
 
 
-int 
+long int 
 binarySearchTreeGetItem (BSTree *root) {
   return root->item;
 }
 
 
-int 
-binarySearchTreeItemExists (int item, BSTree *root) {
+long int 
+binarySearchTreeItemExists (long int item, BSTree *root) {
   if (root == NULL) {
     return 0;
   } if(root->item == item) {
@@ -496,7 +479,7 @@ binarySearchTreeItemExists (int item, BSTree *root) {
 
 
 BSTree 
-*binarySearchTreeSearch (int key, BSTree *root) {
+*binarySearchTreeSearch (long int key, BSTree *root) {
   if (root == NULL || root->item == key) { 
     return root; 
   }
@@ -509,7 +492,7 @@ BSTree
 }
 
 
-int 
+long int 
 binarySearchTreeTotalNodes (BSTree *root) {
   if (root == NULL) {
     return 0;
@@ -520,14 +503,14 @@ binarySearchTreeTotalNodes (BSTree *root) {
 }
 
 
-int 
+long int 
 binarySearchTreeHeight (BSTree *root) {
   if (root == NULL) {
     return -1;
   }
 
-  int hSTL = binarySearchTreeHeight(root->left);
-  int hSTR = binarySearchTreeHeight(root->right);
+  long int hSTL = binarySearchTreeHeight(root->left);
+  long int hSTR = binarySearchTreeHeight(root->right);
 
   if (hSTL > hSTR) {
     return hSTL + 1;
@@ -537,7 +520,7 @@ binarySearchTreeHeight (BSTree *root) {
 }
 
 
-int 
+long int 
 binarySearchTreeIsBalanced (BSTree *root) {
   if (root == NULL) { 
     return 1; 
@@ -545,8 +528,8 @@ binarySearchTreeIsBalanced (BSTree *root) {
     return 0;
   } else if (!binarySearchTreeIsBalanced(root->right)) {
     return 0;
-  } else if (abs(binarySearchTreeHeight(root->left) - \
-    binarySearchTreeHeight(root->right)) > 1) {
+  } else if (abs((int) binarySearchTreeHeight(root->left) - \
+    (int)binarySearchTreeHeight(root->right)) > 1) {
     return 0;
   }
 
@@ -554,7 +537,7 @@ binarySearchTreeIsBalanced (BSTree *root) {
 }
 
 
-int 
+long int 
 binarySearchTreeTotalLeafs (BSTree *root) {
   if (root == NULL) {
     return 0;
@@ -613,7 +596,7 @@ List
 
 
 void 
-linkedListInsertItemBegin (int item, List *list) {
+linkedListInsertItemBegin (long int item, List *list) {
   Node *node = malloc (sizeof(Node));
   node->item = item;
   node->next = list->head;
@@ -630,7 +613,7 @@ linkedListInsertItemBegin (int item, List *list) {
 
 
 void 
-linkedListInsertItemEnd (int item, List *list) {
+linkedListInsertItemEnd (long int item, List *list) {
   Node *node = malloc (sizeof(Node));
   node->item = item;
   node->next = NULL;
@@ -652,7 +635,7 @@ linkedListDisplay (List *list) {
   Node *node = list->head;
 
   while (node != NULL) {
-    printf("%i -> ", node->item);
+    printf("%li -> ", node->item);
     node = node->next;
   }
 
@@ -665,7 +648,7 @@ linkedListReverseDisplay (List *list) {
   Node *node = list->tail;
 
   while (node != NULL) {
-    printf("%i -> ", node->item);
+    printf("%li -> ", node->item);
     node = node->prev;
   }
 
@@ -685,7 +668,7 @@ Node
 }
 
 
-int
+long int
 linkedListNode (Node *index) {
   if (index != NULL) {
     return index->item;
@@ -694,7 +677,7 @@ linkedListNode (Node *index) {
 
 
 Node
-*linkedListSearch (int item, List *list) {
+*linkedListSearch (long int item, List *list) {
   if(linkedListIsEmpty(list)) { return NULL; }
 
   Node *node = list->head;
@@ -707,20 +690,20 @@ Node
 }
 
 
-int 
+long int 
 linkedListSize (List *list) {
   return list->qty;
 } 
 
 
-int 
+long int 
 linkedListIsEmpty (List *list) {
   return list->head == NULL;
 }
 
 
 void
-linkedListRemove (int item, List *list) {
+linkedListRemove (long int item, List *list) {
   if(linkedListIsEmpty(list)) { return; }
 
   Node *node = linkedListSearch(item, list);
@@ -759,7 +742,7 @@ linkedListDestroy (List *list) {
 
 
 Map 
-mapCreate (int key, char *value, Map index) {
+mapCreate (long int key, char *value, Map index) {
   Map node = malloc(sizeof(struct map));
   node->key = key;
   strcpy(node->value, value);
@@ -769,7 +752,7 @@ mapCreate (int key, char *value, Map index) {
 
 
 void 
-mapInsert (int key, char *value, Map *index) {
+mapInsert (long int key, char *value, Map *index) {
   while (*index != NULL && (*index)->key < *value) {
     index = &(*index)->next;
   } if (*index != NULL && (*index)->key == *value) {
@@ -780,8 +763,8 @@ mapInsert (int key, char *value, Map *index) {
 }
 
 
-int 
-mapRemove (int key, Map *index) {
+long int 
+mapRemove (long int key, Map *index) {
   while (*index != NULL && (*index)->key < key) {
     index = &(*index)->next;
   } if (*index == NULL || (*index)->key > key) {
@@ -795,8 +778,8 @@ mapRemove (int key, Map *index) {
 }
 
 
-int 
-mapKeyExists (int key, Map index) {
+long int 
+mapKeyExists (long int key, Map index) {
   while (index != NULL && index->key < key) {
     index = index->next;
   }
@@ -809,7 +792,7 @@ void
 mapDisplay (Map index) {
   printf("{\n");
   while(index != NULL) {
-    printf("[%i, %s]", index->key, index->value);
+    printf("[%li, %s]", index->key, index->value);
     if (index->next != NULL) {
       printf(",\n");
     }
@@ -832,7 +815,7 @@ mapDestroy (Map *index) {
 
 
 Hufftree 
-hufftreeCreateNode (Hufftree left, char chr, int frq, Hufftree right) {
+hufftreeCreateNode (Hufftree left, char chr, long int frq, Hufftree right) {
   Hufftree index = malloc(sizeof(struct htree));
   index->left  = left;
   index->chr   = chr;
@@ -842,15 +825,15 @@ hufftreeCreateNode (Hufftree left, char chr, int frq, Hufftree right) {
 }
 
 
-int 
+long int 
 *hufftreeFrequency (char *string) {
-  static int array[FREQ];
+  static long int array[FREQ];
 
-  for (int i = 0; i < FREQ; i++) {
+  for (long int i = 0; i < FREQ; i++) {
     array[i] = 0;
   } 
 
-  for (int i = 0; string[i]; i++) {
+  for (long int i = 0; string[i]; i++) {
     array[string[i]]++;
   }
 
@@ -859,8 +842,8 @@ int
 
 
 void 
-hufftreeInsert (Hufftree tree, Hufftree *forest, int *qty) {
-  int i = *qty;
+hufftreeInsert (Hufftree tree, Hufftree *forest, long int *qty) {
+  long int i = *qty;
 
   while(i > 0 && forest[i - 1]->frq < tree->frq) {
     forest[i] = forest[i - 1];
@@ -873,7 +856,7 @@ hufftreeInsert (Hufftree tree, Hufftree *forest, int *qty) {
 
 
 Hufftree 
-hufftreeRemove (Hufftree *forest, int *qty) {
+hufftreeRemove (Hufftree *forest, long int *qty) {
   if (*qty == 0) { abort(); }
   return forest[--(*qty)];
 }
@@ -882,10 +865,10 @@ hufftreeRemove (Hufftree *forest, int *qty) {
 Hufftree 
 hufftreeCreate (char *string) {
   Hufftree forest[FREQ];
-  int qty = 0;
-  int *leaf = hufftreeFrequency(string);
+  long int qty = 0;
+  long int *leaf = hufftreeFrequency(string);
 
-  for (int chr = 0; chr < FREQ; chr++) {
+  for (long int chr = 0; chr < FREQ; chr++) {
     if (leaf[chr] > 0) {
       hufftreeInsert(hufftreeCreateNode(NULL, chr, leaf[chr], NULL),
       forest, &qty);
@@ -905,7 +888,7 @@ hufftreeCreate (char *string) {
 
 void 
 hufftreeDisplay (Hufftree tree) {
-  static int node = -1;
+  static long int node = -1;
 
   if (tree == NULL) { return; }
 
@@ -913,11 +896,11 @@ hufftreeDisplay (Hufftree tree) {
 
   hufftreeDisplay(tree->right);
 
-  for (int i = 0; i < HCOL * node; i++) {
+  for (long int i = 0; i < HCOL * node; i++) {
     putchar(' ');
   }
 
-  printf("(%c, %i)\n", tree->chr, tree->frq);
+  printf("(%c, %li)\n", tree->chr, tree->frq);
 
   hufftreeDisplay(tree->left);
 
@@ -960,17 +943,17 @@ void
 hufftreeCompressString (char *string, Hufftree tree) {
   char *T[FREQ];
 
-  for (int chr = 0; chr < FREQ; chr++) {
+  for (long int chr = 0; chr < FREQ; chr++) {
     T[chr] = NULL;
   }
 
   hufftreeCreateTable(tree, T);
 
-  for (int i = 0; string[i]; i++) {
+  for (long int i = 0; string[i]; i++) {
     printf("%s", T[string[i]]);
   }
 
-  for (int chr = 0; chr < FREQ; chr++) {
+  for (long int chr = 0; chr < FREQ; chr++) {
     free(T[chr]);
   }
 }
@@ -981,7 +964,7 @@ hufftreeDecompressString (char *string, Hufftree tree) {
   if (tree == NULL) { return; }
   Hufftree root = tree;
 
-  for (int i = 0; string[i]; i++) {
+  for (long int i = 0; string[i]; i++) {
    if (string[i] == '0') {
     root = root->left;
    } else {
@@ -1007,7 +990,7 @@ hufftreeDestroy (Hufftree tree) {
 
 
 Set 
-*setCreate (int max) {
+*setCreate (long int max) {
   Set *set = malloc (sizeof(Set));
   set->values = malloc (max * sizeof(Set));
   set->size = 0;
@@ -1017,7 +1000,7 @@ Set
 
 
 void 
-setInsert (int item, Set *set) {
+setInsert (long int item, Set *set) {
   if (setSearch(item, set) == -1) {
     set->values[set->size] = item;
     set->size++;
@@ -1028,13 +1011,13 @@ setInsert (int item, Set *set) {
 
 
 void 
-setRemove (int item, Set *set) {
+setRemove (long int item, Set *set) {
   if (setSearch(item, set) == -1 || setIsEmpty(set)) {
     printf("%s", messages[9]);
     return;
   } else {
-    int index = -1;
-    for (int i = 0; i < set->size; i++) {
+    long int index = -1;
+    for (long int i = 0; i < set->size; i++) {
       if (set->values[i] == item) {
         index = i;
         break;
@@ -1042,7 +1025,7 @@ setRemove (int item, Set *set) {
     } 
 
     if (index != -1) {
-      for (int i = index; i < set->size - 1; i++) {
+      for (long int i = index; i < set->size - 1; i++) {
         set->values[i] = set->values[i + 1];
       }
 
@@ -1059,11 +1042,11 @@ Set
 *setUnion (Set *A, Set *B) {
   Set *C = setCreate((A->size + B->size));
 
-  for (int i = 0; i < A->size; i++) {
+  for (long int i = 0; i < A->size; i++) {
     setInsert(A->values[i], C);
   }
 
-  for (int i = 0; i < B->size; i++) {
+  for (long int i = 0; i < B->size; i++) {
     setInsert(B->values[i], C);
   }
 
@@ -1073,11 +1056,11 @@ Set
 
 Set 
 *setIntersection (Set *A, Set *B) {
-  int max = (A->size >= B->size) ? A->size : B->size;
+  long int max = (A->size >= B->size) ? A->size : B->size;
 
   Set *C = setCreate(max);
 
-  for (int i = 0; i < max; i++) {
+  for (long int i = 0; i < max; i++) {
     if (setSearch(B->values[i], A) != -1) {
       C->values[C->size++] = B->values[i];
     }
@@ -1089,11 +1072,11 @@ Set
 
 Set 
 *setDifference (Set *A, Set *B) {
-  int max = (A->size >= B->size) ? A->size : B->size;
+  long int max = (A->size >= B->size) ? A->size : B->size;
 
   Set *C = setCreate(max);
 
-  for (int i = 0; i < max; i++) {
+  for (long int i = 0; i < max; i++) {
     if (setSearch(A->values[i], B) == -1) {
       C->values[C->size++] = A->values[i];
     }
@@ -1103,17 +1086,17 @@ Set
 }
 
 
-int 
+long int 
 setSize (Set *set) {
   return set->size;
 }
 
 
-int 
+long int 
 setHighestValue (Set *set) {
-  int value = 0;
+  long int value = 0;
 
-  for (int i = 0; i < set->size; i++) {
+  for (long int i = 0; i < set->size; i++) {
     if (set->values[i] > value) {
       value = set->values[i];
     }
@@ -1123,11 +1106,11 @@ setHighestValue (Set *set) {
 }
 
 
-int 
+long int 
 setLowestValue (Set *set) {
-  int value = 1;
+  long int value = 1;
 
-  for (int i = 0; i < set->size; i++) {
+  for (long int i = 0; i < set->size; i++) {
     if (set->values[i] < value) {
       value = set->values[i];
     }
@@ -1137,15 +1120,15 @@ setLowestValue (Set *set) {
 }
 
 
-int 
+long int 
 setIsEmpty (Set *set) {
   return (set->size == 0);
 }
 
 
-int 
-setSearch (int item, Set *set) {
-  for (int i = 0; i < set->size; i++) {
+long int 
+setSearch (long int item, Set *set) {
+  for (long int i = 0; i < set->size; i++) {
     if (set->values[i] == item) {
       return set->values[i];
     }
@@ -1158,8 +1141,8 @@ setSearch (int item, Set *set) {
 void 
 setDisplay (Set *set) {
   printf("{ ");
-  for (int i = 0; i < set->size; i++) {
-    printf("%i ", set->values[i]);
+  for (long int i = 0; i < set->size; i++) {
+    printf("%li ", set->values[i]);
   }
 
   printf("}\n");
@@ -1184,11 +1167,11 @@ PrioQ
 
 
 void 
-priorityQueueInsert (int value, PrioQ *queue) {
+priorityQueueInsert (long int value, PrioQ *queue) {
   if (queue == NULL) return;
 
   if (!priorityQueueIsFull(queue)) {
-    int index = queue->qty - 1;
+    long int index = queue->qty - 1;
     while (index >= 0 && queue->pvalue_t[index].prio >= value) {
       queue->pvalue_t[index + 1] = queue->pvalue_t[index];
       index--;
@@ -1211,7 +1194,7 @@ priorityQueueRemoveHighestPrio (PrioQ *queue) {
 }
 
 
-int 
+long int 
 priorityQueueFirst (PrioQ *queue) {
   return queue->pvalue_t[queue->qty - 1].prio;
 }
@@ -1229,7 +1212,7 @@ priorityQueueIsFull (PrioQ *queue) {
 }
 
 
-int 
+long int 
 priorityQueueSize (PrioQ *queue) {
   return queue->qty;
 }
