@@ -127,7 +127,7 @@ long int setSize(Set *set);
 long int setHighestValue(Set *set);
 long int setLowestValue(Set *set);
 long int setIsEmpty(Set *set);
-long int setSearch(long int item, Set *set);
+long int *setSearch(long int item, Set *set);
 void setDisplay(Set *set);
 void setDestroy(Set *set);
 

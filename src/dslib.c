@@ -1212,7 +1212,7 @@ Set
 
 void 
 setInsert (long int item, Set *set) {
-  if (setSearch(item, set) == -1) {
+  if (setSearch(item, set) == NULL) {
     set->values[set->size] = item;
     set->size++;
   } else {
@@ -1223,7 +1223,7 @@ setInsert (long int item, Set *set) {
 
 void 
 setRemove (long int item, Set *set) {
-  if (setSearch(item, set) == -1 || setIsEmpty(set)) {
+  if (setSearch(item, set) == NULL || setIsEmpty(set)) {
     printf("%s", messages[9]);
     return;
   } else {
@@ -1251,7 +1251,9 @@ setRemove (long int item, Set *set) {
 
 Set 
 *setUnion (Set *A, Set *B) {
-  Set *C = setCreate((A->size + B->size));
+  long int max = (A->size >= B->size) ? A->size : B->size;
+
+  Set *C = setCreate(max);
 
   for (long int i = 0; i < A->size; i++) {
     setInsert(A->values[i], C);
@@ -1272,7 +1274,7 @@ Set
   Set *C = setCreate(max);
 
   for (long int i = 0; i < max; i++) {
-    if (setSearch(B->values[i], A) != -1) {
+    if (setSearch(B->values[i], A) != NULL) {
       C->values[C->size++] = B->values[i];
     }
   }
@@ -1288,7 +1290,7 @@ Set
   Set *C = setCreate(max);
 
   for (long int i = 0; i < max; i++) {
-    if (setSearch(A->values[i], B) == -1) {
+    if (setSearch(A->values[i], B) == NULL) {
       C->values[C->size++] = A->values[i];
     }
   }
@@ -1337,15 +1339,15 @@ setIsEmpty (Set *set) {
 }
 
 
-long int 
-setSearch (long int item, Set *set) {
+long int
+*setSearch (long int item, Set *set) {
   for (long int i = 0; i < set->size; i++) {
     if (set->values[i] == item) {
-      return set->values[i];
+      return &set->values[i];
     }
   }
 
-  return -1;
+  return NULL;
 }
 
 

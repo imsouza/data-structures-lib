@@ -243,19 +243,22 @@ int main () {
   setInsert(5, SetA);
   setInsert(6, SetA);
   setInsert(2, SetA);
-  setInsert(1, SetA);
+  setInsert(-1, SetA);
 
   setDisplay(SetA);
 
-  setRemove(1, SetA);
+  setRemove(0, SetA);
 
   setDisplay(SetA);
 
-  Set *SetB = setCreate(4);
-  setInsert(1, SetB);
+  Set *SetB = setCreate(6);
+  setInsert(3, SetB);
   setInsert(2, SetB);
   setInsert(3, SetB);
   setInsert(4, SetB);
+  setInsert(5, SetB);
+  setInsert(-1, SetB);
+
 
   setDisplay(SetB);
 
