@@ -18,15 +18,7 @@ int main () {
 
 ## Demonstrations
 
-All demos are in the [main file](https://github.com/imsouza/data-structures-lib/blob/main/src/main.c).
-
-## Test
-
-```$ make && make run ```
-
-Valgrind:
-
-```$ make memcheck ```
+All demos are in the [main file](https://github.com/imsouza/data-structures-lib/blob/main/tests/main.c).
 
 ## TODO
 

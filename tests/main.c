@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include "dslib.h"
+#include "../src/dslib.h"
 
 int main () {
   printf("Queue ------------------\n");
