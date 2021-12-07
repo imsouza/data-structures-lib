@@ -1,7 +1,5 @@
 # Data Structures Lib
 
-[![License](https://img.shields.io/badge/license-MIT-blue)](./license) [![time tracker](https://wakatime.com/badge/github/imsouza/data-structures-lib.svg)](https://wakatime.com/badge/github/imsouza/data-structures-lib)
-
 A library of data structures for academic purposes
 
 ## Usage
@@ -16,19 +14,25 @@ int main () {
 }
 ```
 
-## Demonstrations
+## Tests
 
-All demos are in the [main file](https://github.com/imsouza/data-structures-lib/blob/main/tests/main.c).
+All tests are in the [main file](https://github.com/imsouza/data-structures-lib/blob/main/tests/main.c).
+
+#### Run tests
+```
+cd tests && gcc main.c ../src/*.c -o exec && ./exec
+```
 
 ## TODO
 
 - Data Structures
   - [x] AVL tree
   - [x] Binary search tree
-  - [ ] Graph
-  - [x] Huffman coding
+  - [ ] Red-black tree
+  - [x] Graph
+  - [ ] Huffman coding
   - [x] Linked list
-  - [x] Map
+  - [ ] Hash Table
   - [x] Queue
   - [x] Set
   - [x] Stack

@@ -6,308 +6,370 @@
 
 int main () {
   printf("Queue ------------------\n");
-  Queue *Q = queueCreate();
+  Queue *queue = queueCreate();
 
-  queueEnqueue(1, Q);
-  queueEnqueue(5, Q);
-  queueEnqueue(7, Q);
+  queueEnqueue(1, queue);
+  queueEnqueue(5, queue);
+  queueEnqueue(7, queue);
 
-  queueDisplay(Q);
+  queueDisplay(queue);
 
-  printf("%li\n", queueSize(Q));
+  printf("%i\n", queueSize(queue));
 
-  queueDequeue(Q);
+  queueDequeue(queue);
 
-  printf("%li\n", queueSize(Q));
+  printf("%i\n", queueSize(queue));
 
-  queueDisplay(Q);
+  queueDisplay(queue);
 
-  queueDequeue(Q);
+  queueDequeue(queue);
 
-  printf("%li\n", queueSize(Q));
+  printf("%i\n", queueSize(queue));
 
-  queueDisplay(Q);
+  queueDisplay(queue);
 
-  queueDestroy(Q);
+  queueDestroy(queue);
+
+
+
+
 
   /***********************************************************/
+
+
+
+
 
   printf("\n\n");
 
   printf("Stack ------------------\n");
-  Stack *S = stackCreate();
+  Stack *stack = stackCreate();
 
-  stackPush(1, S);
-  stackPush(2, S);
-  stackPush(3, S);
+  stackPush(1, stack);
+  stackPush(2, stack);
+  stackPush(3, stack);
 
-  stackDisplay(S);
+  stackDisplay(stack);
 
-  printf("%li\n", stackSize(S));
+  printf("%i\n", stackSize(stack));
 
-  stackPop(S);
+  stackPop(stack);
 
-  stackDisplay(S);
+  stackDisplay(stack);
 
-  printf("%li\n", stackSize(S));
+  printf("%i\n", stackSize(stack));
   
-  stackDestroy(S);
+  stackDestroy(stack);
+
+
+
+
 
   /***********************************************************/
+
+
+
+
 
   printf("\n\n");
 
   printf("Binary Search Tree ------------------\n");
-  BSTree *root = NULL;
-  root = binarySearchTreeInsertNode( \
-         binarySearchTreeCreateNode(1), root);
+  BSTree *bstree = binarySearchTreeCreate();
+  
+  bstree = binarySearchTreeInsertNode( \
+         binarySearchTreeCreateNode(5), bstree);
 
-  root = binarySearchTreeInsertNode( \
-         binarySearchTreeCreateNode(3), root);
+  bstree = binarySearchTreeInsertNode( \
+         binarySearchTreeCreateNode(3), bstree);
 
-  root = binarySearchTreeInsertNode(
-         binarySearchTreeCreateNode(4), root);
+  bstree = binarySearchTreeInsertNode(
+         binarySearchTreeCreateNode(7), bstree);
 
-  root = binarySearchTreeInsertNode( \
-         binarySearchTreeCreateNode(2), root);
+  bstree = binarySearchTreeInsertNode( \
+         binarySearchTreeCreateNode(2), bstree);
 
-  root = binarySearchTreeInsertNode( \
-         binarySearchTreeCreateNode(3), root);
+  bstree = binarySearchTreeInsertNode( \
+         binarySearchTreeCreateNode(4), bstree);
 
-  root = binarySearchTreeInsertNode( \
-         binarySearchTreeCreateNode(8), root);
+  bstree = binarySearchTreeInsertNode( \
+         binarySearchTreeCreateNode(6), bstree);
+  
+  bstree = binarySearchTreeInsertNode( \
+         binarySearchTreeCreateNode(1), bstree);
 
-  binarySearchTreeDisplayPreOrder(root);
+  displayTreePreOrder(bstree);
   printf("------------------\n");
-  binarySearchTreeDisplayInOrder(root);
+  displayTreeInOrder(bstree);
   printf("------------------\n");
-  binarySearchTreeDisplayPostOrder(root);
+  displayTreePostOrder(bstree);
   printf("------------------\n");
-  binarySearchTreeDisplayTree(0, root);
+  displayTree(0, bstree);
   printf("------------------\n");
 
-  root = binarySearchTreeRemoveNode(2, root);
-  binarySearchTreeDisplayPreOrder(root);
+  bstree = binarySearchTreeRemoveNode(2, bstree);
+  displayTreePreOrder(bstree);
 
   putchar('\n');
 
-  printf("%li\n", binarySearchTreeHeight(root));
+  printf("%i\n", binarySearchTreeHeight(bstree));
 
-  BSTree *searched = binarySearchTreeSearch(3, root);
+  BSTree *searched = binarySearchTreeSearch(3, bstree);
 
   if (searched) {
-    printf("%i? %li\n", 3, binarySearchTreeGetItem(searched));
+    printf("%i? %i\n", 3, binarySearchTreeItem(searched));
   } else {
     printf("Node not found!\n");
   }
 
-  printf("%li\n", binarySearchTreeTotalNodes(root));
-  printf("%li\n", binarySearchTreeTotalLeafs(root));
+  printf("%i\n", binarySearchTreeTotalNodes(bstree));
+  printf("%i\n", binarySearchTreeTotalLeafs(bstree));
 
-  BSTree *max = binarySearchTreeFindMax(root);
-  printf("%li\n", binarySearchTreeGetItem(max));
+  BSTree *max = binarySearchTreeFindMax(bstree);
+  printf("%i\n", binarySearchTreeItem(max));
 
-  BSTree *min = binarySearchTreeFindMin(root);
-  printf("%li\n", binarySearchTreeGetItem(min));
+  BSTree *min = binarySearchTreeFindMin(bstree);
+  printf("%i\n", binarySearchTreeItem(min));
 
-  printf("%li\n", binarySearchTreeIsEmpty(root));
+  printf("%i\n", binarySearchTreeIsEmpty(bstree));
 
-  printf("%li\n", binarySearchTreeIsBalanced(root));
+  printf("%i\n", binarySearchTreeIsBalanced(bstree));
 
-  printf("%li\n", binarySearchTreeItemExists(1, root));
+  printf("%i\n", binarySearchTreeItemExists(1, bstree));
 
-  binarySearchTreeDestroy(root);
+  binarySearchTreeDestroy(bstree);
+
+
+
 
 
   /***********************************************************/
+
+
+
+
 
   printf("\n\n");
 
   printf("AVL Tree ------------------\n");
 
-  AVLTree *AVLRoot = NULL;
+  AVLTree *avltree = AVLTreeCreate();
 
   for (int i = 10; i<= 200; i += 10) {
-    AVLRoot = AVLTreeInsertNode(AVLTreeCreateNode(i), AVLRoot);
+    avltree = AVLTreeInsertNode(AVLTreeCreateNode(i), avltree);
   }
 
-  AVLTreeDisplayTree(0, AVLRoot);
+  displayTree(0, avltree);
 
-  printf("%li", AVLTreeHeight(AVLRoot));
+  printf("%i", AVLTreeHeight(avltree));
 
   for (int i = 10; i<= 200; i += 10) {
-    AVLRoot = AVLTreeRemoveNode(i, AVLRoot);
+    avltree = AVLTreeRemoveNode(i, avltree);
   }
 
-  AVLTreeDestroy(AVLRoot);
+  AVLTreeDestroy(avltree);
+
+
+
+
 
   /***********************************************************/
 
-  printf("\n\n");
 
-  printf("Hufftree ------------------\n");
 
-  Hufftree H1 = hufftreeCreate("WORD");
-  hufftreeDisplay(H1);
-  putchar('\n');
 
-  Hufftree H2 = hufftreeCreate("DRIVE");
-  hufftreeDisplayLeaves(H2);
-  putchar('\n');
-
-  char *string = "TEST";
-  Hufftree H3 = hufftreeCreate(string);
-  hufftreeCompressString(string, H3);
-
-  putchar('\n');
-
-  Hufftree H4 = hufftreeCreate(string);
-  hufftreeDecompressString("010110", H4);
-  putchar('\n');
-
-  hufftreeDestroy(H1);
-  hufftreeDestroy(H2);
-  hufftreeDestroy(H3);
-  hufftreeDestroy(H4);
-
-  /***********************************************************/
 
   printf("\n\n");
 
   printf("Linked List ------------------\n");
-  List *listA = linkedListCreate();
+  List *list = linkedListCreate();
 
-  linkedListInsertItemEnd(1, listA);
-  linkedListInsertItemEnd(2, listA);
-  linkedListInsertItemEnd(3, listA);
-  linkedListInsertItemEnd(4, listA);
-  linkedListInsertItemEnd(5, listA);
+  linkedListInsertItemEnd(1, list);
+  linkedListInsertItemEnd(2, list);
+  linkedListInsertItemEnd(3, list);
+  linkedListInsertItemEnd(4, list);
+  linkedListInsertItemEnd(5, list);
 
-  linkedListDisplay(listA);
+  linkedListDisplay(list);
 
-  linkedListRemove(5, listA);
+  linkedListRemove(5, list);
 
-  linkedListDisplay(listA);
+  linkedListDisplay(list);
 
-  printf("%li\n", linkedListSize(listA));
+  printf("%i\n", linkedListSize(list));
 
-  printf("%li\n", linkedListIsEmpty(listA));
+  printf("%i\n", linkedListIsEmpty(list));
 
-  Node *head = linkedListHead(listA);
-  printf("%li\n", linkedListNode(head));
+  List *head = linkedListHead(list);
+  printf("%i\n", linkedListItem(head));
 
-  Node *tail = linkedListTail(listA);
-  printf("%li\n", linkedListNode(tail));
+  List *tail = linkedListTail(list);
+  printf("%i\n", linkedListItem(tail));
 
-  linkedListDestroy(listA);
+  linkedListDestroy(list);
 
   putchar('\n');
 
-  /***********************************************************/
 
-  printf("\n\n");
 
-  printf("Map ------------------\n");
-  Map MapA = mapCreate(145, "Test Drive", NULL);
 
-  mapDisplay(MapA);
-
-  mapInsert(122, "Test 2", &MapA);
-  mapInsert(4, "Test 3", &MapA);
-  mapInsert(3, "Test 4", &MapA);
-  mapInsert(99, "Test 5", &MapA);
-
-  mapDisplay(MapA);
-
-  mapRemove(4, &MapA);
-
-  mapDisplay(MapA);
-
-  if (mapKeyExists(3, MapA)) {
-    printf("Key found!\n");
-  } else {
-    printf("Key not found!\n");
-  }
-
-  mapDestroy(&MapA);
 
   /***********************************************************/
+
+
+
+
 
   printf("\n\n");
 
   printf("Set ------------------\n");
 
-  Set *SetA = setCreate(5);
+  Set *set_A = setCreate(5);
 
-  setInsert(0, SetA);
-  setInsert(5, SetA);
-  setInsert(6, SetA);
-  setInsert(2, SetA);
-  setInsert(-1, SetA);
+  setInsert(0, set_A);
+  setInsert(5, set_A);
+  setInsert(6, set_A);
+  setInsert(2, set_A);
+  setInsert(-1, set_A);
 
-  setDisplay(SetA);
+  setDisplay(set_A);
 
-  setRemove(0, SetA);
+  setRemove(0, set_A);
 
-  setDisplay(SetA);
+  setDisplay(set_A);
 
-  Set *SetB = setCreate(6);
-  setInsert(3, SetB);
-  setInsert(2, SetB);
-  setInsert(3, SetB);
-  setInsert(4, SetB);
-  setInsert(5, SetB);
-  setInsert(-1, SetB);
+  Set *set_B = setCreate(6);
+  setInsert(3, set_B);
+  setInsert(2, set_B);
+  setInsert(3, set_B);
+  setInsert(4, set_B);
+  setInsert(5, set_B);
+  setInsert(-1, set_B);
+
+  setDisplay(set_B);
+
+  Set *set_C = setUnion(set_A, set_B);
+
+  setDisplay(set_C);
+
+  Set *set_D = setIntersection(set_A, set_B);
+  setDisplay(set_D); 
+
+  Set *set_E = setDifference(set_A, set_B);
+
+  setDisplay(set_E);
+
+  printf("%i\n", setHighestValue(set_E));
+  printf("%i\n", setLowestValue(set_E));
+  printf("%i\n", setSize(set_E));
+  printf("%i\n", setIsEmpty(set_E));
+
+  setDestroy(set_A);
+  setDestroy(set_B);
+  setDestroy(set_C);
+  setDestroy(set_D);
+  setDestroy(set_E);
 
 
-  setDisplay(SetB);
 
-  Set *SetC = setUnion(SetA, SetB);
 
-  setDisplay(SetC);
-
-  Set *SetD = setIntersection(SetA, SetB);
-  setDisplay(SetD); 
-
-  Set *SetE = setDifference(SetA, SetB);
-
-  setDisplay(SetE);
-
-  printf("%li\n", setHighestValue(SetE));
-  printf("%li\n", setLowestValue(SetE));
-  printf("%li\n", setSize(SetE));
-  printf("%li\n", setIsEmpty(SetE));
-
-  setDestroy(SetA);
-  setDestroy(SetB);
-  setDestroy(SetC);
-  setDestroy(SetD);
-  setDestroy(SetE);
 
   /***********************************************************/
+
+
+
+
 
   printf("\n\n");
 
   printf("Priority Queue ------------------\n");
 
-  PrioQ *queue = priorityQueueCreate();
+  PrioQ *prioq = priorityQueueCreate();
 
-  priorityQueueInsert(0, queue);
-  priorityQueueInsert(5, queue);
-  priorityQueueInsert(1, queue);
-  priorityQueueInsert(3, queue);
-  priorityQueueInsert(6, queue);
-  priorityQueueInsert(2, queue);
+  priorityQueueInsert(0, prioq);
+  priorityQueueInsert(5, prioq);
+  priorityQueueInsert(1, prioq);
+  priorityQueueInsert(3, prioq);
+  priorityQueueInsert(6, prioq);
+  priorityQueueInsert(2, prioq);
 
-  printf("%li\n", priorityQueueFirst(queue));
+  printf("%i\n", priorityQueueFirst(prioq));
 
-  priorityQueueRemoveHighestPrio(queue);
+  priorityQueueRemoveHighestPrio(prioq);
 
-  priorityQueueRemoveHighestPrio(queue);
+  priorityQueueRemoveHighestPrio(prioq);
 
-  printf("%li\n", priorityQueueFirst(queue));
+  printf("%i\n", priorityQueueFirst(prioq));
 
-  priorityQueueDestroy(queue);
+  priorityQueueDestroy(prioq);
 
-  return 0;
+
+
+
+
+  /***********************************************************/
+
+
+
+  
+
+  printf("\n\n");
+
+  printf("Graph ------------------\n");
+  
+  Graph *graph = graphCreate (5, 5, 0);
+
+  graphInsertEdge(0, 1, 0, true, graph);
+  graphInsertEdge(1, 3, 0, true, graph);
+  graphInsertEdge(1, 2, 0, true, graph);
+  graphInsertEdge(2, 4, 0, true, graph);
+  graphInsertEdge(3, 0, 0, true, graph);
+  graphInsertEdge(3, 4, 0, true, graph);
+  graphInsertEdge(4, 1, 0, true, graph);
+
+  graphDisplay(false, graph);
+
+  graphRemoveEdge(4, 1, 0, true, graph);
+
+  graphDisplay(false, graph);
+
+  graphDepthFirstSearch(0, graph);
+  graphDisplay(true, graph);
+
+  graphBreadthFirstSearch(2, graph);
+  graphDisplay(true, graph);
+
+  graphDestroy(graph);
+
+
+
+
+
+  /***********************************************************/
+
+
+
+
+
+  printf("\n\n");
+
+  printf("Red-Black Tree ------------------\n");
+
+  RBTree *rbtree = redBlackTreeCreate();
+
+  
+  rbtree = redBlackTreeInsertNode( \
+           redBlackTreeCreateNode(5), rbtree);
+
+  rbtree = redBlackTreeInsertNode( \
+           redBlackTreeCreateNode(3), rbtree);
+
+  rbtree = redBlackTreeInsertNode( \
+           redBlackTreeCreateNode(4), rbtree);
+
+  rbtree = redBlackTreeInsertNode( \
+           redBlackTreeCreateNode(2), rbtree);
+
+  displayTree(0, rbtree); 
+  redBlackTreeDestroy(rbtree);
+  return 0;         
 }
