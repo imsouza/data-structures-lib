@@ -3,6 +3,10 @@
 #define ERROR(msg) fprintf(stderr, "[!]: %s\n", #msg)
 #define WARNING(msg) fprintf(stdout, "[!]: %s\n", #msg)
 
+#define BBLK "\e[1;90m"
+#define BRED "\e[1;31m"
+#define reset "\e[0m"
+
 void 
 *mallocSafe (size_t nbytes) {
   void *ptr = malloc (nbytes);
@@ -47,15 +51,31 @@ displayTreePostOrder (struct node *root) {
 
 
 void 
-displayTree (int level, struct node *root) {
+displayTree (int level, sType type, struct node *root) {
   if (root == NULL) {
-    treePadding('\t', level);
-    puts("~");
+    if (type != RBTREE) {
+      treePadding('\t', level);
+      puts("~");
+    } else {
+      treePadding('\t', level);
+      puts("~"BBLK" NULL"reset);
+    }
   } else {
-    displayTree(level + 1, root->right);
-    treePadding('\t', level);
-    printf("%i\n", root->item);
-    displayTree(level + 1, root->left);
+    if (type == RBTREE) {
+      displayTree(level + 1, type, root->right);
+      treePadding('\t', level);
+      if (root->color == RED) {
+        printf(BRED"%i\n"reset, root->item);
+      } else {
+        printf(BBLK"%i\n"reset, root->item);
+      }
+      displayTree(level + 1, type, root->left);
+    } else {
+      displayTree(level + 1, type, root->right);
+      treePadding('\t', level);
+      printf("%i\n", root->item);
+      displayTree(level + 1, type, root->left);
+    }
   }
 }
 

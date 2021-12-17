@@ -74,7 +74,7 @@ int main () {
   printf("\n\n");
 
   printf("Binary Search Tree ------------------\n");
-  BSTree *bstree = binarySearchTreeCreate();
+  BSTree *bstree = binarySearchTreeInit();
   
   bstree = binarySearchTreeInsertNode( \
          binarySearchTreeCreateNode(5), bstree);
@@ -103,7 +103,7 @@ int main () {
   printf("------------------\n");
   displayTreePostOrder(bstree);
   printf("------------------\n");
-  displayTree(0, bstree);
+  displayTree(0, BSTREE, bstree);
   printf("------------------\n");
 
   bstree = binarySearchTreeRemoveNode(2, bstree);
@@ -152,13 +152,13 @@ int main () {
 
   printf("AVL Tree ------------------\n");
 
-  AVLTree *avltree = AVLTreeCreate();
+  AVLTree *avltree = AVLTreeInit();
 
   for (int i = 10; i<= 200; i += 10) {
     avltree = AVLTreeInsertNode(AVLTreeCreateNode(i), avltree);
   }
 
-  displayTree(0, avltree);
+  displayTree(0, AVLTREE, avltree);
 
   printf("%i", AVLTreeHeight(avltree));
 
@@ -354,22 +354,26 @@ int main () {
 
   printf("Red-Black Tree ------------------\n");
 
-  RBTree *rbtree = redBlackTreeCreate();
+  RBTree *rbtree = redBlackTreeInit();
 
-  
-  rbtree = redBlackTreeInsertNode( \
-           redBlackTreeCreateNode(5), rbtree);
+  int v[] = {11, 2, 1, 5, 4, 7, 8, 14, 15};
 
-  rbtree = redBlackTreeInsertNode( \
-           redBlackTreeCreateNode(3), rbtree);
+  for (int i = 0; i < 9; i++) {
+    rbtree = redBlackTreeInsertNode( \
+             redBlackTreeCreateNode(v[i]), rbtree);
+  }
 
-  rbtree = redBlackTreeInsertNode( \
-           redBlackTreeCreateNode(4), rbtree);
+  displayTree(0, RBTREE, rbtree); 
 
-  rbtree = redBlackTreeInsertNode( \
-           redBlackTreeCreateNode(2), rbtree);
+  rbtree = redBlackTreeRemoveNode(7, rbtree);
+  rbtree = redBlackTreeRemoveNode(4, rbtree);
+  rbtree = redBlackTreeRemoveNode(15, rbtree);
 
-  displayTree(0, rbtree); 
+  printf("------------------\n");
+
+  displayTree(0, RBTREE, rbtree); 
+
   redBlackTreeDestroy(rbtree);
-  return 0;         
+
+  return 0;
 }

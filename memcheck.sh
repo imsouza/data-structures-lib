@@ -1,1 +1,0 @@
-cd tests && gcc main.c ../src/*.c -o exec && valgrind --tool=memcheck --leak-check=full ./exec

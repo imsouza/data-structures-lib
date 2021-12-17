@@ -1,7 +1,7 @@
 #include "dslib.h"
 
 BSTree 
-*binarySearchTreeCreate () {
+*binarySearchTreeInit () {
   BSTree *node = NULL;
   return node;
 }
@@ -144,9 +144,7 @@ BSTree
 *binarySearchTreeSearch (int item, BSTree *root) {
   if (root == NULL || root->item == item) { 
     return root; 
-  }
-
-  if (root->item > item) {
+  } if (root->item > item) {
     return binarySearchTreeSearch(item, root->left);
   } else {
     return binarySearchTreeSearch(item, root->right);

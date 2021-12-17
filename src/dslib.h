@@ -11,6 +11,12 @@
 #define SIZE 200
 #define HCOL 5
 
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,16 +38,29 @@ typedef enum {
 } bool;
 
 typedef enum {
-  black,
-  red
+  BLACK,
+  RED
 } tColor;
+
+typedef enum {
+  STACK,
+  QUEUE,
+  BSTREE,
+  AVLTREE,
+  RBTREE,
+  LIST,
+  SET,
+  PRIOQ,
+  GRAPH
+} sType;
 
 struct node {
   int qty;
   int item;
   int height; 
-  tColor color;
   bool status;
+  tColor color;
+  sType type;
   struct node *left;
   struct node *right;
   struct node *next;
@@ -56,7 +75,7 @@ void treePadding(char ch, int n);
 void displayTreePreOrder(struct node *root);
 void displayTreeInOrder(struct node *root);
 void displayTreePostOrder(struct node *root);
-void displayTree(int level, struct node *root);
+void displayTree (int level, sType type, struct node *root);
 
 Stack *stackCreate();
 bool stackIsEmpty(Stack *stack);
@@ -77,7 +96,7 @@ int queueSize(Queue *queue);
 void queueDisplay(Queue *queue);
 void queueDestroy(Queue *queue);
 
-BSTree *binarySearchTreeCreate();
+BSTree *binarySearchTreeInit();
 BSTree *binarySearchTreeCreateNode(int item);
 BSTree *binarySearchTreeInsertNode(BSTree *newNode, BSTree *root);
 BSTree *binarySearchTreeRemoveNode(int item, BSTree *root);
@@ -93,13 +112,27 @@ int binarySearchTreeIsBalanced(BSTree *root);
 int binarySearchTreeTotalLeafs(BSTree *root);
 void binarySearchTreeDestroy(BSTree *root);
 
-AVLTree *AVLTreeCreate();
+AVLTree *AVLTreeInit();
 AVLTree *AVLTreeCreateNode(int item);
 AVLTree *AVLTreeSearch(int item, AVLTree *root);
 int AVLTreeHeight(AVLTree *root);
 AVLTree *AVLTreeInsertNode(AVLTree *node, AVLTree *root);
 AVLTree *AVLTreeRemoveNode(int item, AVLTree *root);
 void AVLTreeDestroy(AVLTree *root);
+
+RBTree *redBlackTreeInit();
+RBTree *redBlackTreeCreateNode(int item);
+RBTree *redBlackTreeInsertNode(RBTree *node, RBTree *root);
+RBTree *redBlackTreeRemoveMin(RBTree *root);
+RBTree *redBlackTreeFindMin(RBTree *root);
+RBTree *redBlackTreeRemoveNode(int item, RBTree *root);
+RBTree *redBlackTreeSearch(int item, RBTree *root);
+int redBlackTreeTotalNodes(RBTree *root);
+int redBlackTreeHeight(RBTree *root);
+int redBlackTreeTotalLeafs(RBTree *root);
+bool redBlackTreeStatus(RBTree *root) ;
+bool redBlackTreeIsEmpty(BSTree *root);
+void redBlackTreeDestroy(RBTree *root);
 
 List *linkedListCreate();
 List *linkedListHead(List *list);
@@ -147,10 +180,4 @@ void graphDepthFirstSearch(int initial, Graph *graph);
 int graphMaxVertex(Graph *graph);
 void graphDisplay(bool isVisited, Graph *graph);
 void graphDestroy(Graph *graph);
-
-RBTree *redBlackTreeCreate();
-RBTree *redBlackTreeCreateNode(int item);
-RBTree *redBlackTreeInsertNode(RBTree *node, RBTree *root);
-bool redBlackTreeStatus(RBTree *root) ;
-void redBlackTreeDestroy(RBTree *root);
 #endif

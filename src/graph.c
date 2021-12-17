@@ -142,7 +142,8 @@ graphDepthFirstSearch (int initial, Graph *graph) {
 }
 
 
-void graphBreadthFirstSearch (int initial, Graph *graph) {
+void 
+graphBreadthFirstSearch (int initial, Graph *graph) {
   int *queue, initialQueue = 0, terminalQueue = 0, count = 1;
   for (int i = 0; i < graph->maxVertex; i++) {
     graph->visited[i] = 0;

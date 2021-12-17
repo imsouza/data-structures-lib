@@ -1,0 +1,2 @@
+language = "c"
+run = "cd tests && gcc main.c ../src/*.c -o exec && ./exec"

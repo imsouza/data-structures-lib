@@ -1,7 +1,7 @@
 #include "dslib.h"
 
 AVLTree 
-*AVLTreeCreate () {
+*AVLTreeInit () {
   AVLTree *node = NULL;
   return node;
 }
@@ -20,7 +20,7 @@ AVLTree
 
 AVLTree
 *AVLTreeSearch (int item, AVLTree *root) {
-  if (root == NULL) {
+  if (root == NULL || root->item == item) {
     return root;
   } if (root->item > item) {
     return AVLTreeSearch(item, root->left);

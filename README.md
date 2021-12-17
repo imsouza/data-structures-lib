@@ -7,7 +7,7 @@ A library of data structures for academic purposes
 ```
 #include <stdio.h>
 #include <stdlib.h>
-#include "dslib.h"
+#include "src/dslib.h"
 
 int main () {
   ...
@@ -28,7 +28,7 @@ cd tests && gcc main.c ../src/*.c -o exec && ./exec
 - Data Structures
   - [x] AVL tree
   - [x] Binary search tree
-  - [ ] Red-black tree
+  - [x] Red-black tree
   - [x] Graph
   - [ ] Huffman coding
   - [x] Linked list

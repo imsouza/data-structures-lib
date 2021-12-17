@@ -1,7 +1,7 @@
 #include "dslib.h"
 
 RBTree 
-*redBlackTreeCreate () {
+*redBlackTreeInit () {
   RBTree *node = NULL;
   return node;
 }
@@ -13,7 +13,6 @@ RBTree
   node->item   = item;
   node->left   = NULL;
   node->right  = NULL;
-  node->color  = red;
   node->status = false;
   return node;
 }
@@ -22,7 +21,7 @@ RBTree
 tColor 
 redBlackTreeColor (RBTree *root) {
   if (root == NULL) {
-    return black;
+    return BLACK;
   } else {
     return root->color;
   }
@@ -44,24 +43,24 @@ redBlackTreeSwapColor (RBTree *root) {
 
 
 RBTree
-*redBlackTreeLeftRotation (RBTree *root) {
-  RBTree *node = root->right;
-  root->right  = node->left;
-  node->left   = root;
-  node->color  = root->color;
-  root->color  = red;
-  return node;
+*redBlackTreeLeftRotation (RBTree *A) {
+  RBTree *B = A->right;
+  A->right  = B->left;
+  B->left   = A;
+  B->color  = A->color;
+  A->color  = RED;
+  return B;
 }
 
 
 RBTree
-*redBlackTreeRightRotation (RBTree *root) {
-  RBTree *node = root->left;
-  root->left   = node->right;
-  node->right  = root;
-  node->color  = root->color;
-  root->color  = red;
-  return node;
+*redBlackTreeRightRotation (RBTree *A) {
+  RBTree *B = A->left;
+  A->left   = B->right;
+  B->right  = A;
+  B->color  = A->color;
+  A->color  = RED;
+  return B;
 }
 
 
@@ -69,7 +68,7 @@ RBTree
 *redBlackTreeMoveRedNodeLeft (RBTree *root) {
   redBlackTreeSwapColor(root);
 
-  if (redBlackTreeColor(root->right->left) == red) {
+  if (redBlackTreeColor(root->right->left) == RED) {
     root->right = redBlackTreeRightRotation(root->right);
     root = redBlackTreeLeftRotation(root);
     redBlackTreeSwapColor(root);
@@ -83,7 +82,7 @@ RBTree
 *redBlackTreeMoveRedNodeRight (RBTree *root) {
   redBlackTreeSwapColor(root);
 
-  if (redBlackTreeColor(root->left->left) == red) {
+  if (redBlackTreeColor(root->left->left) == RED) {
     root = redBlackTreeRightRotation(root);
     redBlackTreeSwapColor(root);
   }
@@ -94,18 +93,24 @@ RBTree
 
 RBTree
 *redBlackTreeBalance (RBTree *root) {
-  if (redBlackTreeColor(root->right) == red) {
+  if (redBlackTreeColor(root->right) == RED) {
     root = redBlackTreeLeftRotation(root);
   }
 
   if (root->left != NULL && \
-      redBlackTreeColor(root->right) == red && \
-      redBlackTreeColor(root->left->left) == red) {
+      redBlackTreeColor(root->right) == RED && \
+      redBlackTreeColor(root->left->left) == RED) {
     root = redBlackTreeRightRotation(root);
   }
 
-  if (redBlackTreeColor(root->left) == red && \
-      redBlackTreeColor(root->right) == red) {
+  if (root->left != NULL && \
+      redBlackTreeColor(root->left) == RED && \
+      redBlackTreeColor(root->left->left) == RED) {
+    root = redBlackTreeRightRotation(root);
+  }
+
+  if (redBlackTreeColor(root->left) == RED && \
+      redBlackTreeColor(root->right) == RED) {
     redBlackTreeSwapColor(root);
   }
 
@@ -116,11 +121,14 @@ RBTree
 RBTree
 *redBlackTreeInsertNode (RBTree *node, RBTree *root) {
   if (root == NULL) {
+    if (node == NULL) {
+      node->status = false;
+      return node;
+    }
+
     node->status = true;
+    node->color  = RED;
     return node;
-  } if (node == NULL) {
-    node->status = false;
-    return NULL;
   }
 
   if (node->item == root->item) {
@@ -133,26 +141,120 @@ RBTree
     }
   }
 
-  if (redBlackTreeColor(root->right) == red && \
-      redBlackTreeColor(root->left) == black) {
+  if (redBlackTreeColor(root->right) == RED && \
+      redBlackTreeColor(root->left) == BLACK) {
     root = redBlackTreeLeftRotation(root);
   }
 
-  if (redBlackTreeColor(root->left) == red && \
-      redBlackTreeColor(root->left->left) == red) {
+  if (redBlackTreeColor(root->left) == RED && \
+      redBlackTreeColor(root->left->left) == RED) {
     root = redBlackTreeRightRotation(root);
   }
 
-  if (redBlackTreeColor(root->left) == red && \
-      redBlackTreeColor(root->right) == red) {
+  if (redBlackTreeColor(root->left) == RED && \
+      redBlackTreeColor(root->right) == RED) {
     redBlackTreeSwapColor(root);
   }
 
-  if (root != NULL) {
-    root->color = black;
+  if (root == NULL) {
+    root->color = BLACK;
   }
 
   return root;
+}
+
+
+RBTree 
+*redBlackTreeRemoveNode (int item, RBTree *root) {  
+  if (redBlackTreeSearch(item, root)) {
+    if (item < root->item) {
+      if (redBlackTreeColor(root->left) == BLACK && \
+          redBlackTreeColor(root->left->left) == BLACK) {
+        root = redBlackTreeMoveRedNodeLeft(root);
+      }
+
+      root->left = redBlackTreeRemoveNode(item, root->left);
+    } else {
+      if (redBlackTreeColor(root->left) == RED) {
+        root = redBlackTreeRightRotation(root);
+      }
+
+      if (item == root->item && root->right == NULL) {
+        free(root);
+        return NULL;
+      }
+
+      if (redBlackTreeColor(root->right) == BLACK && \
+          redBlackTreeColor(root->right->left) == BLACK) {
+        root = redBlackTreeMoveRedNodeRight(root);
+      }
+
+      if (item == root->item) {
+        RBTree *temp = redBlackTreeFindMin(root->right);
+        root->item = temp->item;
+        root->right = redBlackTreeRemoveMin(root->right);
+      } 
+      
+      else {
+        root->right = redBlackTreeRemoveNode(item, root->right);
+      }
+    }
+
+    if (root == NULL) {
+      root->color = BLACK;
+    }
+
+    root = redBlackTreeBalance(root);
+
+    root->status = true;
+    return root;
+  } else {
+    root->status = false;
+    return root;
+  }
+}
+
+
+RBTree
+*redBlackTreeRemoveMin (RBTree *root) {
+  if (root->left == NULL) {
+    free(root);
+    return NULL;
+  }
+
+  if (redBlackTreeColor(root->left) == BLACK && \
+      redBlackTreeColor(root->left->left) == BLACK) {
+    root = redBlackTreeMoveRedNodeLeft(root);
+  }
+
+  root->left = redBlackTreeRemoveMin(root->left);
+  return redBlackTreeBalance(root);
+}
+
+
+RBTree
+*redBlackTreeSearch (int item, RBTree *root) {
+  if (root == NULL || root->item == item) {
+    return root;
+  } if (root->item > item) {
+    return redBlackTreeSearch(item, root->left);
+  } else {
+    return redBlackTreeSearch(item, root->right);
+  }
+}
+
+
+RBTree
+*redBlackTreeFindMin (RBTree *root) {
+  RBTree *temp1 = root;
+  RBTree *temp2 = root->left;
+
+  while (temp2 != NULL) {
+    temp1 = temp2;
+    temp2 = temp2->left;
+  }
+
+  return temp1;
 }
 
 
@@ -162,11 +264,59 @@ redBlackTreeStatus (RBTree *root) {
 }
 
 
+int 
+redBlackTreeTotalNodes(RBTree *root) {
+  if (root == NULL) {
+    return 0;
+  } else  {
+    return redBlackTreeTotalNodes(root->left) + \
+    redBlackTreeTotalNodes(root->right) + 1;
+  }
+}
+
+
+int 
+redBlackTreeHeight (RBTree *root) {
+  if (root == NULL) {
+    return -1;
+  }
+
+  int hSTL = redBlackTreeHeight(root->left);
+  int hSTR = redBlackTreeHeight(root->right);
+
+  if (hSTL > hSTR) {
+    return hSTL + 1;
+  } else {
+    return hSTR + 1;
+  }
+}
+
+
+int 
+redBlackTreeTotalLeafs (RBTree *root) {
+  if (root == NULL) {
+    return 0;
+  } else if (root->left == NULL && root->right == NULL) { 
+    return 1; 
+  }
+
+  return redBlackTreeTotalLeafs(root->left) + \
+  redBlackTreeTotalLeafs(root->right);
+}
+
+
+bool 
+redBlackTreeIsEmpty (BSTree *root) {
+  return (root == NULL);
+}
+
+
 void 
 redBlackTreeDestroy (RBTree *root) {
   if (root) {
     redBlackTreeDestroy(root->left);
     redBlackTreeDestroy(root->right);
     free(root);
+    root = NULL;
   }
 }
