@@ -306,7 +306,7 @@ redBlackTreeTotalLeafs (RBTree *root) {
 
 
 bool 
-redBlackTreeIsEmpty (BSTree *root) {
+redBlackTreeIsEmpty (RBTree *root) {
   return (root == NULL);
 }
 

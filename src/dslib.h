@@ -131,7 +131,7 @@ int redBlackTreeTotalNodes(RBTree *root);
 int redBlackTreeHeight(RBTree *root);
 int redBlackTreeTotalLeafs(RBTree *root);
 bool redBlackTreeStatus(RBTree *root) ;
-bool redBlackTreeIsEmpty(BSTree *root);
+bool redBlackTreeIsEmpty(RBTree *root);
 void redBlackTreeDestroy(RBTree *root);
 
 List *linkedListCreate();

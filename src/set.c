@@ -54,6 +54,10 @@ setRemove (int item, Set *set) {
 
 Set 
 *setUnion (Set *A, Set *B) {
+  if (A == NULL || B == NULL) {
+    return NULL;
+  }
+
   int max = SET_MAX(A, B);
 
   Set *C = setCreate(max);
@@ -72,6 +76,10 @@ Set
 
 Set 
 *setIntersection (Set *A, Set *B) {
+  if (A == NULL || B == NULL) {
+    return NULL;
+  }
+
   int max = SET_MAX(A, B);
 
   Set *C = setCreate(max);
@@ -88,6 +96,10 @@ Set
 
 Set 
 *setDifference (Set *A, Set *B) {
+  if (A == NULL || B == NULL) {
+    return NULL;
+  }
+
   int max = SET_MAX(A, B);
 
   Set *C = setCreate(max);
