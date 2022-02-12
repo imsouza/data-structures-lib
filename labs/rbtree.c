@@ -98,12 +98,6 @@ RBTree
   }
 
   if (root->left != NULL && \
-      redBlackTreeColor(root->right) == RED && \
-      redBlackTreeColor(root->left->left) == RED) {
-    root = redBlackTreeRightRotation(root);
-  }
-
-  if (root->left != NULL && \
       redBlackTreeColor(root->left) == RED && \
       redBlackTreeColor(root->left->left) == RED) {
     root = redBlackTreeRightRotation(root);
@@ -121,13 +115,8 @@ RBTree
 RBTree
 *redBlackTreeInsertNode (RBTree *node, RBTree *root) {
   if (root == NULL) {
-    if (node == NULL) {
-      node->status = false;
-      return node;
-    }
-
     node->status = true;
-    node->color  = RED;
+    node->color = RED;
     return node;
   }
 
@@ -156,7 +145,7 @@ RBTree
     redBlackTreeSwapColor(root);
   }
 
-  if (root == NULL) {
+  if (root != NULL) {
     root->color = BLACK;
   }
 
@@ -179,7 +168,7 @@ RBTree
         root = redBlackTreeRightRotation(root);
       }
 
-      if (item == root->item && root->right == NULL) {
+      if (item == root->item && (root->right == NULL)) {
         free(root);
         return NULL;
       }
@@ -200,11 +189,11 @@ RBTree
       }
     }
 
+    root = redBlackTreeBalance(root);
+
     if (root == NULL) {
       root->color = BLACK;
     }
-
-    root = redBlackTreeBalance(root);
 
     root->status = true;
     return root;
@@ -234,12 +223,16 @@ RBTree
 
 RBTree
 *redBlackTreeSearch (int item, RBTree *root) {
-  if (root == NULL || root->item == item) {
+  if (root == NULL) {
+    return NULL;
+  } if (root->item == item) {
     return root;
-  } if (root->item > item) {
-    return redBlackTreeSearch(item, root->left);
   } else {
-    return redBlackTreeSearch(item, root->right);
+    if (item > root->item) {
+      return redBlackTreeSearch(item, root->right);
+    } else {
+      return redBlackTreeSearch(item, root->left);
+    }
   }
 }
 

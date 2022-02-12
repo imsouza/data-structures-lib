@@ -349,7 +349,7 @@ int main () {
 
 
 
-
+/*
   printf("\n\n");
 
   printf("Red-Black Tree ------------------\n");
@@ -365,9 +365,9 @@ int main () {
 
   displayTree(0, RBTREE, rbtree); 
 
-  rbtree = redBlackTreeRemoveNode(7, rbtree);
-  rbtree = redBlackTreeRemoveNode(4, rbtree);
-  rbtree = redBlackTreeRemoveNode(15, rbtree);
+  //rbtree = redBlackTreeRemoveNode(7, rbtree);
+  //rbtree = redBlackTreeRemoveNode(4, rbtree);
+ // rbtree = redBlackTreeRemoveNode(15, rbtree);
 
   printf("------------------\n");
 
@@ -376,4 +376,6 @@ int main () {
   redBlackTreeDestroy(rbtree);
 
   return 0;
+
+*/
 }

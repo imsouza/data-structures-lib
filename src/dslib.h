@@ -26,7 +26,7 @@ typedef struct node Stack;
 typedef struct node Queue;
 typedef struct node BSTree;
 typedef struct node AVLTree;
-typedef struct node RBTree;
+//typedef struct node RBTree;
 typedef struct node List;
 typedef struct set Set;
 typedef struct prioq PrioQ;
@@ -67,6 +67,7 @@ struct node {
   struct node *prev;
   struct node *head;
   struct node *tail;
+  struct node *parent;
 };
 
 void *mallocSafe(size_t nbytes);
@@ -120,7 +121,7 @@ AVLTree *AVLTreeInsertNode(AVLTree *node, AVLTree *root);
 AVLTree *AVLTreeRemoveNode(int item, AVLTree *root);
 void AVLTreeDestroy(AVLTree *root);
 
-RBTree *redBlackTreeInit();
+/*RBTree *redBlackTreeInit();
 RBTree *redBlackTreeCreateNode(int item);
 RBTree *redBlackTreeInsertNode(RBTree *node, RBTree *root);
 RBTree *redBlackTreeRemoveMin(RBTree *root);
@@ -132,7 +133,7 @@ int redBlackTreeHeight(RBTree *root);
 int redBlackTreeTotalLeafs(RBTree *root);
 bool redBlackTreeStatus(RBTree *root) ;
 bool redBlackTreeIsEmpty(RBTree *root);
-void redBlackTreeDestroy(RBTree *root);
+void redBlackTreeDestroy(RBTree *root);*/
 
 List *linkedListCreate();
 List *linkedListHead(List *list);

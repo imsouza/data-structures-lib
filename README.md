@@ -28,7 +28,7 @@ cd tests && gcc main.c ../src/*.c -o exec && ./exec
 - Data Structures
   - [x] AVL tree
   - [x] Binary search tree
-  - [x] Red-black tree
+  - [ ] Red-black tree
   - [x] Graph
   - [ ] Huffman coding
   - [x] Linked list
@@ -40,7 +40,7 @@ cd tests && gcc main.c ../src/*.c -o exec && ./exec
 
 - Extra
   - [x] Configure preprocessor directives
-  - [x] Successfully passed the tests
+  - [ ] Successfully passed the tests
   - [x] Fix memory leaks
 
 ## Author
